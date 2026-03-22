@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGC Report - Sportsman's Cove Lodge (Last 30 Days)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f8f7f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #8B6914 0%, #a8821a 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        header .business-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            font-size: 0.95em;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        header .business-info p {
+            margin: 0;
+        }
+
+        header .social-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin-right: 5px;
+        }
+
+        header .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.8em;
+            color: #8B6914;
+            margin: 50px 0 30px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #8B6914;
+            font-weight: 700;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #8B6914;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .card-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #8B6914;
+            opacity: 0.3;
+            margin-right: 10px;
+        }
+
+        /* Badge Styles */
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-high {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .badge-medium {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .badge-low {
+            background-color: #e2e3e5;
+            color: #383d41;
+            border: 1px solid #d6d8db;
+        }
+
+        .badge-within-30 {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .badge-unknown {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .badge-older {
+            background-color: #e2e3e5;
+            color: #383d41;
+            border: 1px solid #d6d8db;
+        }
+
+        .platform-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .platform-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .platform-tripadvisor {
+            background-color: #003580;
+        }
+
+        .platform-yelp {
+            background-color: #d32323;
+        }
+
+        .platform-blog {
+            background-color: #888;
+        }
+
+        .platform-forum {
+            background-color: #8B6914;
+        }
+
+        .platform-directory {
+            background-color: #9d5925;
+        }
+
+        .platform-review {
+            background-color: #d4a574;
+            color: #333;
+        }
+
+        .platform-employment {
+            background-color: #0a66c2;
+        }
+
+        /* Card Content */
+        .card-content {
+            color: #555;
+        }
+
+        .detail-row {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            margin-bottom: 12px;
+            gap: 15px;
+            align-items: start;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #8B6914;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-value {
+            color: #333;
+        }
+
+        .detail-value a {
+            color: #0066cc;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .detail-value a:hover {
+            text-decoration: underline;
+        }
+
+        .action-box {
+            background-color: #f8f7f5;
+            border-left: 4px solid #8B6914;
+            padding: 12px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .action-label {
+            font-weight: 600;
+            color: #8B6914;
+            font-style: normal;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #8B6914;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #8B6914;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        /* Hashtag Section */
+        .hashtag-section {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #8B6914;
+        }
+
+        .hashtag-section h3 {
+            color: #8B6914;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .hashtag-section h4 {
+            color: #8B6914;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .hashtag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .hashtag {
+            background-color: #f0ebe3;
+            color: #8B6914;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        .hashtag-primary {
+            background-color: #8B6914;
+            color: white;
+            font-weight: 600;
+        }
+
+        .encouragement-list {
+            background-color: #f8f7f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+
+        .encouragement-list li {
+            margin-bottom: 8px;
+            margin-left: 20px;
+        }
+
+        /* Best Practices Section */
+        .best-practices {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #8B6914;
+        }
+
+        .best-practices h3 {
+            color: #8B6914;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .best-practices ol {
+            margin-left: 20px;
+        }
+
+        .best-practices li {
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .best-practices strong {
+            color: #1a1a1a;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            header {
+                padding: 25px 20px;
+            }
+
+            header h1 {
+                font-size: 1.6em;
+            }
+
+            .subtitle {
+                font-size: 0.95em;
+            }
+
+            header .business-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .detail-row {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+
+            .detail-label {
+                margin-bottom: 5px;
+            }
+
+            .card-header {
+                flex-direction: column;
+            }
+
+            .stat-number {
+                font-size: 2em;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .hashtag-list {
+                gap: 8px;
+            }
+
+            .hashtag {
+                font-size: 0.85em;
+                padding: 6px 11px;
+            }
+
+            .section-title {
+                font-size: 1.4em;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: white;
+            }
+
+            .card {
+                page-break-inside: avoid;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            a {
+                color: #0066cc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>User-Generated Content Report</h1>
+            <p class="subtitle">Sportsman's Cove Lodge — Last 30 Days (Feb 20 — Mar 22, 2026)</p>
+            <div class="business-info">
+                <p><strong>Location:</strong> Ketchikan, Alaska • Premier fishing lodge on Prince of Wales Island</p>
+                <p class="social-links"><strong>Follow:</strong> <a href="https://www.instagram.com/sportsmanscovelodge/" target="_blank">@sportsmanscovelodge</a> | <a href="https://www.facebook.com/AlaskasBestLodge" target="_blank">facebook.com/AlaskasBestLodge</a></p>
+            </div>
+        </header>
+
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">12</div>
+                <div class="stat-label">UGC Sources Found</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">4</div>
+                <div class="stat-label">High Reshare Priority</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Medium Reshare Priority</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Monitoring Priority</div>
+            </div>
+        </div>
+
+        <!-- High Reshare Potential -->
+        <h2 class="section-title">High Reshare Potential</h2>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">Instagram Guest Reel</h3>
+                </div>
+                <div>
+                    <span class="badge badge-high">HIGH PRIORITY</span>
+                    <span class="badge badge-within-30">Within 30 Days</span>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="platform-badge platform-instagram">Instagram</span>
+                <span class="badge">Video/Reel</span>
+                <span class="badge">Guest Content</span>
+            </div>
+            <div class="card-content">
+                <div class="detail-row">
+                    <span class="detail-label">Description:</span>
+                    <span class="detail-value">Guest's personal Reel: "Sportsman's Cove Lodge I had the privilege of spending a few..."</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">URL:</span>
+                    <span class="detail-value"><a href="https://www.instagram.com/reel/DLVPqdTRKtW/" target="_blank">https://www.instagram.com/reel/DLVPqdTRKtW/</a></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Creator:</span>
+                    <span class="detail-value">Guest (handle unknown)</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Date:</span>
+                    <span class="detail-value">March 2026</span>
+                </div>
+                <div class="action-box">
+                    <span class="action-label">Action:</span> Reshare to Stories + credit creator
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">Fish Alaska Magazine Feature</h3>
+                </div>
+                <div>
+                    <span class="badge badge-high">HIGH PRIORITY</span>
+                    <span class="badge badge-unknown">Evergreen</span>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="platform-badge platform-blog">Blog/Magazine</span>
+                <span class="badge">Article</span>
+                <span class="badge">Feature</span>
+            </div>
+            <div class="card-content">
+                <div class="detail-row">
+                    <span class="detail-label">Title:</span>
+                    <span class="detail-value">"Alaska Fishing at Sportsman's Cove Lodge | It's All in the Details"</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">URL:</span>
+                    <span class="detail-value"><a href="https://www.fishalaskamagazine.com/its-all-details/" target="_blank">https://www.fishalaskamagazine.com/its-all-details/</a></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Creator:</span>
+                    <span class="detail-value">Fish Alaska Magazine</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Type:</span>
+                    <span class="detail-value">Article / Magazine Feature</span>
+                </div>
+                <div class="action-box">
+                    <span class="action-label">Action:</span> Share on feed with credit to @FishAlaskaMag
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">TripAdvisor Reviews</h3>
+                </div>
+                <div>
+                    <span class="badge badge-high">HIGH PRIORITY</span>
+                    <span class="badge badge-within-30">Recent</span>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="platform-badge platform-tripadvisor">TripAdvisor</span>
+                <span class="badge">Reviews</span>
+                <span class="badge">Guest Photos</span>
+            </div>
+            <div class="card-content">
+                <div class="detail-row">
+                    <span class="detail-label">Highlights:</span>
+                    <span class="detail-value">"Trip of a lifetime!!" | "Best Halibut Fishing Ever"</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">URL (Main):</span>
+                    <span class="detail-value"><a href="https://www.tripadvisor.com/Hotel_Review-g31030-d6531572-Reviews-Sportsman_s_Cove_Lodge-Ketchikan_Alaska.html" target="_blank">https://www.tripadvisor.com/Hotel_Review-g31030-d6531572-Reviews-Sportsman_s_Cove_Lodge-Ketchikan_Alaska.html</a></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Statistics:</span>
+                    <span class="detail-value">23 reviews • 4/5 rating • 68 candid guest photos</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Notable:</span>
+                    <span class="detail-value">Repeat guest (5+ years): "hands down the best experience you could have when it comes to fishing!" | Multi-generational guest since 1998: "everything about the trip was first class"</span>
+                </div>
+                <div class="action-box">
+                    <span class="action-label">Action:</span> Create review quote graphics for social media
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">CCA Washington Partnership</h3>
+                </div>
+                <div>
+                    <span class="badge badge-high">HIGH PRIORITY</span>
+                    <span class="badge">Partnership</span>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="platform-badge platform-directory">Organization</span>
+                <span class="badge">Partnership</span>
+                <span class="badge">Credibility</span>
+            </div>
+            <div class="card-content">
+                <div class="detail-row">
+                    <span class="detail-label">Organization:</span>
+                    <span class="detail-value">CCA Washington (Coastal Conservation Association)</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">URL:</span>
+                    <span class="detail-value"><a href="https://ccawashington.org/sportsmans-cove-lodge/" target="_blank">https://ccawashington.org/sportsmans-cove-lodge/</a></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Benefit:</span>
+                    <span class="detail-value">Great credibility boost from conservation organization</span>
+                </div>
+                <div class="action-box">
+                    <span class="action-label">Action:</span> Share on feed — great credibility from conservation org
+                </div>
+            </div>
+        </div>
+
+        <!-- Medium Reshare Potential -->
+        <h2 class="section-title">Medium Reshare Potential</h2>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">Yelp Reviews</h3>
+                </div>
+                <div>
+                    <span class="badge badge-medium">MEDIUM PRIORITY</span>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="platform-badge platform-yelp">Yelp</span>
+                <span class="badge">Reviews</span>
+                <span class="badge">Photos</span>
+            </div>
+            <div class="card-content">
+                <div class="detail-row">
+                    <span class="detail-label">Details:</span>
+                    <span class="detail-value">29 guest photos • Listed under Fishing & Resorts</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">URLs:</span>
+                    <span class="detail-value">
+                        <a href="https://www.yelp.com/biz/sportsmans-cove-lodge-ketchikan-2" target="_blank">Profile 1</a> |
+                        <a href="https://www.yelp.com/biz/sportsmans-cove-lodge-ketchikan-6" target="_blank">Profile 2</a>
+                    </span>
+                </div>
+                <div class="action-box">
+                    <span class="action-label">Action:</span> Create review spotlight graphics
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">MyAlaskanFishingTrip Listing</h3>
+                </div>
+                <div>
+                    <span class="badge badge-medium">MEDIUM PRIORITY</span>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="platform-badge platform-directory">Directory</span>
+                <span class="badge">Listing</span>
+                <span class="badge">SEO</span>
+            </div>
+            <div class="card-content">
+                <div class="detail-row">
+                    <span class="detail-label">URL:</span>
+                    <span class="detail-value"><a href="https://www.myalaskanfishingtrip.com/trips/view/sportsmans-cove-lodge" target="_blank">https://www.myalaskanfishingtrip.com/trips/view/sportsmans-cove-lodge</a></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Type:</span>
+                    <span class="detail-value">Directory listing with details</span>
+                </div>
+                <div class="action-box">
+                    <span class="action-label">Action:</span> Monitor — good for SEO presence
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">FishLodges.com Listing</h3>
+                </div>
+                <div>
+                    <span class="badge badge-medium">MEDIUM PRIORITY</span>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="platform-badge platform-directory">Directory</span>
+                <span class="badge">Listing</span>
+            </div>
+            <div class="card-content">
+                <div class="detail-row">
+                    <span class="detail-label">URL:</span>
+                    <span class="detail-value"><a href="https://fishlodges.com/lodge/sportsmans-cove-lodge/" target="_blank">https://fishlodges.com/lodge/sportsmans-cove-lodge/</a></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Type:</span>
+                    <span class="detail-value">Directory listing</span>
+                </div>
+                <div class="action-box">
+                    <span class="action-label">Action:</span> Monitor
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">ResortsAndLodges.com Review</h3>
+                </div>
+                <div>
+                    <span class="badge badge-medium">MEDIUM PRIORITY</span>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="platform-badge platform-directory">Directory</span>
+                <span class="badge">Review</span>
+            </div>
+            <div class="card-content">
+                <div class="detail-row">
+                    <span class="detail-label">URL:</span>
+                    <span class="detail-value"><a href="https://www.resortsandlodges.com/lodging/usa/alaska/southeast/sportsmans-cove-lodge.html" target="_blank">https://www.resortsandlodges.com/lodging/usa/alaska/southeast/sportsmans-cove-lodge.html</a></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Type:</span>
+                    <span class="detail-value">Directory / Review listing</span>
+                </div>
+                <div class="action-box">
+                    <span class="action-label">Action:</span> Monitor
+                </div>
+            </div>
+        </div>
+
+        <!-- Low Reshare Potential -->
+        <h2 class="section-title">Monitor — Low Reshare Potential</h2>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">TripAdvisor Forum Discussion</h3>
+                </div>
+                <div>
+                    <span class="badge badge-low">LOW PRIORITY</span>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="platform-badge platform-forum">Forum</span>
+                <span class="badge">Community</span>
+            </div>
+            <div class="card-content">
+                <div class="detail-row">
+                    <span class="detail-label">URL:</span>
+                    <span class="detail-value"><a href="https://www.tripadvisor.com/ShowTopic-g31030-i1423-k5669505-Sportsman_s_Cove_Lodge-Ketchikan_Alaska.html" target="_blank">https://www.tripadvisor.com/ShowTopic-g31030-i1423-k5669505-Sportsman_s_Cove_Lodge-Ketchikan_Alaska.html</a></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Note:</span>
+                    <span class="detail-value">Some mixed feedback about post-acquisition transition</span>
+                </div>
+                <div class="action-box">
+                    <span class="action-label">Action:</span> Engage — reply with helpful info
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">Indeed Employee Reviews</h3>
+                </div>
+                <div>
+                    <span class="badge badge-low">LOW PRIORITY</span>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="platform-badge platform-employment">Employment</span>
+                <span class="badge">Reviews</span>
+            </div>
+            <div class="card-content">
+                <div class="detail-row">
+                    <span class="detail-label">URL:</span>
+                    <span class="detail-value"><a href="https://www.indeed.com/cmp/Sportsman's-Cove-Lodge/reviews" target="_blank">https://www.indeed.com/cmp/Sportsman's-Cove-Lodge/reviews</a></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Importance:</span>
+                    <span class="detail-value">Important for employer brand reputation</span>
+                </div>
+                <div class="action-box">
+                    <span class="action-label">Action:</span> Monitor — important for employer brand
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">ZoomInfo Company Profile</h3>
+                </div>
+                <div>
+                    <span class="badge badge-low">LOW PRIORITY</span>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="platform-badge platform-directory">Business Directory</span>
+                <span class="badge">Profile</span>
+            </div>
+            <div class="card-content">
+                <div class="detail-row">
+                    <span class="detail-label">URL:</span>
+                    <span class="detail-value"><a href="https://www.zoominfo.com/c/sportsmans-cove-lodge/36094379" target="_blank">https://www.zoominfo.com/c/sportsmans-cove-lodge/36094379</a></span>
+                </div>
+                <div class="action-box">
+                    <span class="action-label">Action:</span> Monitor
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">BBB Business Profile</h3>
+                </div>
+                <div>
+                    <span class="badge badge-low">LOW PRIORITY</span>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="platform-badge platform-directory">Business Directory</span>
+                <span class="badge">BBB</span>
+            </div>
+            <div class="card-content">
+                <div class="detail-row">
+                    <span class="detail-label">URL:</span>
+                    <span class="detail-value"><a href="https://www.bbb.org/us/ak/ketchikan/profile/fishing-charters/sportsmans-cove-lodge-1296-22061717" target="_blank">https://www.bbb.org/us/ak/ketchikan/profile/fishing-charters/sportsmans-cove-lodge-1296-22061717</a></span>
+                </div>
+                <div class="action-box">
+                    <span class="action-label">Action:</span> Monitor — ensure info is accurate
+                </div>
+            </div>
+        </div>
+
+        <!-- Instagram Location Page -->
+        <h2 class="section-title">Instagram Location Page</h2>
+
+        <div class="hashtag-section">
+            <h3>Sportsman's Cove Lodge Location</h3>
+            <div class="detail-row">
+                <span class="detail-label">URL:</span>
+                <span class="detail-value"><a href="https://www.instagram.com/explore/locations/133686521/sportsmans-cove-lodge-alaska/" target="_blank">https://www.instagram.com/explore/locations/133686521/sportsmans-cove-lodge-alaska/</a></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Value:</span>
+                <span class="detail-value">Aggregates all posts tagged at the lodge location — valuable for finding guest UGC</span>
+            </div>
+            <div class="action-box">
+                <span class="action-label">Action:</span> Check regularly for new guest-tagged content
+            </div>
+        </div>
+
+        <!-- Hashtag Strategy -->
+        <h2 class="section-title">Hashtag Strategy</h2>
+
+        <div class="hashtag-section">
+            <h3>Current Status</h3>
+            <p style="color: #666; margin-bottom: 15px;">No branded hashtags currently in use. <strong>Recommend establishing branded hashtags immediately.</strong></p>
+
+            <h4>Primary Branded Hashtags</h4>
+            <div class="hashtag-list">
+                <span class="hashtag hashtag-primary">#sportsmanscovelodge</span>
+                <span class="hashtag hashtag-primary">#sportsmanscovelodgealaska</span>
+                <span class="hashtag hashtag-primary">#alaskabestlodge</span>
+            </div>
+
+            <h4>Complementary Hashtags (Use in Posts)</h4>
+            <div class="hashtag-list">
+                <span class="hashtag">#alaskafishing</span>
+                <span class="hashtag">#ketchikanfishing</span>
+                <span class="hashtag">#halibut</span>
+                <span class="hashtag">#kingsalmon</span>
+                <span class="hashtag">#silversalmon</span>
+                <span class="hashtag">#alaskalodge</span>
+                <span class="hashtag">#fishalaska</span>
+                <span class="hashtag">#sportfishing</span>
+                <span class="hashtag">#catchandrelease</span>
+                <span class="hashtag">#alaskalife</span>
+                <span class="hashtag">#princeotwalesisland</span>
+                <span class="hashtag">#southeastalaska</span>
+                <span class="hashtag">#fishingtrip</span>
+                <span class="hashtag">#lodgefishing</span>
+                <span class="hashtag">#alaskafishingtrip</span>
+            </div>
+
+            <h4>Customer Encouragement Tips</h4>
+            <ul class="encouragement-list">
+                <li><strong>Welcome packets & room cards:</strong> Include hashtag with tagline "Tag us @sportsmanscovelodge and use #sportsmanscovelodge!"</li>
+                <li><strong>Wi-Fi login splash page:</strong> Display hashtag reminder on network login screen</li>
+                <li><strong>Post-trip follow-up emails:</strong> Encourage tagging in thank-you emails</li>
+                <li><strong>Dock & scenic spot signage:</strong> Physical signs at photo-worthy locations with hashtag</li>
+                <li><strong>Guide scripts:</strong> Train staff to remind guests: "Tag us @sportsmanscovelodge and use #sportsmanscovelodge!"</li>
+            </ul>
+        </div>
+
+        <!-- Best Practices -->
+        <h2 class="section-title">UGC Resharing Best Practices</h2>
+
+        <div class="best-practices">
+            <h3>Guidelines for Resharing Guest Content</h3>
+            <ol>
+                <li><strong>Always credit the creator</strong> — Use their handle and mention them in caption and comments</li>
+                <li><strong>Ask permission first for feed posts</strong> — DM creators before reposting to your main feed</li>
+                <li><strong>Don't edit content beyond basic cropping</strong> — Preserve creator's original vision and style</li>
+                <li><strong>Engage before resharing</strong> — Like and comment on their post to build relationship</li>
+                <li><strong>Keep a UGC permission log</strong> — Document who gave permission and when for accountability</li>
+                <li><strong>Thank the creator after resharing</strong> — Double thank-you ensures positive relationship for future content</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Report Generated:</strong> March 22, 2026</p>
+        <p><strong>Reporting Period:</strong> February 20 — March 22, 2026 (30 Days)</p>
+        <p style="margin-top: 15px; opacity: 0.8;">Sportsman's Cove Lodge • Ketchikan, Alaska • Premium Fishing Destination</p>
+    </footer>
+</body>
+</html>
