@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Search Report — Randy J. | April 6, 2026</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f0f4f8;
+    color: #1e293b;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ===== STICKY NAV ===== */
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: #0f172a;
+    padding: 0 24px;
+    display: flex; align-items: center; gap: 4px;
+    flex-wrap: wrap;
+    border-bottom: 3px solid #3b82f6;
+  }
+  .sticky-nav a {
+    color: #94a3b8; text-decoration: none; font-size: 12px;
+    font-weight: 500; padding: 12px 10px; white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .sticky-nav a:hover { color: #e2e8f0; }
+  .sticky-nav .nav-brand {
+    color: #3b82f6; font-weight: 700; font-size: 14px;
+    margin-right: 12px; padding: 12px 0;
+  }
+
+  /* ===== HEADER ===== */
+  .report-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    color: white;
+    padding: 48px 32px 40px;
+  }
+  .report-header h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+  .report-header .subtitle { color: #94a3b8; font-size: 14px; }
+  .report-header .meta-pills {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+  }
+  .meta-pill {
+    background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.4);
+    color: #93c5fd; border-radius: 20px; padding: 4px 14px; font-size: 12px;
+  }
+
+  /* ===== CONTAINERS ===== */
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+  .section { margin-bottom: 40px; }
+  .section-title {
+    font-size: 20px; font-weight: 700; color: #0f172a;
+    border-left: 4px solid #3b82f6;
+    padding-left: 14px; margin-bottom: 20px;
+  }
+
+  /* ===== CANDIDATE SNAPSHOT ===== */
+  .snapshot-card {
+    background: white; border-radius: 12px; padding: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;
+  }
+  .snapshot-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px; margin-top: 16px;
+  }
+  .snap-item h4 { font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .snap-item p { font-size: 14px; color: #1e293b; font-weight: 500; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag {
+    background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe;
+    border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 500;
+  }
+
+  /* ===== JOB CARDS ===== */
+  .job-controls {
+    display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;
+    align-items: center;
+  }
+  .job-controls select, .job-controls input {
+    padding: 8px 14px; border-radius: 8px; border: 1px solid #cbd5e1;
+    background: white; font-size: 13px; color: #1e293b;
+  }
+  .job-grid { display: flex; flex-direction: column; gap: 16px; }
+  .job-card {
+    background: white; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;
+    transition: box-shadow 0.2s;
+  }
+  .job-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+  .job-card-header {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 20px 24px; cursor: pointer;
+  }
+  .rank-badge {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; flex-shrink: 0;
+    color: white;
+  }
+  .rank-1 { background: #f59e0b; }
+  .rank-2 { background: #6366f1; }
+  .rank-3 { background: #10b981; }
+  .rank-other { background: #64748b; }
+
+  .job-info { flex: 1; }
+  .job-title { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .job-company { font-size: 14px; color: #3b82f6; font-weight: 600; margin-top: 2px; }
+  .job-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .job-meta-item {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 12px; color: #64748b;
+  }
+  .job-meta-item span { font-weight: 500; }
+
+  .score-area { text-align: center; flex-shrink: 0; }
+  .score-value {
+    font-size: 28px; font-weight: 800;
+    line-height: 1;
+  }
+  .score-label { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+  .score-bar-wrap {
+    width: 80px; height: 6px; background: #e2e8f0;
+    border-radius: 3px; margin: 6px auto 0;
+  }
+  .score-bar { height: 100%; border-radius: 3px; }
+  .score-green { color: #059669; }
+  .score-green .score-bar { background: #10b981; }
+  .score-yellow { color: #d97706; }
+  .score-yellow .score-bar { background: #f59e0b; }
+  .score-orange { color: #ea580c; }
+  .score-orange .score-bar { background: #f97316; }
+
+  .job-card-body { padding: 0 24px 20px; border-top: 1px solid #f1f5f9; }
+  .job-desc { font-size: 13px; color: #475569; margin: 14px 0; line-height: 1.7; }
+  .skills-row { display: flex; gap: 16px; flex-wrap: wrap; margin: 10px 0; }
+  .skills-group h5 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin-bottom: 6px; }
+  .skill-match { background: #dcfce7; color: #166534; border-radius: 4px; padding: 2px 8px; font-size: 12px; display: inline-block; margin: 2px; }
+  .skill-gap { background: #fef9c3; color: #854d0e; border-radius: 4px; padding: 2px 8px; font-size: 12px; display: inline-block; margin: 2px; }
+  .apply-btn {
+    display: inline-block; background: #3b82f6; color: white;
+    text-decoration: none; padding: 8px 20px; border-radius: 8px;
+    font-size: 13px; font-weight: 600; margin-top: 12px;
+    transition: background 0.2s;
+  }
+  .apply-btn:hover { background: #2563eb; }
+  .flag-badge {
+    display: inline-block; font-size: 11px; border-radius: 4px;
+    padding: 2px 8px; font-weight: 600; margin-left: 8px;
+  }
+  .flag-remote { background: #dcfce7; color: #166534; }
+  .flag-hybrid { background: #fef3c7; color: #92400e; }
+  .flag-onsite { background: #fee2e2; color: #991b1b; }
+  .flag-top { background: #fef9c3; color: #92400e; }
+
+  /* ===== DEEP DIVE ===== */
+  .deep-dive { background: white; border-radius: 12px; padding: 28px; border: 2px solid #3b82f6; box-shadow: 0 2px 8px rgba(59,130,246,0.1); }
+  .deep-dive h3 { font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 16px; }
+  .deep-dive .why-box {
+    background: #eff6ff; border-left: 4px solid #3b82f6;
+    padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 20px;
+    font-size: 14px; color: #1e40af; line-height: 1.7;
+  }
+
+  /* ===== RECOMMENDATIONS ===== */
+  .reco-list { list-style: none; padding: 0; }
+  .reco-item {
+    display: flex; gap: 12px; padding: 14px 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .reco-item:last-child { border-bottom: none; }
+  .priority-badge {
+    font-size: 11px; font-weight: 700; border-radius: 4px;
+    padding: 3px 8px; white-space: nowrap; align-self: flex-start; margin-top: 2px;
+  }
+  .pri-high { background: #fee2e2; color: #991b1b; }
+  .pri-medium { background: #fef3c7; color: #92400e; }
+  .pri-low { background: #f0fdf4; color: #166534; }
+  .reco-text { font-size: 14px; color: #334155; line-height: 1.6; }
+  .reco-text strong { color: #0f172a; }
+
+  /* ===== COVER LETTER ===== */
+  .cover-letter-box {
+    background: #f8fafc; border: 1px solid #e2e8f0;
+    border-radius: 10px; padding: 28px; position: relative;
+    font-size: 14px; line-height: 1.8; color: #334155;
+  }
+  .cover-letter-box p { margin-bottom: 14px; }
+  .copy-btn {
+    position: absolute; top: 16px; right: 16px;
+    background: #3b82f6; color: white; border: none;
+    padding: 6px 14px; border-radius: 6px; font-size: 12px;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .copy-btn:hover { background: #2563eb; }
+
+  /* ===== INTERVIEW PREP ===== */
+  .interview-card {
+    background: white; border-radius: 10px; overflow: hidden;
+    border: 1px solid #e2e8f0; margin-bottom: 12px;
+  }
+  .interview-card summary {
+    padding: 16px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; list-style: none; display: flex;
+    justify-content: space-between; align-items: center;
+    color: #0f172a;
+  }
+  .interview-card summary::after { content: '▼'; font-size: 11px; color: #94a3b8; }
+  .interview-card[open] summary::after { content: '▲'; }
+  .interview-card .answer {
+    padding: 0 20px 16px; font-size: 13px; color: #475569;
+    line-height: 1.7; border-top: 1px solid #f1f5f9; padding-top: 14px;
+  }
+  .q-num {
+    display: inline-block; width: 26px; height: 26px; border-radius: 50%;
+    background: #eff6ff; color: #2563eb; font-weight: 700; font-size: 12px;
+    text-align: center; line-height: 26px; margin-right: 10px; flex-shrink: 0;
+  }
+
+  .research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .research-card {
+    background: #f8fafc; border-radius: 10px; padding: 18px;
+    border: 1px solid #e2e8f0;
+  }
+  .research-card h5 { font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .research-card ul { padding-left: 18px; font-size: 13px; color: #334155; line-height: 1.8; }
+
+  /* ===== SALARY TABLE ===== */
+  .salary-table { width: 100%; border-collapse: collapse; }
+  .salary-table th {
+    background: #0f172a; color: white; text-align: left;
+    padding: 12px 16px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .salary-table td { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid #f1f5f9; }
+  .salary-table tr:last-child td { border-bottom: none; }
+  .salary-table tr:nth-child(even) td { background: #f8fafc; }
+  .sal-posted { color: #059669; font-weight: 600; }
+  .sal-estimated { color: #d97706; font-weight: 600; }
+
+  /* ===== FOOTER ===== */
+  .report-footer {
+    background: #0f172a; color: #64748b;
+    padding: 24px 32px; text-align: center; font-size: 12px; line-height: 1.8;
+  }
+
+  /* ===== DETAILS TOGGLE ===== */
+  details summary { cursor: pointer; }
+  details[open] .toggle-icon::before { content: '▲'; }
+  .toggle-icon::before { content: '▼'; font-size: 11px; color: #94a3b8; margin-left: 8px; }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .sticky-nav { display: none; }
+    .apply-btn { display: none; }
+    .copy-btn { display: none; }
+    body { background: white; font-size: 12px; }
+    .job-card, .deep-dive, .snapshot-card { box-shadow: none; break-inside: avoid; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 700px) {
+    .snapshot-grid { grid-template-columns: 1fr 1fr; }
+    .research-grid { grid-template-columns: 1fr; }
+    .job-card-header { flex-wrap: wrap; }
+    .salary-table { font-size: 11px; }
+    .salary-table td, .salary-table th { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <span class="nav-brand">🔍 Job Search Report</span>
+  <a href="#snapshot">Candidate</a>
+  <a href="#jobs">Top 10 Jobs</a>
+  <a href="#deep-dive">Deep Dive #1</a>
+  <a href="#resume-reco">Resume Tips</a>
+  <a href="#linkedin-reco">LinkedIn</a>
+  <a href="#cover-letter">Cover Letter</a>
+  <a href="#interview">Interview Prep</a>
+  <a href="#salary">Salary</a>
+</nav>
+
+<!-- HEADER -->
+<div class="report-header">
+  <h1>Job Search Report — Randy J.</h1>
+  <p class="subtitle">Generated April 6, 2026 &nbsp;|&nbsp; MasterControl / QMS Systems Specialist &nbsp;|&nbsp; Remote &amp; Greater Salt Lake City, UT</p>
+  <div class="meta-pills">
+    <span class="meta-pill">📄 Resume Analyzed</span>
+    <span class="meta-pill">🔎 10 Jobs Scored</span>
+    <span class="meta-pill">🌐 Remote-first search</span>
+    <span class="meta-pill">📍 Salt Lake City, UT accepted</span>
+    <span class="meta-pill">⚠️ LinkedIn could not be fetched — based on resume only</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- CANDIDATE SNAPSHOT -->
+  <section class="section" id="snapshot">
+    <h2 class="section-title">Candidate Snapshot</h2>
+    <div class="snapshot-card">
+      <p style="font-size:14px;color:#475569;line-height:1.7;">
+        Randy is a <strong>17-year MasterControl platform veteran</strong> with a rare combination of hands-on system configuration, end-user training delivery, technical account management, and quality system ownership from the practitioner side. He has implemented and remediated MasterControl across pharmaceutical, biotech, medical device, and clinical lab environments — and has the regulatory credibility (21 CFR Part 11, cGMP, ISO 13485, CAP/CLIA) to work confidently with any quality team in life sciences. His most recent role as a Sr. Learning Consultant at MasterControl itself gives him a unique vendor-side credential that few external candidates can match.
+      </p>
+      <div class="snapshot-grid" style="margin-top:20px;">
+        <div class="snap-item">
+          <h4>Current / Most Recent Title</h4>
+          <p>Quality Systems Consultant (11 Compliance Consulting) / Sr. Learning Consultant (MasterControl)</p>
+        </div>
+        <div class="snap-item">
+          <h4>Total Years of Experience</h4>
+          <p>17+ years (MasterControl platform since 2008)</p>
+        </div>
+        <div class="snap-item">
+          <h4>Career Trajectory</h4>
+          <p>End-user QSM → Customer Success → TAM → Sr. Learning Consultant → Independent Consultant</p>
+        </div>
+        <div class="snap-item">
+          <h4>Industries</h4>
+          <p>Pharmaceutical, Biotech, Medical Device, Regenerative Medicine, Clinical Diagnostics</p>
+        </div>
+        <div class="snap-item">
+          <h4>Location</h4>
+          <p>Salt Lake City, UT — open to remote or local</p>
+        </div>
+        <div class="snap-item">
+          <h4>Key Differentiators</h4>
+          <p>Former MasterControl employee; dual perspective as sysadmin + end-user; greenfield + remediation experience</p>
+        </div>
+      </div>
+      <div class="tag-list" style="margin-top:18px;">
+        <span class="tag">MasterControl Platform</span>
+        <span class="tag">21 CFR Part 11</span>
+        <span class="tag">CAPA Configuration</span>
+        <span class="tag">Document Control</span>
+        <span class="tag">Training Module Admin</span>
+        <span class="tag">IQ/OQ/PQ Validation</span>
+        <span class="tag">Change Control</span>
+        <span class="tag">ISO 13485</span>
+        <span class="tag">cGMP</span>
+        <span class="tag">AQEM</span>
+        <span class="tag">User Role Management</span>
+        <span class="tag">End-User Training</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP 10 JOBS -->
+  <section class="section" id="jobs">
+    <h2 class="section-title">Top 10 Matching Jobs</h2>
+    <div class="job-controls">
+      <input type="text" id="jobSearch" placeholder="🔍 Filter jobs..." oninput="filterJobs()" style="width:220px;">
+      <select onchange="sortJobs(this.value)">
+        <option value="rank">Sort by Rank</option>
+        <option value="salary">Sort by Salary</option>
+      </select>
+      <span style="font-size:12px;color:#94a3b8;margin-left:8px;">
+        <span style="background:#dcfce7;color:#166534;padding:2px 8px;border-radius:4px;font-size:11px;">●</span> 80+ Match
+        <span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:4px;font-size:11px;margin-left:6px;">●</span> 60–79
+        <span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:4px;font-size:11px;margin-left:6px;">●</span> Below 60
+      </span>
+    </div>
+    <div class="job-grid" id="jobGrid">
+
+      <!-- JOB 1 -->
+      <div class="job-card" data-rank="1" data-salary="100000">
+        <div class="job-card-header" onclick="toggleCard('job1')">
+          <div class="rank-badge rank-1">1</div>
+          <div class="job-info">
+            <div class="job-title">Professional Services Consultant <span class="flag-badge flag-top">⭐ Top Pick</span></div>
+            <div class="job-company">MasterControl — Salt Lake City, UT (Remote)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Remote (25–50% travel to client sites)</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>$90,000 – $110,000 (posted) + equity + benefits</span></span>
+              <span class="flag-badge flag-remote">Remote</span>
+            </div>
+          </div>
+          <div class="score-area score-green">
+            <div class="score-value">88</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:88%"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job1" style="display:none;">
+          <p class="job-desc">
+            As a Professional Services Consultant at MasterControl, you'll drive successful QMS implementations for pharmaceutical, biotech, and medical device customers — delivering solution design, system configuration, workflow builds, testing, and deployment. You'll serve as a trusted implementation expert guiding customers through their MasterControl journey from kickoff to go-live. This is Randy's exact domain: he spent 10 years at MasterControl configuring this platform, training customers, and managing enterprise accounts — and he already knows the product, culture, internal processes, and customer pain points from both sides of the table.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">MasterControl platform expertise</span>
+              <span class="skill-match">21 CFR Part 11 / cGMP</span>
+              <span class="skill-match">QMS configuration</span>
+              <span class="skill-match">Workflow design</span>
+              <span class="skill-match">Regulated industries</span>
+              <span class="skill-match">Customer-facing delivery</span>
+              <span class="skill-match">Training delivery</span>
+              <span class="skill-match">ISO 13485</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">25–50% travel required</span>
+              <span class="skill-gap">Salary may be negotiable above posted range</span>
+              <span class="skill-gap">Returning to former employer</span>
+            </div>
+          </div>
+          <a href="https://www.glassdoor.com/job-listing/professional-services-consultant-mastercontrol-JV_KO0,32_KE33,46.htm?jl=1009962892335" target="_blank" class="apply-btn">View &amp; Apply on Glassdoor →</a>
+          <br><small style="color:#94a3b8;font-size:11px;margin-top:6px;display:block;">Also search directly at mastercontrol.com/careers — verify listing is active before applying</small>
+        </div>
+      </div>
+
+      <!-- JOB 2 -->
+      <div class="job-card" data-rank="2" data-salary="146000">
+        <div class="job-card-header" onclick="toggleCard('job2')">
+          <div class="rank-badge rank-2">2</div>
+          <div class="job-info">
+            <div class="job-title">Manager, Quality Systems and Compliance</div>
+            <div class="job-company">Deciphera Pharmaceuticals — Remote (US)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Fully Remote — no travel</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>$123,000 – $169,000 (posted)</span></span>
+              <span class="flag-badge flag-remote">Remote</span>
+            </div>
+          </div>
+          <div class="score-area score-green">
+            <div class="score-value">84</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:84%"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job2" style="display:none;">
+          <p class="job-desc">
+            Deciphera is a clinical-stage biopharmaceutical company focused on cancer treatment. This Manager role partners cross-functionally to manage the QMS — including Change Controls, Quality Events, and APQRs — ensuring compliance with FDA, EMA, ICH, and other global regulations. Strong GMP expertise and hands-on QMS management experience are key. This is a quality leadership role leveraging Randy's pharma background and deep understanding of QMS processes built over 17+ years. Deciphera is a publicly traded oncology company with a track record of FDA approvals.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">QMS management / leadership</span>
+              <span class="skill-match">CAPA &amp; deviation management</span>
+              <span class="skill-match">Change control</span>
+              <span class="skill-match">FDA 21 CFR Part 11</span>
+              <span class="skill-match">Pharmaceutical industry</span>
+              <span class="skill-match">Cross-functional collaboration</span>
+              <span class="skill-match">Fully remote</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">APQR experience (not explicitly listed on resume)</span>
+              <span class="skill-gap">EMA/ICH global reg focus</span>
+              <span class="skill-gap">MasterControl not specified as required platform</span>
+            </div>
+          </div>
+          <a href="https://remotive.com/remote/jobs/qa/manager-quality-systems-and-compliance-4135110" target="_blank" class="apply-btn">View &amp; Apply on Remotive →</a>
+          <br><small style="color:#94a3b8;font-size:11px;margin-top:6px;display:block;">Also check deciphera.com/join-us/open-positions directly</small>
+        </div>
+      </div>
+
+      <!-- JOB 3 -->
+      <div class="job-card" data-rank="3" data-salary="82000">
+        <div class="job-card-header" onclick="toggleCard('job3')">
+          <div class="rank-badge rank-3">3</div>
+          <div class="job-info">
+            <div class="job-title">QMS Administrator — MasterControl</div>
+            <div class="job-company">Orca Bio — Remote (US)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Fully Remote</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>Estimated $75,000 – $100,000 (not posted)</span></span>
+              <span class="flag-badge flag-remote">Remote</span>
+            </div>
+          </div>
+          <div class="score-area score-green">
+            <div class="score-value">83</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:83%"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job3" style="display:none;">
+          <p class="job-desc">
+            Orca Bio is a clinical-stage cell therapy company seeking a hands-on MasterControl QMS Administrator to manage and optimize their platform — configuring user access, workflows, system settings; overseeing document management, change control, audits, and training. This role was still actively listed on Indeed as of April 3, 2026. It's a slightly junior title for Randy's experience level, but a very direct MasterControl-platform skills match. His 17+ years could give him leverage to negotiate a Senior Administrator or QMS Manager title.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">MasterControl platform admin</span>
+              <span class="skill-match">Document &amp; training modules</span>
+              <span class="skill-match">Biotech industry</span>
+              <span class="skill-match">Workflow configuration</span>
+              <span class="skill-match">User &amp; role management</span>
+              <span class="skill-match">Fully remote — confirmed active April 2026</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">"Administrator" title may be below seniority</span>
+              <span class="skill-gap">Salary likely lower than Randy's target</span>
+              <span class="skill-gap">Smaller company — fewer resources</span>
+            </div>
+          </div>
+          <a href="https://jobs.lever.co/orcabiosystems/54c44b3d-6ce5-4c61-871b-99d279a86289" target="_blank" class="apply-btn">View &amp; Apply on Lever →</a>
+        </div>
+      </div>
+
+      <!-- JOB 4 -->
+      <div class="job-card" data-rank="4" data-salary="135000">
+        <div class="job-card-header" onclick="toggleCard('job4')">
+          <div class="rank-badge rank-other">4</div>
+          <div class="job-info">
+            <div class="job-title">Global Quality Systems Manager</div>
+            <div class="job-company">Getinge (Maquet Cardiovascular) — Remote (US)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Fully Remote (Madison, WI base)</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>$120,000 – $150,000 (posted) — Posted March 20, 2026</span></span>
+              <span class="flag-badge flag-remote">Remote</span>
+            </div>
+          </div>
+          <div class="score-area score-green">
+            <div class="score-value">80</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:80%"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job4" style="display:none;">
+          <p class="job-desc">
+            Getinge is a global medical technology company. This Manager role maintains and improves key quality system processes for their global logistics operations under ISO 13485. Responsibilities include reviewing quality records, coordinating quality metrics, managing documentation, and driving continuous improvement. Requires 7+ years in regulated quality systems — Randy's 17+ years far exceeds this. The ISO 13485 focus is familiar from his medical device work at MasterControl and Polarity TE. Freshly posted in March 2026.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">Quality systems management</span>
+              <span class="skill-match">ISO 13485 knowledge</span>
+              <span class="skill-match">Medical device industry</span>
+              <span class="skill-match">Document control</span>
+              <span class="skill-match">CAPA management</span>
+              <span class="skill-match">Fully remote — freshly posted</span>
+              <span class="skill-match">Excellent salary range</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">ISO 13485 auditor certification (preferred)</span>
+              <span class="skill-gap">3rd party CMO oversight experience</span>
+              <span class="skill-gap">Global logistics QMS focus</span>
+            </div>
+          </div>
+          <a href="https://careers.getinge.com/job/Madison-Global-Quality-Systems-Manager-(Remote-US)-WI-53701/1376044333/" target="_blank" class="apply-btn">View &amp; Apply at Getinge Careers →</a>
+        </div>
+      </div>
+
+      <!-- JOB 5 -->
+      <div class="job-card" data-rank="5" data-salary="85000">
+        <div class="job-card-header" onclick="toggleCard('job5')">
+          <div class="rank-badge rank-other">5</div>
+          <div class="job-info">
+            <div class="job-title">eQMS System Administrator</div>
+            <div class="job-company">ACM Global Laboratories / Rochester Regional Health — Remote</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Fully Remote</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>Estimated $70,000 – $95,000 (not posted)</span></span>
+              <span class="flag-badge flag-remote">Remote</span>
+            </div>
+          </div>
+          <div class="score-area score-yellow">
+            <div class="score-value">73</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:73%;background:#f59e0b;"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job5" style="display:none;">
+          <p class="job-desc">
+            ACM Global Laboratories (part of Rochester Regional Health) is seeking a remote eQMS System Administrator responsible for the development, implementation, and ongoing improvement of their electronic quality systems. Responsibilities include managing system user profiles, permissions, roles, interfacing with IT and CSV stakeholders, troubleshooting system issues, and coordinating beta testing and upgrades. This is a clinical lab environment (CLIA/CAP) — Randy managed a CLIA/CAP-regulated MasterControl system for 7 years at Myriad Genetics, making this a direct match.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">eQMS system administration</span>
+              <span class="skill-match">CLIA/CAP experience (Myriad Genetics)</span>
+              <span class="skill-match">User roles &amp; permissions</span>
+              <span class="skill-match">System upgrades &amp; CSV</span>
+              <span class="skill-match">IT stakeholder collaboration</span>
+              <span class="skill-match">Fully remote</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">Healthcare system (not pharma/biotech)</span>
+              <span class="skill-gap">Specific eQMS platform not confirmed as MasterControl</span>
+              <span class="skill-gap">Listing age — verify still active (last updated Sep 2025)</span>
+            </div>
+          </div>
+          <a href="https://careers.rochesterregional.org/career-opportunities/req_222482/eqms-system-administrator/" target="_blank" class="apply-btn">View &amp; Apply at Rochester Regional →</a>
+        </div>
+      </div>
+
+      <!-- JOB 6 -->
+      <div class="job-card" data-rank="6" data-salary="78500">
+        <div class="job-card-header" onclick="toggleCard('job6')">
+          <div class="rank-badge rank-other">6</div>
+          <div class="job-info">
+            <div class="job-title">QA Documentation Specialist (MasterControl)</div>
+            <div class="job-company">Sabin Vaccine Institute — Remote (US only)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Fully Remote (US)</span></span>
+              <span class="job-meta-item">💼 <span>Full-time, R&amp;D Department</span></span>
+              <span class="job-meta-item">💰 <span>$72,000 – $85,000 (posted)</span></span>
+              <span class="flag-badge flag-remote">Remote</span>
+            </div>
+          </div>
+          <div class="score-area score-yellow">
+            <div class="score-value">70</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:70%;background:#f59e0b;"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job6" style="display:none;">
+          <p class="job-desc">
+            Sabin Vaccine Institute (global nonprofit focused on vaccine development) seeks a QA Documentation Specialist to manage and maintain quality system documentation using MasterControl for document lifecycle management. The role reports to the Senior Director of Quality and requires 4+ years of experience in QA, document control, or compliance — well within Randy's 17+ years. This is a lower-level position than Randy's experience warrants, but it's a direct MasterControl match in a mission-driven vaccine/pharma organization. Good stepping stone or bridge role if transitioning sectors.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">MasterControl document module</span>
+              <span class="skill-match">QA document lifecycle management</span>
+              <span class="skill-match">21 CFR Part 11 / GxP</span>
+              <span class="skill-match">Pharma/vaccine/biotech industry</span>
+              <span class="skill-match">Fully remote — posted salary confirmed</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">Significantly below Randy's seniority level</span>
+              <span class="skill-gap">Salary ($72K–$85K) is below his market rate</span>
+              <span class="skill-gap">Nonprofit — may limit salary negotiation</span>
+            </div>
+          </div>
+          <a href="https://www.sabin.org/about/opportunities/careers/" target="_blank" class="apply-btn">Check Sabin Careers Page →</a>
+        </div>
+      </div>
+
+      <!-- JOB 7 -->
+      <div class="job-card" data-rank="7" data-salary="80000">
+        <div class="job-card-header" onclick="toggleCard('job7')">
+          <div class="rank-badge rank-other">7</div>
+          <div class="job-info">
+            <div class="job-title">Administrator, Training Systems</div>
+            <div class="job-company">Orca Bio — Remote (US)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Fully Remote</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>Estimated $65,000 – $85,000 (not posted)</span></span>
+              <span class="flag-badge flag-remote">Remote</span>
+            </div>
+          </div>
+          <div class="score-area score-yellow">
+            <div class="score-value">68</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:68%;background:#f59e0b;"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job7" style="display:none;">
+          <p class="job-desc">
+            A second open role at Orca Bio specifically focused on MasterControl's Training module — managing training curricula, access/permissions, compliance reporting, and employee onboarding. Requires 2–3 years of experience in training administration or LMS systems. Randy is dramatically overqualified (his Sr. Learning Consultant role at MasterControl was essentially the expert teaching other companies how to use this exact system), but this is a pure MasterControl Training module specialist role. Consider pairing an application here with #3 (QMS Admin) at the same company.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">MasterControl Training module expert</span>
+              <span class="skill-match">Training curriculum management</span>
+              <span class="skill-match">LMS administration</span>
+              <span class="skill-match">Employee onboarding training</span>
+              <span class="skill-match">Biotech regulatory environment</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">Significantly below Randy's career level</span>
+              <span class="skill-gap">Narrow scope (training only vs. full QMS)</span>
+              <span class="skill-gap">Apply alongside Job #3 for same company</span>
+            </div>
+          </div>
+          <a href="https://jobs.lever.co/orcabiosystems/8a098fa5-a368-4eee-9051-f2d453b5e01a" target="_blank" class="apply-btn">View &amp; Apply on Lever →</a>
+        </div>
+      </div>
+
+      <!-- JOB 8 -->
+      <div class="job-card" data-rank="8" data-salary="87000">
+        <div class="job-card-header" onclick="toggleCard('job8')">
+          <div class="rank-badge rank-other">8</div>
+          <div class="job-info">
+            <div class="job-title">Quality Systems Specialist — EDMS</div>
+            <div class="job-company">Tolmar, Inc. — Windsor, CO (Hybrid)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Hybrid (Windsor, CO — some remote)</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>Estimated $75,000 – $100,000 (not posted)</span></span>
+              <span class="flag-badge flag-hybrid">Hybrid</span>
+            </div>
+          </div>
+          <div class="score-area score-yellow">
+            <div class="score-value">63</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:63%;background:#f59e0b;"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job8" style="display:none;">
+          <p class="job-desc">
+            Tolmar is a pharmaceutical company in Windsor, CO. This role ensures and maintains quality system processes through administration of their QMS, EDMS, and ELMS. Requires strong knowledge of Electronic Document Management Systems including MasterControl, Veeva, and SharePoint. The role was posted March 11, 2026. Not fully remote — Windsor, CO is about 4 hours from Salt Lake City, so this is only viable if Randy is willing to relocate or travel periodically for a hybrid arrangement.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">MasterControl EDMS experience</span>
+              <span class="skill-match">QMS/EDMS/ELMS administration</span>
+              <span class="skill-match">Pharmaceutical industry</span>
+              <span class="skill-match">21 CFR Part 11</span>
+              <span class="skill-match">Change control &amp; document management</span>
+              <span class="skill-match">Recent posting (March 2026)</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">Hybrid/onsite in Windsor, CO — not Salt Lake City</span>
+              <span class="skill-gap">Possibly below Randy's experience level</span>
+              <span class="skill-gap">Veeva experience not listed on resume</span>
+            </div>
+          </div>
+          <a href="https://careers.cobioscience.com/job/2909/quality-systems-specialist-edms/" target="_blank" class="apply-btn">View at CO Bioscience Careers →</a>
+        </div>
+      </div>
+
+      <!-- JOB 9 -->
+      <div class="job-card" data-rank="9" data-salary="90000">
+        <div class="job-card-header" onclick="toggleCard('job9')">
+          <div class="rank-badge rank-other">9</div>
+          <div class="job-info">
+            <div class="job-title">Project Manager II, Quality Operations</div>
+            <div class="job-company">NanoString Technologies — Seattle, WA (need to verify remote)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Location: Seattle, WA — remote status unconfirmed</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>Estimated $80,000 – $105,000 (not posted)</span></span>
+              <span class="flag-badge flag-hybrid">Verify Remote</span>
+            </div>
+          </div>
+          <div class="score-area score-yellow">
+            <div class="score-value">61</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:61%;background:#f59e0b;"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job9" style="display:none;">
+          <p class="job-desc">
+            NanoString Technologies (genomics/molecular diagnostics) is hiring a PM-level quality ops role that specifically involves managing their eQMS (currently MasterControl, transitioning to ETQ). Responsibilities include system administration, process improvement, and stakeholder coordination. The MasterControl connection is very strong, but the role is PM-focused rather than pure QMS sysadmin. Randy's consulting and TAM background translates well to the project management component. Verify if remote is available before applying.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">MasterControl system management</span>
+              <span class="skill-match">QMS process improvement</span>
+              <span class="skill-match">Life sciences regulated environment</span>
+              <span class="skill-match">Cross-functional stakeholder management</span>
+              <span class="skill-match">CSV / 21 CFR Part 11</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">PM title — different from QMS admin focus</span>
+              <span class="skill-gap">Remote status unconfirmed</span>
+              <span class="skill-gap">Transitioning away from MasterControl to ETQ</span>
+            </div>
+          </div>
+          <a href="https://boards.greenhouse.io/nanostring/jobs/4648159002" target="_blank" class="apply-btn">View on Greenhouse →</a>
+        </div>
+      </div>
+
+      <!-- JOB 10 -->
+      <div class="job-card" data-rank="10" data-salary="155000">
+        <div class="job-card-header" onclick="toggleCard('job10')">
+          <div class="rank-badge rank-other">10</div>
+          <div class="job-info">
+            <div class="job-title">Director, Quality Management Systems</div>
+            <div class="job-company">Nurix Therapeutics — Brisbane, CA (onsite)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Brisbane, CA — on-site; no remote indicated</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>Estimated $135,000 – $175,000 (based on peer roles at Nurix)</span></span>
+              <span class="flag-badge flag-onsite">On-site</span>
+            </div>
+          </div>
+          <div class="score-area score-orange">
+            <div class="score-value">57</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:57%;background:#f97316;"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job10" style="display:none;">
+          <p class="job-desc">
+            Nurix is a clinical-stage drug discovery company. This Director role is newly created and requires 10+ years of progressive quality systems experience in pharma/biopharma. Requires demonstrated hands-on Veeva Vault QMS experience — which is not in Randy's current skill set. However, his 17+ years of MasterControl expertise is directly analogous and transferable in terms of system configuration, workflow design, and CSV methodology. This is a stretch role due to location (Bay Area, CA) and the Veeva requirement, but the Director level and salary potential could make it worth a targeted application if Randy is open to relocation.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Transferable Strengths</h5>
+              <span class="skill-match">10+ years QMS systems experience</span>
+              <span class="skill-match">System configuration &amp; workflow design</span>
+              <span class="skill-match">21 CFR Part 11 / GxP / CSV</span>
+              <span class="skill-match">Pharmaceutical/biopharmaceutical industry</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">Requires Veeva Vault QMS — Randy uses MasterControl</span>
+              <span class="skill-gap">Brisbane, CA — not remote</span>
+              <span class="skill-gap">Director level may require different competency profile</span>
+            </div>
+          </div>
+          <a href="https://jobs.biospace.com/job/3040444/director-quality-management-systems/" target="_blank" class="apply-btn">View on BioSpace →</a>
+        </div>
+      </div>
+
+    </div><!-- end job-grid -->
+  </section>
+
+  <!-- DEEP DIVE: JOB #1 -->
+  <section class="section" id="deep-dive">
+    <h2 class="section-title">🏆 #1 Match Deep Dive — MasterControl Professional Services Consultant</h2>
+    <div class="deep-dive">
+      <div class="why-box">
+        <strong>Why this is the #1 match:</strong> Randy spent a decade at MasterControl — first as a Customer Success/Configuration Consultant (hands-on implementations), then as a Technical Account Manager (managing enterprise pharma/medical device accounts), then as a Sr. Learning Consultant (training customers on the very modules a PSC configures). He knows MasterControl's implementation methodology, its customer pain points, its regulatory framework, and its internal culture. A Professional Services Consultant is essentially a senior implementation expert — and Randy has been doing exactly this work for 10 years from inside the company itself. His post-MasterControl independent consulting (11 Compliance Consulting, 2025–2026) further demonstrates that he can own client engagements autonomously. The travel requirement (25–50%) is worth clarifying, and the posted salary range ($90K–$110K) may be negotiable given his seniority. This is a boomerang opportunity with built-in credibility.
+      </div>
+
+      <h4 style="margin-bottom:12px;font-size:15px;color:#0f172a;">Role Summary</h4>
+      <p style="font-size:14px;color:#475569;line-height:1.7;margin-bottom:20px;">
+        Professional Services Consultants at MasterControl deliver implementation consulting services — leading customers through solution design, system configuration, workflow builds, validation support, and go-live. The role is client-facing, requires strong regulated-industry knowledge, and demands deep expertise in MasterControl modules. Travel ranges from 25–50%. Salary: $90K–$110K + equity + benefits.
+      </p>
+    </div>
+  </section>
+
+  <!-- RESUME RECOMMENDATIONS -->
+  <section class="section" id="resume-reco">
+    <h2 class="section-title">📄 Resume Recommendations — Tailored to MasterControl PSC</h2>
+    <div class="snapshot-card">
+      <p style="font-size:13px;color:#64748b;margin-bottom:16px;">Recommendations ranked by priority. Apply these edits before submitting to any of the top 4 jobs.</p>
+      <ul class="reco-list">
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>Add a "PSC-style" headline to your summary.</strong> The current headline says "MasterControl Platform Expert | QMS Configuration & Administration | Regulated Industries." For a PSC role, add: "…| Implementation Consulting | Customer-Facing Delivery." This immediately signals you're not just a behind-the-desk admin — you deliver implementations to clients.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>Quantify your Customer Success / Configuration Consultant bullet points.</strong> You configured MasterControl for pharma, biotech, and medical device manufacturers, but the resume doesn't say <em>how many</em> implementations, <em>how many</em> modules, or what the typical project scope was. Add: "Completed 30+ MasterControl implementations across Documents, Training, and Process modules for pharmaceutical and medical device manufacturers" (or whatever is accurate). PSCs are measured by implementation throughput and CSAT.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>Add a bullet under Sr. Learning Consultant about the overlap between training and implementation.</strong> The PSC role often involves delivering post-configuration user training as well. Add something like: "Translated complex MasterControl configuration decisions into practical training content, bridging the gap between implementation design and end-user adoption." This positions you as someone who owns the full delivery arc.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>Call out "greenfield implementation" more prominently.</strong> The Myriad Genetics section mentions a "full greenfield implementation" for the pharmaceutical division — this is gold for a PSC role. Move this bullet up and expand it: "Led full greenfield MasterControl implementation for [division], configuring Documents, Training, and [X] Process modules from scratch, including IQ/OQ/PQ documentation and UAT execution."</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-medium">MED</span>
+          <div class="reco-text"><strong>Add a "Platform Specialization" sub-section to Technical Proficiencies.</strong> The job description for PSC emphasizes specific module knowledge. Your current list is solid but could be structured more clearly. Consider formatting it as: <em>Configuration Expertise: Documents (document control, routing, approval workflows), Training (curricula, assignments, compliance tracking), Process Modules (CAPA, MOC/Change Control, Complaints, Nonconformance), AQEM (next-gen event management)</em>.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-medium">MED</span>
+          <div class="reco-text"><strong>Mention multi-site or enterprise-scale implementations.</strong> PSC roles at MasterControl deal with enterprise pharmaceutical accounts. Under Myriad Genetics, you mention managing a "multi-year dual-platform environment" and a full data migration — this demonstrates enterprise-scale project management. Highlight this more explicitly with phrasing like "multi-site" or "enterprise-scale" to align with the PSC target customer profile.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-medium">MED</span>
+          <div class="reco-text"><strong>Add a line about independent consulting engagements at 11 Compliance Consulting.</strong> The current bullet is somewhat generic ("Supported MasterControl QMS implementations…"). Strengthen it: "Delivered independent MasterControl consulting engagements for pharmaceutical and medical device manufacturers, including [type of work, e.g., configuration builds / validation documentation / remediation]." This demonstrates you can own client engagements autonomously — a key PSC competency.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-low">LOW</span>
+          <div class="reco-text"><strong>ATS Optimization.</strong> Include the phrase "Professional Services" in your summary or Skills section since ATS systems will scan for it. Also include: "solution design," "system configuration," "client-facing delivery," "go-live support," "post-go-live optimization." These are keywords from the PSC job description.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-low">LOW</span>
+          <div class="reco-text"><strong>Remove the phone number from the document header before sharing.</strong> Standard best practice for digital distribution of resumes to protect personal info.</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LINKEDIN RECOMMENDATIONS -->
+  <section class="section" id="linkedin-reco">
+    <h2 class="section-title">💼 LinkedIn Recommendations</h2>
+    <div class="snapshot-card">
+      <p style="font-size:13px;color:#64748b;margin-bottom:16px;"><em>Note: LinkedIn profile was not accessible during this search due to network restrictions. The following recommendations are based on the resume and LinkedIn best practices for this candidate type.</em></p>
+      <ul class="reco-list">
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>Headline Rewrite.</strong> Current headline is likely something like "Sr. Learning Consultant at MasterControl." Suggested new headline: <em>"MasterControl Platform Expert | QMS Implementation &amp; Configuration | Pharma · Biotech · Medical Device | 21 CFR Part 11 | Available for Consulting &amp; FTE Roles"</em> — This signals platform expertise, industry, regulatory knowledge, and availability in a single scannable line.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>About Section.</strong> Lead with your unique differentiator — 17 years of MasterControl experience from <em>both sides</em>: as a quality systems manager who lived inside the system, and as a MasterControl employee who implemented and trained hundreds of customers. Write in first person and end with a clear CTA: "Open to full-time or consulting engagements in QMS implementation, configuration, and quality systems administration."</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>Skills Section — reorder and add.</strong> Top skills should be: (1) MasterControl, (2) Quality Management Systems (QMS), (3) 21 CFR Part 11, (4) CAPA Management, (5) Document Control, (6) Change Control, (7) IQ/OQ/PQ Validation, (8) ISO 13485, (9) cGMP, (10) Training Module Administration. Add "Professional Services" and "Implementation Consulting" if targeting the MasterControl PSC role.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-medium">MED</span>
+          <div class="reco-text"><strong>Featured Section.</strong> Add 1–2 featured items: (1) A short article or post about MasterControl best practices (e.g., "5 Common MasterControl Configuration Mistakes and How to Avoid Them") — this establishes thought leadership. (2) A link to your LinkedIn profile's Services page if you offer consulting, listing "MasterControl Configuration," "QMS Implementation," "21 CFR Part 11 Validation Support."</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-medium">MED</span>
+          <div class="reco-text"><strong>Experience Descriptions.</strong> Under MasterControl Sr. Learning Consultant, add quantified impact: how many customers trained per year, satisfaction scores (95%+ is already on the resume — use it), or number of modules covered. Under Myriad Genetics, call out the SmartSolve-to-MasterControl data migration explicitly — this is a rare and highly valuable credential.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-medium">MED</span>
+          <div class="reco-text"><strong>Request Recommendations.</strong> Reach out to 2–3 former MasterControl colleagues or customers to write recommendations that speak to your implementation quality, platform expertise, and client communication. For the PSC application specifically, a recommendation from a former MasterControl manager or peer would be powerful.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-low">LOW</span>
+          <div class="reco-text"><strong>Activity &amp; Visibility.</strong> Post or repost 1–2 pieces of content per month in the MasterControl / Life Sciences Quality space. Comment on posts from companies you're targeting (Orca Bio, Getinge, Deciphera). Turn on "Open to Work" (visible to recruiters only if preferred). This signals active engagement to hiring managers who review your profile.</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COVER LETTER -->
+  <section class="section" id="cover-letter">
+    <h2 class="section-title">✉️ Cover Letter — MasterControl Professional Services Consultant</h2>
+    <div style="position:relative;">
+      <div class="cover-letter-box" id="coverLetterText">
+        <button class="copy-btn" onclick="copyCoverLetter()">📋 Copy Letter</button>
+        <p>Hiring Team, MasterControl</p>
+        <p>
+          Ten years ago, I joined MasterControl as a Customer Success and Configuration Consultant — and what followed was the most formative decade of my professional career. I went on to become a Technical Account Manager supporting 15–20 enterprise pharmaceutical and medical device accounts, and then a Senior Learning Consultant delivering platform training across Documents, Training, and Process modules to manufacturers around the world. I left in 2025 to explore independent consulting, but MasterControl's mission — and the professional services role — has brought me back to the table.
+        </p>
+        <p>
+          I'm applying for the Professional Services Consultant position because this work is what I've been doing, in different forms, for the better part of a decade. I've configured MasterControl from scratch for greenfield pharmaceutical implementations, remediated poorly built instances inherited by incoming quality teams, designed CAPA and change control workflows tailored to FDA and ISO 13485 requirements, supported IQ/OQ/PQ validation activities, and trained hundreds of quality professionals on how to get the most out of the platform. I understand not just how the system works — but why quality teams need it to work the way it does.
+        </p>
+        <p>
+          What makes me different from most PSC candidates is that I've also been the customer. Before joining MasterControl, I was a QMS Manager at Myriad Genetics for seven years, managing MasterControl as a sysadmin across two divisions — including executing a full greenfield implementation and later decommissioning a parallel SmartSolve instance by migrating all data into MasterControl. I know what an FDA inspection feels like from the quality team's side, and I know what it means to have a system configured correctly when that moment arrives.
+        </p>
+        <p>
+          I am excited about the prospect of contributing to a team and a product I know deeply. I'm confident that my implementation background, regulatory knowledge, and customer-facing skills would make me effective in this role from day one — and I'd welcome the opportunity to discuss further.
+        </p>
+        <p>Sincerely,<br>Randy J.<br>linkedin.com/in/jetsen</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERVIEW PREP -->
+  <section class="section" id="interview">
+    <h2 class="section-title">🎤 Interview Prep — MasterControl Professional Services Consultant</h2>
+
+    <div class="interview-card">
+      <details>
+        <summary><span class="q-num">1</span>"Walk us through a complex MasterControl implementation you led from start to finish."</summary>
+        <div class="answer">
+          <strong>Talking Points:</strong> Lead with the Myriad Genetics greenfield pharmaceutical implementation — this is your strongest story. Describe the scope (which modules, how many users, regulatory environment), your configuration decisions (workflow design, routing rules, role structures), the validation work (IQ/OQ/PQ), and the outcome (FDA inspection readiness, adoption metrics). Emphasize that you had skin in the game as the sysadmin — you weren't just configuring for a customer, you were the quality team's representative. Also mention the SmartSolve migration as a separate project that shows migration and data transition expertise.
+        </div>
+      </details>
+    </div>
+
+    <div class="interview-card">
+      <details>
+        <summary><span class="q-num">2</span>"Describe a situation where a customer's MasterControl configuration was causing compliance risk. How did you handle it?"</summary>
+        <div class="answer">
+          <strong>Talking Points:</strong> Reference the Polarity TE situation — you inherited "an unwieldy MasterControl configuration" with a paper-based document numbering system force-fitted into the platform. Walk through your diagnostic process, how you identified the risks (workflow gaps, numbering inconsistencies), how you restructured without disrupting ongoing operations, and how you aligned the new configuration with 21 CFR 1271/820 best practices. This story also demonstrates your "quality systems manager who lived in the system" perspective, which is a differentiator over pure-vendor PSC candidates. As a PSC, you'll encounter clients with configurations like this regularly — you'll be remediating, not just building.
+        </div>
+      </details>
+    </div>
+
+    <div class="interview-card">
+      <details>
+        <summary><span class="q-num">3</span>"How do you manage a project when a client pushes back on your recommended configuration approach?"</summary>
+        <div class="answer">
+          <strong>Talking Points:</strong> Draw on your TAM experience managing 15–20 enterprise accounts and achieving 98% account retention. Emphasize your client-first consultative approach: you listen to understand the business reason behind the pushback, validate whether it reflects a regulatory requirement, a workflow preference, or a previous bad experience, and then educate rather than mandate. Acknowledge that your years as an end-user give you credibility when explaining why certain configurations hold up to FDA inspections — you can say "I've been in your shoes" honestly. Share a specific scenario if possible where you found a creative middle-ground solution that met the client's operational need while maintaining compliance integrity.
+        </div>
+      </details>
+    </div>
+
+    <div class="interview-card">
+      <details>
+        <summary><span class="q-num">4</span>"What do you know about MasterControl's AQEM platform and how have you worked with it?"</summary>
+        <div class="answer">
+          <strong>Talking Points:</strong> Your resume notes "working knowledge of AQEM, MasterControl's next-generation event management platform." Be specific about what you know: AQEM replaces the legacy Process module for event management (CAPA, deviations, complaints) with a more modern, configurable architecture. If you've had hands-on exposure through your Learning Consultant or consulting roles, describe that. If your knowledge is primarily conceptual, be honest and frame it positively: "I've stayed current with AQEM's roadmap throughout my time at MasterControl and am eager to deepen my hands-on configuration experience — particularly for the growing customer base transitioning from the legacy Process modules." This shows self-awareness and initiative.
+        </div>
+      </details>
+    </div>
+
+    <div class="interview-card">
+      <details>
+        <summary><span class="q-num">5</span>"You left MasterControl in 2025 and are now applying to return. Why?"</summary>
+        <div class="answer">
+          <strong>Talking Points:</strong> Be direct and confident — there's no need to be defensive about this. Frame it as: "I left to test my skills independently, and I've validated that I can own client engagements outside the MasterControl structure. What I've found is that the Professional Services Consultant role aligns better with how I work — deep implementation partnerships, cross-industry exposure, and the ability to contribute to MasterControl's mission rather than being adjacent to it." Emphasize that returning as a PSC is a deliberate choice, not a fallback: the PSC role is a better fit for your skillset than your previous training-focused role, and your post-MasterControl consulting experience has sharpened your implementation instincts. Boomerang employees typically onboard faster and contribute sooner — lean into that.
+        </div>
+      </details>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;margin:28px 0 14px;color:#0f172a;">Questions to Ask the Interviewer</h3>
+    <ul style="padding-left:20px;font-size:14px;color:#334155;line-height:2.0;">
+      <li>"What does a typical PSC engagement look like in terms of scope and duration — how many active implementations does a consultant manage at once?"</li>
+      <li>"How is success measured for a PSC in the first 90 days, and in year one?"</li>
+      <li>"How much of the PSC role today involves AQEM implementations versus the legacy Process module configurations?"</li>
+      <li>"How has the PSC team evolved since 2025 — are there new verticals or customer segments the team is focusing on?"</li>
+      <li>"What does the travel expectation look like in practice — is the 25–50% range typical, or does it vary significantly by engagement type?"</li>
+    </ul>
+
+    <h3 style="font-size:16px;font-weight:700;margin:28px 0 14px;color:#0f172a;">Company Research Brief — MasterControl</h3>
+    <div class="research-grid">
+      <div class="research-card">
+        <h5>Company Basics</h5>
+        <ul>
+          <li>Founded 1993, HQ: Salt Lake City, UT</li>
+          <li>Cloud-based QMS &amp; manufacturing execution software</li>
+          <li>Serves 1,000+ customers globally in life sciences</li>
+          <li>Products: Quality Excellence, Manufacturing Excellence</li>
+          <li>Privately held; known for strong company culture</li>
+        </ul>
+      </div>
+      <div class="research-card">
+        <h5>2026 Industry Context</h5>
+        <ul>
+          <li>MasterControl published 2026 Pharma Quality Trends report — review before interview</li>
+          <li>AQEM is the next-gen event management platform — expect questions about it</li>
+          <li>AI-driven quality systems are an emerging trend in MasterControl's space</li>
+          <li>Regulatory scrutiny increasing in 2026 — FDA inspections are a pressure point for customers</li>
+        </ul>
+      </div>
+      <div class="research-card">
+        <h5>Randy's Edge</h5>
+        <ul>
+          <li>Knows internal MasterControl processes, culture, and PS methodology</li>
+          <li>Has trained PSC-adjacent customers on the same platform</li>
+          <li>Prior relationships with MasterControl colleagues still in the company</li>
+          <li>Can speak to customer pain points from both sides of the table</li>
+        </ul>
+      </div>
+      <div class="research-card">
+        <h5>Potential Concerns to Pre-empt</h5>
+        <ul>
+          <li>Left MasterControl in 2025 — be ready with a clear, confident narrative</li>
+          <li>Travel requirement: confirm your flexibility upfront in the first conversation</li>
+          <li>PSC vs. Learning Consultant: clarify that you see implementation as your natural home</li>
+          <li>Salary: $90K–$110K is likely negotiable given seniority — research MasterControl PSC comp on Glassdoor before negotiating</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SALARY OVERVIEW -->
+  <section class="section" id="salary">
+    <h2 class="section-title">💰 Salary Overview — All 10 Jobs</h2>
+    <div style="overflow-x:auto;">
+      <table class="salary-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Role</th>
+            <th>Company</th>
+            <th>Salary Range</th>
+            <th>Type</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Professional Services Consultant</td>
+            <td>MasterControl</td>
+            <td class="sal-posted">$90K – $110K</td>
+            <td>Posted</td>
+            <td>Negotiable given 17+ yr seniority; + equity + benefits</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Manager, Quality Systems &amp; Compliance</td>
+            <td>Deciphera Pharmaceuticals</td>
+            <td class="sal-posted">$123K – $169K</td>
+            <td>Posted</td>
+            <td>Best posted salary; fully remote; pharma</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>QMS Administrator — MasterControl</td>
+            <td>Orca Bio</td>
+            <td class="sal-estimated">$75K – $100K</td>
+            <td>Estimated*</td>
+            <td>Salary not posted; estimate based on role/market; biotech startup</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Global Quality Systems Manager</td>
+            <td>Getinge</td>
+            <td class="sal-posted">$120K – $150K</td>
+            <td>Posted</td>
+            <td>Strong salary; global medical device company; fully remote</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>eQMS System Administrator</td>
+            <td>Rochester Regional Health</td>
+            <td class="sal-estimated">$70K – $95K</td>
+            <td>Estimated*</td>
+            <td>Salary not posted; healthcare system; remote confirmed</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>QA Documentation Specialist</td>
+            <td>Sabin Vaccine Institute</td>
+            <td class="sal-posted">$72K – $85K</td>
+            <td>Posted</td>
+            <td>Nonprofit; salary below Randy's market rate</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Administrator, Training Systems</td>
+            <td>Orca Bio</td>
+            <td class="sal-estimated">$65K – $85K</td>
+            <td>Estimated*</td>
+            <td>Salary not posted; junior role; consider only as secondary</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Quality Systems Specialist — EDMS</td>
+            <td>Tolmar</td>
+            <td class="sal-estimated">$75K – $100K</td>
+            <td>Estimated*</td>
+            <td>Hybrid (Windsor CO); salary not posted; pharma company</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Project Manager II, Quality Operations</td>
+            <td>NanoString Technologies</td>
+            <td class="sal-estimated">$80K – $105K</td>
+            <td>Estimated*</td>
+            <td>Salary not posted; genomics company; remote status unconfirmed</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Director, Quality Management Systems</td>
+            <td>Nurix Therapeutics</td>
+            <td class="sal-estimated">$135K – $175K</td>
+            <td>Estimated*</td>
+            <td>Based on peer roles ($137K–$156K for Sr. Manager, $238K–$271K for Sr. Dir.); on-site Bay Area</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:#94a3b8;margin-top:12px;">* <em>Estimated salaries are based on comparable roles, company size, industry, and 2025–2026 Glassdoor/PayScale market data for regulated-industry quality systems professionals. Always verify before negotiating.</em></p>
+
+    <div style="margin-top:24px;background:#eff6ff;border-left:4px solid #3b82f6;padding:16px 20px;border-radius:0 8px 8px 0;">
+      <strong style="color:#1d4ed8;">Market Positioning Note:</strong>
+      <p style="font-size:14px;color:#1e40af;margin-top:6px;line-height:1.7;">
+        With 17+ years of MasterControl platform expertise and a track record spanning implementation, account management, training, and independent consulting, Randy sits at the <strong>higher end of the market</strong> for QMS systems roles. The average quality systems manager in pharma earns $106K–$120K per Glassdoor/PayScale 2025-2026 data. Randy should target $110K+ for most roles. For senior/director roles (Jobs #2, #4, #10) and given his unique vendor-side credential, $130K–$160K is a reasonable ask. The posted MasterControl PSC range ($90K–$110K) should be negotiated toward $110K+ given his depth of experience.
+      </p>
+    </div>
+  </section>
+
+</div><!-- end container -->
+
+<!-- FOOTER -->
+<div class="report-footer">
+  <p>Generated April 6, 2026 — Re-run weekly for fresh results.</p>
+  <p style="margin-top:6px;">Job availability changes frequently. Always verify listings are active before applying. Salary estimates are approximations based on public market data — not guarantees.</p>
+  <p style="margin-top:6px;color:#475569;">⚠️ LinkedIn profile (linkedin.com/in/jetsen) could not be accessed during this run — LinkedIn recommendations are based on resume analysis and best practices only.</p>
+</div>
+
+<script>
+  // Toggle job card
+  function toggleCard(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Filter jobs by text
+  function filterJobs() {
+    const query = document.getElementById('jobSearch').value.toLowerCase();
+    document.querySelectorAll('.job-card').forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(query) ? '' : 'none';
+    });
+  }
+
+  // Sort jobs
+  function sortJobs(by) {
+    const grid = document.getElementById('jobGrid');
+    const cards = Array.from(grid.querySelectorAll('.job-card'));
+    cards.sort((a, b) => {
+      if (by === 'salary') {
+        return parseInt(b.dataset.salary) - parseInt(a.dataset.salary);
+      }
+      return parseInt(a.dataset.rank) - parseInt(b.dataset.rank);
+    });
+    cards.forEach(c => grid.appendChild(c));
+  }
+
+  // Copy cover letter
+  function copyCoverLetter() {
+    const el = document.getElementById('coverLetterText');
+    const text = el.innerText.replace('📋 Copy Letter', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = el.querySelector('.copy-btn');
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = '📋 Copy Letter', 2000);
+    });
+  }
+
+  // Auto-open top 3 job cards on load
+  window.onload = function() {
+    ['job1','job2','job3'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'block';
+    });
+  };
+</script>
+</body>
+</html>
