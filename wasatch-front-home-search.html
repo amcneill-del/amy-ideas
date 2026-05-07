@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wasatch Front Home Search — Accessible Living, 5BR/4BA</title>
+<style>
+  :root {
+    --ink:#1a1a1a;
+    --muted:#5a6470;
+    --bg:#f5f1ea;
+    --card:#ffffff;
+    --accent:#2d5f4e;
+    --accent-light:#e8f0ec;
+    --warn:#c25a2a;
+    --border:#e0dacf;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 28px; }
+  header {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 22px;
+    margin-bottom: 32px;
+  }
+  h1 { font-size: 32px; margin: 0 0 6px; color: var(--accent); font-weight: 700; letter-spacing: -0.5px; }
+  .sub { color: var(--muted); font-size: 15px; margin: 0; }
+  .criteria-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .chip {
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: 22px;
+    margin: 40px 0 14px;
+    color: var(--ink);
+    border-left: 4px solid var(--accent);
+    padding-left: 12px;
+  }
+  h3 { font-size: 17px; margin: 22px 0 8px; color: var(--ink); }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+  .callout {
+    background: #fff8f1;
+    border-left: 4px solid var(--warn);
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin: 12px 0 20px;
+    font-size: 14px;
+  }
+  .region {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .region-head {
+    background: var(--accent);
+    color: white;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .region-head span { font-weight: 400; font-size: 13px; opacity: 0.9; }
+  .region-body { padding: 14px 20px; }
+  .city-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    gap: 16px;
+  }
+  .city-row:last-child { border-bottom: none; }
+  .city-name { font-weight: 600; font-size: 14px; }
+  .link-group { display: flex; flex-wrap: wrap; gap: 8px; }
+  .link-group a {
+    font-size: 12px;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--accent);
+    text-decoration: none;
+    background: #fafaf7;
+  }
+  .link-group a:hover { background: var(--accent-light); }
+  ul.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  ul.checklist li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  ul.checklist li:last-child { border-bottom: none; }
+  ul.checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    font-size: 18px;
+    color: var(--accent);
+  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 720px) {
+    .two-col { grid-template-columns: 1fr; }
+    .city-row { grid-template-columns: 1fr; }
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { background: var(--accent-light); color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .footnote {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .keyword { background: #fff8d6; padding: 1px 5px; border-radius: 3px; font-family: ui-monospace, monospace; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Wasatch Front Home Search</h1>
+  <p class="sub">Accessible multi-generational home — Ogden to Nephi, UT</p>
+  <div class="criteria-bar">
+    <span class="chip">5 bedrooms</span>
+    <span class="chip">4 bathrooms</span>
+    <span class="chip">$800K – $2M</span>
+    <span class="chip">Main-floor living</span>
+    <span class="chip">Elderly couple + brother with MS</span>
+  </div>
+</header>
+
+<div class="callout">
+  <strong>Search strategy for your family's needs:</strong> The keyword to search for in Utah is
+  <span class="keyword">rambler</span> (the local term for single-story / ranch). Filter by
+  <span class="keyword">main-level primary bedroom</span> or <span class="keyword">main-floor master</span>.
+  Because MS is progressive, prioritize homes with <strong>wide hallways (36"+), zero-step entry,
+  curbless showers, and main-level laundry</strong> — even if full retrofits are needed later.
+</div>
+
+<h2>Pre-filtered Searches by Region</h2>
+
+<div class="region">
+  <div class="region-head">Northern Wasatch (Weber &amp; Davis County) <span>Ogden, Layton, Bountiful</span></div>
+  <div class="region-body">
+    <div class="city-row">
+      <div class="city-name">Ogden</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/ogden-ut/5-bedrooms/800000-2000000_price/" target="_blank">Zillow 5BR</a>
+        <a href="https://www.redfin.com/city/13265/UT/Ogden/filter/min-beds=5,max-price=2M,min-price=800K" target="_blank">Redfin 5BR</a>
+        <a href="https://www.harvestparkgroup.com/salt-lake-county-utah-real-estate-for-sale/ogden/rambler-ranch-style-homes/" target="_blank">Ramblers only</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">South Ogden</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/south-ogden-ut/5-bedrooms/800000-2000000_price/" target="_blank">Zillow 5BR</a>
+        <a href="https://www.harvestparkgroup.com/weber-county-utah-real-estate-for-sale/south-ogden/rambler-ranch-style-homes/" target="_blank">Ramblers only</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">Layton</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/layton-ut/5-bedrooms/800000-2000000_price/" target="_blank">Zillow 5BR</a>
+        <a href="https://bestutahrealestate.com/utah/layton/single-story-homes" target="_blank">Single-story homes</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">Kaysville / Farmington</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/kaysville-ut/5-bedrooms/800000-2000000_price/" target="_blank">Kaysville 5BR</a>
+        <a href="https://www.zillow.com/farmington-ut/5-bedrooms/800000-2000000_price/" target="_blank">Farmington 5BR</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">Bountiful / Centerville</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/bountiful-ut/5-bedrooms/800000-2000000_price/" target="_blank">Bountiful 5BR</a>
+        <a href="https://www.zillow.com/centerville-ut/5-bedrooms/800000-2000000_price/" target="_blank">Centerville 5BR</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="region">
+  <div class="region-head">Salt Lake Valley (Salt Lake County) <span>SLC, Sandy, Draper, West Jordan</span></div>
+  <div class="region-body">
+    <div class="city-row">
+      <div class="city-name">Salt Lake City</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/salt-lake-city-ut/5-bedrooms/800000-2000000_price/" target="_blank">Zillow 5BR</a>
+        <a href="https://www.redfin.com/city/17150/UT/Salt-Lake-City/5-bedrooms" target="_blank">Redfin 5BR</a>
+        <a href="https://www.utahrealtygroup.com/main-level-living-no-stairs/" target="_blank">Main-level living UT-wide</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">Holladay / Millcreek</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/holladay-ut/5-bedrooms/800000-2000000_price/" target="_blank">Holladay 5BR</a>
+        <a href="https://www.zillow.com/millcreek-ut/5-bedrooms/800000-2000000_price/" target="_blank">Millcreek 5BR</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">Sandy / Cottonwood Heights</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/sandy-ut/5-bedrooms/800000-2000000_price/" target="_blank">Sandy 5BR</a>
+        <a href="https://www.zillow.com/cottonwood-heights-ut/5-bedrooms/800000-2000000_price/" target="_blank">CW Heights 5BR</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">Draper / Riverton / Herriman</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/draper-ut/5-bedrooms/800000-2000000_price/" target="_blank">Draper 5BR</a>
+        <a href="https://www.zillow.com/riverton-ut/5-bedrooms/800000-2000000_price/" target="_blank">Riverton 5BR</a>
+        <a href="https://www.zillow.com/herriman-ut/5-bedrooms/800000-2000000_price/" target="_blank">Herriman 5BR</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">West Jordan / South Jordan</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/west-jordan-ut/5-bedrooms/800000-2000000_price/" target="_blank">W Jordan 5BR</a>
+        <a href="https://www.zillow.com/south-jordan-ut/5-bedrooms/800000-2000000_price/" target="_blank">S Jordan 5BR</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="region">
+  <div class="region-head">North Utah County <span>Lehi, American Fork, Saratoga Springs, Eagle Mountain</span></div>
+  <div class="region-body">
+    <div class="city-row">
+      <div class="city-name">Lehi</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/lehi-ut/5-bedrooms/800000-2000000_price/" target="_blank">Zillow 5BR</a>
+        <a href="https://www.utahrealtygroup.com/utah-county/single-story-homes/" target="_blank">Single-story UT County</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">American Fork / Highland / Alpine</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/american-fork-ut/5-bedrooms/800000-2000000_price/" target="_blank">Am. Fork 5BR</a>
+        <a href="https://www.zillow.com/highland-ut/5-bedrooms/800000-2000000_price/" target="_blank">Highland 5BR</a>
+        <a href="https://www.zillow.com/alpine-ut/5-bedrooms/800000-2000000_price/" target="_blank">Alpine 5BR</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">Saratoga Springs / Eagle Mountain</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/saratoga-springs-ut/5-bedrooms/800000-2000000_price/" target="_blank">Sar. Springs 5BR</a>
+        <a href="https://www.zillow.com/eagle-mountain-ut/5-bedrooms/800000-2000000_price/" target="_blank">Eagle Mtn 5BR</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">Pleasant Grove / Lindon</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/pleasant-grove-ut/5-bedrooms/800000-2000000_price/" target="_blank">PG 5BR</a>
+        <a href="https://www.zillow.com/lindon-ut/5-bedrooms/800000-2000000_price/" target="_blank">Lindon 5BR</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="region">
+  <div class="region-head">South Utah County <span>Provo, Orem, Spanish Fork, Payson, Nephi</span></div>
+  <div class="region-body">
+    <div class="city-row">
+      <div class="city-name">Provo / Orem</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/provo-ut/5-bedrooms/800000-2000000_price/" target="_blank">Provo 5BR</a>
+        <a href="https://www.zillow.com/orem-ut/5-bedrooms/800000-2000000_price/" target="_blank">Orem 5BR</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">Springville / Mapleton</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/springville-ut/5-bedrooms/800000-2000000_price/" target="_blank">Springville 5BR</a>
+        <a href="https://www.zillow.com/mapleton-ut/5-bedrooms/800000-2000000_price/" target="_blank">Mapleton 5BR</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">Spanish Fork / Salem</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/spanish-fork-ut/5-bedrooms/800000-2000000_price/" target="_blank">Spanish Fork 5BR</a>
+        <a href="https://www.zillow.com/salem-ut/5-bedrooms/800000-2000000_price/" target="_blank">Salem 5BR</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">Payson / Santaquin</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/payson-ut/5-bedrooms/800000-2000000_price/" target="_blank">Payson 5BR</a>
+        <a href="https://www.zillow.com/santaquin-ut/5-bedrooms/800000-2000000_price/" target="_blank">Santaquin 5BR</a>
+      </div>
+    </div>
+    <div class="city-row">
+      <div class="city-name">Nephi</div>
+      <div class="link-group">
+        <a href="https://www.zillow.com/nephi-ut/5-bedrooms/" target="_blank">Zillow all 5BR</a>
+        <a href="https://www.redfin.com/city/14053/UT/Nephi" target="_blank">Redfin all listings</a>
+        <span style="font-size:12px;color:var(--muted);align-self:center;">(median ~$490K — your budget is a tier above local stock)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>Accessibility Walkthrough Checklist</h2>
+<div class="card">
+  <p style="margin-top:0;font-size:14px;color:var(--muted);">Print one per showing. The homes that only satisfy 60–70% of this are your candidates for modification; 85%+ are move-in ready for your family.</p>
+
+  <div class="two-col">
+    <div>
+      <h3>Entry &amp; Exterior</h3>
+      <ul class="checklist">
+        <li>Zero-step or ramped main entrance</li>
+        <li>Attached garage with level entry to home</li>
+        <li>Wide driveway for van/lift access</li>
+        <li>Front walkway ≥ 36" wide, no broken pavers</li>
+        <li>Covered entry (snow/rain cover for mobility aid users)</li>
+      </ul>
+
+      <h3>Main-Level Bedrooms</h3>
+      <ul class="checklist">
+        <li>Primary suite on main floor</li>
+        <li>At least one additional bedroom on main (for brother)</li>
+        <li>Bedroom doorways ≥ 32" clear (36" preferred)</li>
+        <li>Turnaround space (5'x5') beside bed</li>
+        <li>Closet rods reachable without overhead reach</li>
+      </ul>
+
+      <h3>Bathrooms</h3>
+      <ul class="checklist">
+        <li>Curbless / roll-in shower on main level</li>
+        <li>Grab bars installed OR reinforced blocking present</li>
+        <li>Comfort-height toilet (17"–19")</li>
+        <li>Lever faucet handles (not knobs)</li>
+        <li>Non-slip flooring</li>
+        <li>Turn radius of 5' inside bathroom</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Kitchen &amp; Living</h3>
+      <ul class="checklist">
+        <li>Open floor plan (kitchen–living–dining on one level)</li>
+        <li>Side-opening oven / wall oven</li>
+        <li>Counter section at 34" (or easily modified)</li>
+        <li>Pull-out shelves / drawer storage</li>
+        <li>Lever door handles throughout</li>
+      </ul>
+
+      <h3>Hallways &amp; Flooring</h3>
+      <ul class="checklist">
+        <li>Hallways ≥ 42" wide (48"+ ideal)</li>
+        <li>Minimal/no level changes on main floor</li>
+        <li>Hard-surface flooring (not plush carpet)</li>
+        <li>Main-level laundry room</li>
+      </ul>
+
+      <h3>Safety &amp; Layout</h3>
+      <ul class="checklist">
+        <li>Generator or solar backup (for medical equipment)</li>
+        <li>Bedroom near bathroom (night-time access)</li>
+        <li>Easy-to-reach thermostats &amp; switches</li>
+        <li>Low-maintenance yard (or HOA-maintained)</li>
+        <li>Close to medical care (MS specialist: Univ. of Utah Health)</li>
+      </ul>
+
+      <h3>Multi-Gen Bonus</h3>
+      <ul class="checklist">
+        <li>Separate entrance for brother's suite (privacy + caregiver access)</li>
+        <li>Main-floor den convertible to 2nd primary</li>
+        <li>Basement/upper level for guests, offices, or long-term care help</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h2>Neighborhood Fit Notes</h2>
+<div class="card">
+  <table>
+    <thead>
+      <tr><th>Region</th><th>Typical $800K–$2M Inventory</th><th>Fit Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Ogden / Layton / Bountiful</strong></td><td>Large custom ramblers, established neighborhoods</td><td>Good inventory for budget. McKay-Dee Hospital (Ogden) for care. Colder winters.</td></tr>
+      <tr><td><strong>Holladay / Millcreek / Cottonwood Hts</strong></td><td>High-end ramblers, older homes w/ upgrades</td><td>Close to Univ. of Utah Health (MS Center). Premium pricing.</td></tr>
+      <tr><td><strong>Sandy / Draper / Riverton</strong></td><td>Newer construction, wider floor plans, main-level masters common</td><td>Strong match — newer builds often designed for aging-in-place. Good hospital access (Intermountain).</td></tr>
+      <tr><td><strong>Lehi / Saratoga / Eagle Mtn</strong></td><td>Newest builds, sprawling lots, open floorplans</td><td>Best bang-for-buck. New construction more likely to be ADA-friendly.</td></tr>
+      <tr><td><strong>Provo / Orem / Springville</strong></td><td>Mix of older homes and newer builds</td><td>Utah Valley Hospital central. More affordable.</td></tr>
+      <tr><td><strong>Spanish Fork → Nephi</strong></td><td>Rural, larger acreage, lower $/sqft</td><td>Budget stretches furthest. Trade-off: longer drive to specialist medical care.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Specialist Resources</h2>
+<div class="card">
+  <h3>Agents / sites who specialize in accessible &amp; main-level homes</h3>
+  <ul class="checklist">
+    <li><a href="https://www.utahrealtygroup.com/wheelchair-accessible/" target="_blank">Utah Realty Group — Wheelchair Accessible Homes search</a></li>
+    <li><a href="https://www.utahrealtygroup.com/main-level-living-no-stairs/" target="_blank">Utah Realty Group — Main Level Living / No Stairs</a></li>
+    <li><a href="https://www.harvestparkgroup.com/utah-rambler-homes-for-sale/" target="_blank">Harvest Park Group — Utah Rambler Homes</a></li>
+    <li><a href="https://www.utahrealestate.com/" target="_blank">UtahRealEstate.com (local MLS — fresh listings first)</a></li>
+  </ul>
+
+  <h3>Worth asking a buyer's agent about</h3>
+  <ul class="checklist">
+    <li>Has the agent worked with CAPS (Certified Aging-in-Place Specialist) remodelers?</li>
+    <li>Can they flag homes with reinforced bathroom blocking (common in newer Utah builds)?</li>
+    <li>Any 55+ communities you want to include (e.g., Sun City Mesquite alternatives in UT County)?</li>
+    <li>Proximity to University of Utah Health's MS Clinic — important if brother sees specialists there.</li>
+  </ul>
+</div>
+
+<p class="footnote">
+  Search links are pre-filtered for 5 bedrooms and $800K–$2M where the site supports URL filters.
+  Most sites require you to add the 4+ bathroom filter on-page (one click). Prices shown on
+  destination sites reflect current market at time of click. Nephi listings generally run below
+  your budget band — inventory at that range is limited, so I included it for completeness.
+</p>
+
+</div>
+</body>
+</html>
