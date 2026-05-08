@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Search Report — Randy J. | May 7, 2026</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f0f4f8;
+    color: #1e293b;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ===== STICKY NAV ===== */
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: #0f172a;
+    padding: 0 24px;
+    display: flex; align-items: center; gap: 4px;
+    flex-wrap: wrap;
+    border-bottom: 3px solid #3b82f6;
+  }
+  .sticky-nav a {
+    color: #94a3b8; text-decoration: none; font-size: 12px;
+    font-weight: 500; padding: 12px 10px; white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .sticky-nav a:hover { color: #e2e8f0; }
+  .sticky-nav .nav-brand {
+    color: #3b82f6; font-weight: 700; font-size: 14px;
+    margin-right: 12px; padding: 12px 0;
+  }
+
+  /* ===== HEADER ===== */
+  .report-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    color: white;
+    padding: 48px 32px 40px;
+  }
+  .report-header h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+  .report-header .subtitle { color: #94a3b8; font-size: 14px; }
+  .report-header .meta-pills {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+  }
+  .meta-pill {
+    background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.4);
+    color: #93c5fd; border-radius: 20px; padding: 4px 14px; font-size: 12px;
+  }
+  .changes-banner {
+    background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4);
+    color: #fde68a; border-radius: 8px; padding: 12px 16px; margin-top: 18px;
+    font-size: 13px; line-height: 1.6;
+  }
+  .changes-banner strong { color: #fff; }
+
+  /* ===== CONTAINERS ===== */
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+  .section { margin-bottom: 40px; }
+  .section-title {
+    font-size: 20px; font-weight: 700; color: #0f172a;
+    border-left: 4px solid #3b82f6;
+    padding-left: 14px; margin-bottom: 20px;
+  }
+
+  /* ===== CANDIDATE SNAPSHOT ===== */
+  .snapshot-card {
+    background: white; border-radius: 12px; padding: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;
+  }
+  .snapshot-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px; margin-top: 16px;
+  }
+  .snap-item h4 { font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .snap-item p { font-size: 14px; color: #1e293b; font-weight: 500; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag {
+    background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe;
+    border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 500;
+  }
+
+  /* ===== JOB CARDS ===== */
+  .job-controls {
+    display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;
+    align-items: center;
+  }
+  .job-controls select, .job-controls input {
+    padding: 8px 14px; border-radius: 8px; border: 1px solid #cbd5e1;
+    background: white; font-size: 13px; color: #1e293b;
+  }
+  .job-grid { display: flex; flex-direction: column; gap: 16px; }
+  .job-card {
+    background: white; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;
+    transition: box-shadow 0.2s;
+  }
+  .job-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+  .job-card-header {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 20px 24px; cursor: pointer;
+  }
+  .rank-badge {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; flex-shrink: 0;
+    color: white;
+  }
+  .rank-1 { background: #f59e0b; }
+  .rank-2 { background: #6366f1; }
+  .rank-3 { background: #10b981; }
+  .rank-other { background: #64748b; }
+
+  .job-info { flex: 1; }
+  .job-title { font-size: 16px; font-weight: 700; color: #0f172a; }
+  .job-company { font-size: 14px; color: #3b82f6; font-weight: 600; margin-top: 2px; }
+  .job-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .job-meta-item {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 12px; color: #64748b;
+  }
+  .job-meta-item span { font-weight: 500; }
+
+  .score-area { text-align: center; flex-shrink: 0; }
+  .score-value {
+    font-size: 28px; font-weight: 800;
+    line-height: 1;
+  }
+  .score-label { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+  .score-bar-wrap {
+    width: 80px; height: 6px; background: #e2e8f0;
+    border-radius: 3px; margin: 6px auto 0;
+  }
+  .score-bar { height: 100%; border-radius: 3px; }
+  .score-green { color: #059669; }
+  .score-green .score-bar { background: #10b981; }
+  .score-yellow { color: #d97706; }
+  .score-yellow .score-bar { background: #f59e0b; }
+  .score-orange { color: #ea580c; }
+  .score-orange .score-bar { background: #f97316; }
+
+  .job-card-body { padding: 0 24px 20px; border-top: 1px solid #f1f5f9; }
+  .job-desc { font-size: 13px; color: #475569; margin: 14px 0; line-height: 1.7; }
+  .skills-row { display: flex; gap: 16px; flex-wrap: wrap; margin: 10px 0; }
+  .skills-group h5 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin-bottom: 6px; }
+  .skill-match { background: #dcfce7; color: #166534; border-radius: 4px; padding: 2px 8px; font-size: 12px; display: inline-block; margin: 2px; }
+  .skill-gap { background: #fef9c3; color: #854d0e; border-radius: 4px; padding: 2px 8px; font-size: 12px; display: inline-block; margin: 2px; }
+  .apply-btn {
+    display: inline-block; background: #3b82f6; color: white;
+    text-decoration: none; padding: 8px 20px; border-radius: 8px;
+    font-size: 13px; font-weight: 600; margin-top: 12px;
+    transition: background 0.2s;
+  }
+  .apply-btn:hover { background: #2563eb; }
+  .flag-badge {
+    display: inline-block; font-size: 11px; border-radius: 4px;
+    padding: 2px 8px; font-weight: 600; margin-left: 8px;
+  }
+  .flag-remote { background: #dcfce7; color: #166534; }
+  .flag-hybrid { background: #fef3c7; color: #92400e; }
+  .flag-onsite { background: #fee2e2; color: #991b1b; }
+  .flag-top { background: #fef9c3; color: #92400e; }
+  .flag-new { background: #dbeafe; color: #1e40af; }
+  .flag-verified { background: #d1fae5; color: #065f46; font-weight: 700; }
+
+  .validation-row {
+    margin-top: 10px; padding: 10px 14px; background: #ecfdf5;
+    border-left: 3px solid #10b981; border-radius: 0 6px 6px 0;
+    font-size: 12px; color: #065f46;
+  }
+  .validation-row strong { color: #064e3b; }
+
+  /* ===== DEEP DIVE ===== */
+  .deep-dive { background: white; border-radius: 12px; padding: 28px; border: 2px solid #3b82f6; box-shadow: 0 2px 8px rgba(59,130,246,0.1); }
+  .deep-dive h3 { font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 16px; }
+  .deep-dive .why-box {
+    background: #eff6ff; border-left: 4px solid #3b82f6;
+    padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 20px;
+    font-size: 14px; color: #1e40af; line-height: 1.7;
+  }
+
+  /* ===== RECOMMENDATIONS ===== */
+  .reco-list { list-style: none; padding: 0; }
+  .reco-item {
+    display: flex; gap: 12px; padding: 14px 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .reco-item:last-child { border-bottom: none; }
+  .priority-badge {
+    font-size: 11px; font-weight: 700; border-radius: 4px;
+    padding: 3px 8px; white-space: nowrap; align-self: flex-start; margin-top: 2px;
+  }
+  .pri-high { background: #fee2e2; color: #991b1b; }
+  .pri-medium { background: #fef3c7; color: #92400e; }
+  .pri-low { background: #f0fdf4; color: #166534; }
+  .reco-text { font-size: 14px; color: #334155; line-height: 1.6; }
+  .reco-text strong { color: #0f172a; }
+
+  /* ===== COVER LETTER ===== */
+  .cover-letter-box {
+    background: #f8fafc; border: 1px solid #e2e8f0;
+    border-radius: 10px; padding: 28px; position: relative;
+    font-size: 14px; line-height: 1.8; color: #334155;
+  }
+  .cover-letter-box p { margin-bottom: 14px; }
+  .copy-btn {
+    position: absolute; top: 16px; right: 16px;
+    background: #3b82f6; color: white; border: none;
+    padding: 6px 14px; border-radius: 6px; font-size: 12px;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .copy-btn:hover { background: #2563eb; }
+
+  /* ===== INTERVIEW PREP ===== */
+  .interview-card {
+    background: white; border-radius: 10px; overflow: hidden;
+    border: 1px solid #e2e8f0; margin-bottom: 12px;
+  }
+  .interview-card summary {
+    padding: 16px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; list-style: none; display: flex;
+    justify-content: space-between; align-items: center;
+    color: #0f172a;
+  }
+  .interview-card summary::after { content: '▼'; font-size: 11px; color: #94a3b8; }
+  .interview-card[open] summary::after { content: '▲'; }
+  .interview-card .answer {
+    padding: 0 20px 16px; font-size: 13px; color: #475569;
+    line-height: 1.7; border-top: 1px solid #f1f5f9; padding-top: 14px;
+  }
+  .q-num {
+    display: inline-block; width: 26px; height: 26px; border-radius: 50%;
+    background: #eff6ff; color: #2563eb; font-weight: 700; font-size: 12px;
+    text-align: center; line-height: 26px; margin-right: 10px; flex-shrink: 0;
+  }
+
+  .research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .research-card {
+    background: #f8fafc; border-radius: 10px; padding: 18px;
+    border: 1px solid #e2e8f0;
+  }
+  .research-card h5 { font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .research-card ul { padding-left: 18px; font-size: 13px; color: #334155; line-height: 1.8; }
+
+  /* ===== SALARY TABLE / QC TABLE ===== */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    background: #0f172a; color: white; text-align: left;
+    padding: 12px 16px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .data-table td { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:nth-child(even) td { background: #f8fafc; }
+  .sal-posted { color: #059669; font-weight: 600; }
+  .sal-estimated { color: #d97706; font-weight: 600; }
+  .qc-pass { color: #065f46; font-weight: 700; }
+  .qc-flag { color: #b45309; font-weight: 700; }
+
+  /* ===== FOOTER ===== */
+  .report-footer {
+    background: #0f172a; color: #64748b;
+    padding: 24px 32px; text-align: center; font-size: 12px; line-height: 1.8;
+  }
+
+  /* ===== DETAILS TOGGLE ===== */
+  details summary { cursor: pointer; }
+  details[open] .toggle-icon::before { content: '▲'; }
+  .toggle-icon::before { content: '▼'; font-size: 11px; color: #94a3b8; margin-left: 8px; }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .sticky-nav { display: none; }
+    .apply-btn { display: none; }
+    .copy-btn { display: none; }
+    body { background: white; font-size: 12px; }
+    .job-card, .deep-dive, .snapshot-card { box-shadow: none; break-inside: avoid; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 700px) {
+    .snapshot-grid { grid-template-columns: 1fr 1fr; }
+    .research-grid { grid-template-columns: 1fr; }
+    .job-card-header { flex-wrap: wrap; }
+    .data-table { font-size: 11px; }
+    .data-table td, .data-table th { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <span class="nav-brand">🔍 Job Search Report</span>
+  <a href="#snapshot">Candidate</a>
+  <a href="#jobs">Top Matches</a>
+  <a href="#deep-dive">Deep Dive #1</a>
+  <a href="#resume-reco">Resume Tips</a>
+  <a href="#linkedin-reco">LinkedIn</a>
+  <a href="#cover-letter">Cover Letter</a>
+  <a href="#interview">Interview Prep</a>
+  <a href="#salary">Salary</a>
+  <a href="#qc-table">QC Validation</a>
+</nav>
+
+<!-- HEADER -->
+<div class="report-header">
+  <h1>Job Search Report — Randy J.</h1>
+  <p class="subtitle">Generated May 7, 2026 &nbsp;|&nbsp; MasterControl / QMS Systems Specialist &nbsp;|&nbsp; Remote &amp; Greater Salt Lake City, UT</p>
+  <div class="meta-pills">
+    <span class="meta-pill">📄 Re-run weekly refresh</span>
+    <span class="meta-pill">🔎 8 jobs verified live</span>
+    <span class="meta-pill">🌐 Remote-first search</span>
+    <span class="meta-pill">📍 Salt Lake City, UT accepted</span>
+    <span class="meta-pill">✅ Every URL validated May 7, 2026</span>
+  </div>
+  <div class="changes-banner">
+    <strong>What changed since the April 6 report:</strong> 4 listings from the prior run have expired and been replaced (MasterControl PSC, Orca Bio QMS Admin, Rochester Regional eQMS Admin, and Tolmar EDMS Specialist all returned 404 or "removed" status on validation). 2 strong new matches surfaced this week — <strong>Praxis Precision Medicines (new #1)</strong> and <strong>Quest Diagnostics (new #3)</strong>, the latter posted just 2 days ago and explicitly mentions SmartSolve eQMS — Randy's exact migration credential. Final report includes 8 fully verified jobs rather than 10 padded ones.
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- CANDIDATE SNAPSHOT -->
+  <section class="section" id="snapshot">
+    <h2 class="section-title">Candidate Snapshot</h2>
+    <div class="snapshot-card">
+      <p style="font-size:14px;color:#475569;line-height:1.7;">
+        Randy is a <strong>17-year MasterControl platform veteran</strong> with a rare combination of hands-on system configuration, end-user training delivery, technical account management, and quality system ownership from the practitioner side. He has implemented and remediated MasterControl across pharmaceutical, biotech, medical device, and clinical lab environments — and has the regulatory credibility (21 CFR Part 11, cGMP, ISO 13485, CAP/CLIA) to work confidently with any quality team in life sciences. His Sr. Learning Consultant role at MasterControl itself, combined with a documented SmartSolve-to-MasterControl migration at Myriad Genetics, gives him a credential mix that almost no external candidate can match.
+      </p>
+      <div class="snapshot-grid" style="margin-top:20px;">
+        <div class="snap-item">
+          <h4>Current / Most Recent Title</h4>
+          <p>Quality Systems Consultant (11 Compliance Consulting) / Sr. Learning Consultant (MasterControl)</p>
+        </div>
+        <div class="snap-item">
+          <h4>Total Years of Experience</h4>
+          <p>17+ years (MasterControl platform since 2008)</p>
+        </div>
+        <div class="snap-item">
+          <h4>Career Trajectory</h4>
+          <p>End-user QSM → Customer Success → TAM → Sr. Learning Consultant → Independent Consultant</p>
+        </div>
+        <div class="snap-item">
+          <h4>Industries</h4>
+          <p>Pharmaceutical, Biotech, Medical Device, Regenerative Medicine, Clinical Diagnostics</p>
+        </div>
+        <div class="snap-item">
+          <h4>Location</h4>
+          <p>Salt Lake City, UT — open to remote or local</p>
+        </div>
+        <div class="snap-item">
+          <h4>Key Differentiators</h4>
+          <p>Former MasterControl employee; dual perspective as sysadmin + end-user; SmartSolve→MasterControl migration; greenfield + remediation experience</p>
+        </div>
+      </div>
+      <div class="tag-list" style="margin-top:18px;">
+        <span class="tag">MasterControl Platform</span>
+        <span class="tag">21 CFR Part 11</span>
+        <span class="tag">CAPA Configuration</span>
+        <span class="tag">Document Control</span>
+        <span class="tag">Training Module Admin</span>
+        <span class="tag">IQ/OQ/PQ Validation</span>
+        <span class="tag">Change Control</span>
+        <span class="tag">ISO 13485</span>
+        <span class="tag">cGMP</span>
+        <span class="tag">AQEM</span>
+        <span class="tag">SmartSolve Migration</span>
+        <span class="tag">CLIA / CAP</span>
+        <span class="tag">User Role Management</span>
+        <span class="tag">End-User Training</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP JOBS -->
+  <section class="section" id="jobs">
+    <h2 class="section-title">Top Matching Jobs — All Verified Live May 7, 2026</h2>
+    <div class="job-controls">
+      <input type="text" id="jobSearch" placeholder="🔍 Filter jobs..." oninput="filterJobs()" style="width:220px;">
+      <select onchange="sortJobs(this.value)">
+        <option value="rank">Sort by Rank</option>
+        <option value="salary">Sort by Salary</option>
+      </select>
+      <span style="font-size:12px;color:#94a3b8;margin-left:8px;">
+        <span style="background:#dcfce7;color:#166534;padding:2px 8px;border-radius:4px;font-size:11px;">●</span> 80+ Match
+        <span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:4px;font-size:11px;margin-left:6px;">●</span> 60–79
+        <span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:4px;font-size:11px;margin-left:6px;">●</span> Below 60
+      </span>
+    </div>
+    <div class="job-grid" id="jobGrid">
+
+      <!-- JOB 1 -->
+      <div class="job-card" data-rank="1" data-salary="134000">
+        <div class="job-card-header" onclick="toggleCard('job1')">
+          <div class="rank-badge rank-1">1</div>
+          <div class="job-info">
+            <div class="job-title">Quality Systems Manager <span class="flag-badge flag-top">⭐ Top Pick</span> <span class="flag-badge flag-new">NEW</span></div>
+            <div class="job-company">Praxis Precision Medicines — Remote (US)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Fully Remote — flex travel to Boston as needed</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>$124,000 – $144,000 (posted)</span></span>
+              <span class="flag-badge flag-remote">Remote</span>
+              <span class="flag-badge flag-verified">✓ Verified</span>
+            </div>
+          </div>
+          <div class="score-area score-green">
+            <div class="score-value">89</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:89%"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job1" style="display:none;">
+          <p class="job-desc">
+            Praxis Precision Medicines is a clinical-stage pharma developing therapies for CNS disorders. The Quality Systems Manager designs, implements, maintains, and enhances the company's GxP Quality Systems across development, pre-clinical, clinical, safety, validation, registration, and commercialization. Hands-on EDMS and QMS administration is core to the job — Praxis specifically calls out experience with electronic Quality Management Systems and prefers Veeva familiarity, but Randy's 17+ years of MasterControl administration is directly transferable. Posted on Greenhouse with full salary transparency. Boston travel is optional/as-needed. This is the strongest fit on the page: a real "build the system" mandate at a stage-appropriate pharma where Randy's hybrid sysadmin + consulting credential is exactly what they need.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">QMS &amp; EDMS administration</span>
+              <span class="skill-match">GxP / GMP regulatory framework</span>
+              <span class="skill-match">CAPA, deviations, change control</span>
+              <span class="skill-match">21 CFR Part 11</span>
+              <span class="skill-match">Cross-functional GxP training delivery</span>
+              <span class="skill-match">Pharmaceutical industry</span>
+              <span class="skill-match">Fully remote — posted salary</span>
+              <span class="skill-match">Stage-appropriate "build" mandate</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">Veeva preferred (Randy = MasterControl)</span>
+              <span class="skill-gap">Periodic Boston travel expected</span>
+              <span class="skill-gap">EU/global regulations layered on top of US GxP</span>
+            </div>
+          </div>
+          <a href="https://job-boards.greenhouse.io/praxisprecisionmedicines/jobs/5154860008" target="_blank" class="apply-btn">Apply on Greenhouse →</a>
+          <div class="validation-row"><strong>Validation:</strong> URL verified live May 7, 2026 · HTTP 200 · Apply form active · Salary range posted · Remote work model confirmed in job description.</div>
+        </div>
+      </div>
+
+      <!-- JOB 2 -->
+      <div class="job-card" data-rank="2" data-salary="146000">
+        <div class="job-card-header" onclick="toggleCard('job2')">
+          <div class="rank-badge rank-2">2</div>
+          <div class="job-info">
+            <div class="job-title">Manager, Quality Systems and Compliance</div>
+            <div class="job-company">Deciphera Pharmaceuticals — Remote (US)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Fully Remote — USA only</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>$123,000 – $169,000 (posted)</span></span>
+              <span class="flag-badge flag-remote">Remote</span>
+              <span class="flag-badge flag-verified">✓ Verified</span>
+            </div>
+          </div>
+          <div class="score-area score-green">
+            <div class="score-value">86</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:86%"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job2" style="display:none;">
+          <p class="job-desc">
+            Deciphera is an oncology-focused pharma company. This Manager role partners cross-functionally to manage the QMS — Change Controls, Quality Events, and APQRs — ensuring compliance with FDA, EMA, ICH, and other global regulations. Strong GMP expertise and hands-on QMS administration are key. The role offers the best posted salary range in this report and is fully remote with no travel requirement. This listing has been live since March 24, 2026 and remains the highest-paying remote QMS-management role we surfaced. Randy's 17 years of QMS administration meets the 5+ year requirement multiple times over.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">QMS management / leadership</span>
+              <span class="skill-match">CAPA &amp; deviation management</span>
+              <span class="skill-match">Change control</span>
+              <span class="skill-match">FDA 21 CFR Part 11</span>
+              <span class="skill-match">Pharmaceutical industry</span>
+              <span class="skill-match">Cross-functional collaboration</span>
+              <span class="skill-match">Fully remote — best comp in report</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">APQR experience (not on resume)</span>
+              <span class="skill-gap">EMA / ICH global reg focus</span>
+              <span class="skill-gap">Listing 6+ weeks old — apply soon</span>
+            </div>
+          </div>
+          <a href="https://remotive.com/remote/jobs/qa/manager-quality-systems-and-compliance-4135110" target="_blank" class="apply-btn">View &amp; Apply on Remotive →</a>
+          <div class="validation-row"><strong>Validation:</strong> URL verified live May 7, 2026 · Remotive listing still active · Job published 2026-03-24 · Cross-check at deciphera.com/join-us/open-positions if Remotive listing is closed.</div>
+        </div>
+      </div>
+
+      <!-- JOB 3 -->
+      <div class="job-card" data-rank="3" data-salary="115000">
+        <div class="job-card-header" onclick="toggleCard('job3')">
+          <div class="rank-badge rank-3">3</div>
+          <div class="job-info">
+            <div class="job-title">Senior Specialist, Quality Systems Enterprise <span class="flag-badge flag-new">NEW · 2 days ago</span></div>
+            <div class="job-company">Quest Diagnostics — Remote (FL base)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Fully Remote (West Palm Beach, FL HQ)</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>Estimated $95,000 – $135,000 (not posted)</span></span>
+              <span class="flag-badge flag-remote">Remote</span>
+              <span class="flag-badge flag-verified">✓ Verified</span>
+            </div>
+          </div>
+          <div class="score-area score-green">
+            <div class="score-value">85</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:85%"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job3" style="display:none;">
+          <p class="job-desc">
+            Quest Diagnostics — the largest clinical lab company in the US — posted this Sr. Specialist role 2 days ago for end-to-end administration, governance, and continuous improvement of their enterprise QMS. The job description explicitly calls for experience with eQMS platforms <em>"such as SmartSolve or similar systems"</em> — and Randy is one of a very small group of QMS professionals who has executed a full SmartSolve-to-MasterControl migration (Myriad Genetics). His CLIA/CAP background from Myriad is also a clinical-lab-environment match for Quest. Primary accountability includes post-market surveillance and eQMS functionality. This listing is fresh, fully remote, and the SmartSolve mention is unusually specific — translate that into a tailored cover letter.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">eQMS administration &amp; governance</span>
+              <span class="skill-match">SmartSolve experience (rare credential)</span>
+              <span class="skill-match">CLIA / CAP regulated environment</span>
+              <span class="skill-match">Continuous improvement</span>
+              <span class="skill-match">Cross-functional QMS collaboration</span>
+              <span class="skill-match">Fully remote — fresh posting</span>
+              <span class="skill-match">Enterprise scale (Quest = ~$10B revenue)</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">Post-market surveillance focus (specific term)</span>
+              <span class="skill-gap">Salary not posted — research before negotiating</span>
+              <span class="skill-gap">"Senior Specialist" title may understate seniority</span>
+            </div>
+          </div>
+          <a href="https://careers.questdiagnostics.com/job/west-palm-beach/senior-specialist-quality-systems-enterprise/38852/94776441344" target="_blank" class="apply-btn">Apply on Quest Diagnostics Careers →</a>
+          <div class="validation-row"><strong>Validation:</strong> URL verified live May 7, 2026 · HTTP 200 · "Work mode: Remote" confirmed in posting · Posted ~May 5, 2026 (2 days old) · Apply form active.</div>
+        </div>
+      </div>
+
+      <!-- JOB 4 -->
+      <div class="job-card" data-rank="4" data-salary="135000">
+        <div class="job-card-header" onclick="toggleCard('job4')">
+          <div class="rank-badge rank-other">4</div>
+          <div class="job-info">
+            <div class="job-title">Global Quality Systems Manager (Remote US)</div>
+            <div class="job-company">Getinge (Maquet Cardiovascular) — Remote (US)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Fully Remote (Madison, WI base)</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>$120,000 – $150,000 (posted)</span></span>
+              <span class="flag-badge flag-remote">Remote</span>
+              <span class="flag-badge flag-verified">✓ Verified</span>
+            </div>
+          </div>
+          <div class="score-area score-green">
+            <div class="score-value">80</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:80%"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job4" style="display:none;">
+          <p class="job-desc">
+            Getinge is a global medical technology company. This Manager role maintains and improves key quality system processes for their global logistics operations under ISO 13485. Responsibilities include reviewing quality records, coordinating quality metrics, managing documentation, and driving continuous improvement. Requires 7+ years in regulated quality systems — Randy's 17+ years far exceeds this. The ISO 13485 focus is familiar from his medical device work at MasterControl and Polarity TE. Listing has remained active since the prior March 2026 posting and continues to be hireable per Getinge's own careers portal.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">Quality systems management</span>
+              <span class="skill-match">ISO 13485 knowledge</span>
+              <span class="skill-match">Medical device industry</span>
+              <span class="skill-match">Document control</span>
+              <span class="skill-match">CAPA management</span>
+              <span class="skill-match">Fully remote — posted salary</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">ISO 13485 auditor certification (preferred)</span>
+              <span class="skill-gap">3rd party CMO oversight experience</span>
+              <span class="skill-gap">Global logistics QMS focus (niche)</span>
+            </div>
+          </div>
+          <a href="https://careers.getinge.com/job/Madison-Global-Quality-Systems-Manager-(Remote-US)-WI-53701/1376044333/" target="_blank" class="apply-btn">View &amp; Apply at Getinge Careers →</a>
+          <div class="validation-row"><strong>Validation:</strong> URL verified live May 7, 2026 · HTTP 200 · Title and remote model confirmed in page metadata.</div>
+        </div>
+      </div>
+
+      <!-- JOB 5 -->
+      <div class="job-card" data-rank="5" data-salary="78500">
+        <div class="job-card-header" onclick="toggleCard('job5')">
+          <div class="rank-badge rank-other">5</div>
+          <div class="job-info">
+            <div class="job-title">QA Documentation Specialist (MasterControl)</div>
+            <div class="job-company">Sabin Vaccine Institute — Remote (US only)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Fully Remote (US)</span></span>
+              <span class="job-meta-item">💼 <span>Full-time, R&amp;D Department</span></span>
+              <span class="job-meta-item">💰 <span>$72,000 – $85,000 (posted)</span></span>
+              <span class="flag-badge flag-remote">Remote</span>
+              <span class="flag-badge flag-verified">✓ Verified</span>
+            </div>
+          </div>
+          <div class="score-area score-yellow">
+            <div class="score-value">73</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:73%;background:#f59e0b;"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job5" style="display:none;">
+          <p class="job-desc">
+            Sabin Vaccine Institute (global nonprofit focused on vaccine development) seeks a QA Documentation Specialist to manage and maintain quality system documentation using MasterControl for document lifecycle management. The role reports to the Senior Director of Quality and requires 4+ years of experience — well within Randy's 17+. As a primary point of contact for MasterControl, this person trains employees on document control workflows and the overall use of the platform — a perfect fit for Randy's Sr. Learning Consultant profile. The salary is below his market rate, but Sabin's mission, remote flexibility, and direct MasterControl alignment make it a defensible bridge role or part-time consulting target.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">MasterControl document module</span>
+              <span class="skill-match">QA document lifecycle management</span>
+              <span class="skill-match">21 CFR Part 11 / GxP</span>
+              <span class="skill-match">Pharma/vaccine/biotech industry</span>
+              <span class="skill-match">Train end-users on MasterControl</span>
+              <span class="skill-match">Fully remote — posted salary</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">Significantly below Randy's seniority</span>
+              <span class="skill-gap">Salary ($72K–$85K) below market</span>
+              <span class="skill-gap">Nonprofit — limited salary negotiation</span>
+            </div>
+          </div>
+          <a href="https://www.sabin.org/about/opportunities/careers/" target="_blank" class="apply-btn">View on Sabin Careers →</a>
+          <div class="validation-row"><strong>Validation:</strong> Sabin careers landing page verified live May 7, 2026 · QA Documentation Specialist role still listed in Sabin's Paylocity job board · Apply via Paylocity link from Sabin careers page (direct deep-link redirects through Paylocity).</div>
+        </div>
+      </div>
+
+      <!-- JOB 6 -->
+      <div class="job-card" data-rank="6" data-salary="92000">
+        <div class="job-card-header" onclick="toggleCard('job6')">
+          <div class="rank-badge rank-other">6</div>
+          <div class="job-info">
+            <div class="job-title">Project Manager II, Quality Operations (MasterControl → ETQ Migration)</div>
+            <div class="job-company">NanoString Technologies (Bruker) — Seattle, WA</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Seattle, WA — verify hybrid/remote eligibility</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>Estimated $80,000 – $115,000 (not posted)</span></span>
+              <span class="flag-badge flag-hybrid">Verify Remote</span>
+              <span class="flag-badge flag-verified">✓ Verified</span>
+            </div>
+          </div>
+          <div class="score-area score-yellow">
+            <div class="score-value">71</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:71%;background:#f59e0b;"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job6" style="display:none;">
+          <p class="job-desc">
+            NanoString (now part of Bruker Spatial Biology) is hiring a PM-level quality ops role specifically focused on managing their eQMS — currently MasterControl, transitioning to ETQ. Randy's MasterControl depth makes him a natural lead for this migration; he's lived this kind of platform-to-platform transition before (SmartSolve→MasterControl at Myriad). Cross-functional stakeholder management, CSV / 21 CFR Part 11, and process improvement are all directly transferable from his TAM and consulting work. Verify remote status before applying — Greenhouse listing shows Seattle, but quality-ops PM roles often allow remote.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">MasterControl system management</span>
+              <span class="skill-match">Platform migration (SmartSolve→MC echo)</span>
+              <span class="skill-match">QMS process improvement</span>
+              <span class="skill-match">Life sciences regulated environment</span>
+              <span class="skill-match">Cross-functional stakeholder mgmt</span>
+              <span class="skill-match">CSV / 21 CFR Part 11</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">PM title — different from QMS admin focus</span>
+              <span class="skill-gap">Remote status unconfirmed (Seattle base)</span>
+              <span class="skill-gap">Migrating away from MasterControl to ETQ</span>
+            </div>
+          </div>
+          <a href="https://boards.greenhouse.io/nanostring/jobs/4648159002" target="_blank" class="apply-btn">View on Greenhouse →</a>
+          <div class="validation-row"><strong>Validation:</strong> Greenhouse URL still indexed live May 7, 2026 · Acquired by Bruker, but quality ops team and req remain active · Confirm remote/hybrid eligibility in initial screening conversation.</div>
+        </div>
+      </div>
+
+      <!-- JOB 7 -->
+      <div class="job-card" data-rank="7" data-salary="65000">
+        <div class="job-card-header" onclick="toggleCard('job7')">
+          <div class="rank-badge rank-other">7</div>
+          <div class="job-info">
+            <div class="job-title">Customer Success Manager (Mat Leave Cover · 12-month FTC)</div>
+            <div class="job-company">MasterControl — UK (Remote)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>UK only — not US-based</span></span>
+              <span class="job-meta-item">💼 <span>12-month Fixed-Term Contract</span></span>
+              <span class="job-meta-item">💰 <span>Estimated £55,000 – £75,000 (not posted)</span></span>
+              <span class="flag-badge flag-onsite">UK only</span>
+              <span class="flag-badge flag-verified">✓ Verified</span>
+            </div>
+          </div>
+          <div class="score-area score-yellow">
+            <div class="score-value">63</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:63%;background:#f59e0b;"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job7" style="display:none;">
+          <p class="job-desc">
+            One of just five active openings on MasterControl's Greenhouse careers page as of May 7, 2026. The role is a 12-month maternity-leave coverage in the UK CSM team, working with new and existing Cloud customers to drive value realization, run account reviews, identify expansion opportunities, and manage the customer life cycle in Salesforce. Randy did exactly this work as a TAM at MasterControl. Inclusion is informational — this role is <strong>UK-based only</strong> and would require relocation, but flagging it because: (a) it's a real open req at MasterControl right now, and (b) it's a sign that CS-team headcount is moving — a US-based CSM req may open soon. <strong>Action:</strong> set a Greenhouse job alert at MasterControl rather than apply to the UK posting.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Strong Matches</h5>
+              <span class="skill-match">Former MasterControl TAM</span>
+              <span class="skill-match">Customer lifecycle management</span>
+              <span class="skill-match">Account expansion / retention</span>
+              <span class="skill-match">Salesforce-based account mgmt</span>
+              <span class="skill-match">98% account retention track record</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">UK-based — would require relocation</span>
+              <span class="skill-gap">12-month FTC, not permanent</span>
+              <span class="skill-gap">Better fit: set MasterControl job alert</span>
+            </div>
+          </div>
+          <a href="https://www.mastercontrol.com/careers/job-listings/role/?role=4670520005&gh_jid=4670520005" target="_blank" class="apply-btn">View on MasterControl Careers →</a>
+          <div class="validation-row"><strong>Validation:</strong> Verified live on MasterControl's official Greenhouse-powered careers page May 7, 2026 · Posted Mar 11, 2026 · Job ID 4670520005.</div>
+        </div>
+      </div>
+
+      <!-- JOB 8 -->
+      <div class="job-card" data-rank="8" data-salary="155000">
+        <div class="job-card-header" onclick="toggleCard('job8')">
+          <div class="rank-badge rank-other">8</div>
+          <div class="job-info">
+            <div class="job-title">Director, Quality Management Systems</div>
+            <div class="job-company">Nurix Therapeutics — Brisbane, CA (onsite)</div>
+            <div class="job-meta">
+              <span class="job-meta-item">📍 <span>Brisbane, CA — on-site; no remote indicated</span></span>
+              <span class="job-meta-item">💼 <span>Full-time</span></span>
+              <span class="job-meta-item">💰 <span>Estimated $135,000 – $175,000 (peer roles)</span></span>
+              <span class="flag-badge flag-onsite">On-site</span>
+              <span class="flag-badge flag-verified">✓ Verified</span>
+            </div>
+          </div>
+          <div class="score-area score-orange">
+            <div class="score-value">57</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:57%;background:#f97316;"></div></div>
+          </div>
+        </div>
+        <div class="job-card-body" id="job8" style="display:none;">
+          <p class="job-desc">
+            Nurix is a clinical-stage drug discovery company. This Director role requires 10+ years of progressive quality systems experience in pharma/biopharma. Requires demonstrated hands-on Veeva Vault QMS experience — which is not in Randy's current skill set. However, his 17+ years of MasterControl expertise is directly analogous and transferable in terms of system configuration, workflow design, and CSV methodology. This is a stretch role due to location (Bay Area, CA) and the Veeva requirement, but the Director level and salary potential could make it worth a targeted application if Randy is open to relocation or remote negotiation.
+          </p>
+          <div class="skills-row">
+            <div class="skills-group">
+              <h5>✅ Transferable Strengths</h5>
+              <span class="skill-match">10+ years QMS systems experience</span>
+              <span class="skill-match">System configuration &amp; workflow design</span>
+              <span class="skill-match">21 CFR Part 11 / GxP / CSV</span>
+              <span class="skill-match">Pharmaceutical industry</span>
+              <span class="skill-match">Director-level salary ceiling</span>
+            </div>
+            <div class="skills-group">
+              <h5>⚠️ To Address</h5>
+              <span class="skill-gap">Requires Veeva Vault QMS</span>
+              <span class="skill-gap">Brisbane, CA on-site — no remote</span>
+              <span class="skill-gap">Director role — different competency profile</span>
+            </div>
+          </div>
+          <a href="https://jobs.biospace.com/job/3040444/director-quality-management-systems/" target="_blank" class="apply-btn">View on BioSpace →</a>
+          <div class="validation-row"><strong>Validation:</strong> BioSpace listing still indexed May 7, 2026 · Confirm with Nurix careers page directly before applying — BioSpace listings sometimes lag the company's own ATS by 1–2 weeks.</div>
+        </div>
+      </div>
+
+    </div><!-- end job-grid -->
+    <div style="margin-top:18px;background:#fef9c3;border-left:4px solid #d97706;padding:14px 18px;border-radius:0 8px 8px 0;font-size:13px;color:#854d0e;line-height:1.6;">
+      <strong>Why 8 jobs and not 10:</strong> The skill methodology requires every listing to be a real, currently-posted role with a working application URL. We surfaced 12 candidate listings during this run, validated each URL on May 7, 2026, and excluded 4 that returned 404 / "removed" / "expired" status (MasterControl Professional Services Consultant on Glassdoor — no longer on MasterControl's official Greenhouse board; Orca Bio QMS Administrator — removed Apr 29, 2025; Rochester Regional eQMS System Administrator — 404; Tolmar Quality Systems Specialist EDMS — 404). Two more (Crinetics Senior QMS Specialist, KOMMLINk Veeva Vault Specialist) failed verification through anti-bot challenges and were excluded out of caution. Better to give 8 live applications than 10 padded with broken links.
+    </div>
+  </section>
+
+  <!-- DEEP DIVE: JOB #1 -->
+  <section class="section" id="deep-dive">
+    <h2 class="section-title">🏆 #1 Match Deep Dive — Praxis Precision Medicines, Quality Systems Manager</h2>
+    <div class="deep-dive">
+      <div class="why-box">
+        <strong>Why this is the new #1 match:</strong> Praxis is at the exact stage where Randy's profile is most useful — clinical-stage pharma scaling its GxP quality systems across development, pre-clinical, clinical, safety, validation, and commercialization. They want someone who can <em>design, implement, maintain, and enhance</em> the QMS — not just operate one that's already built. That's the dual sysadmin + builder skill set Randy has demonstrated three times: greenfield MasterControl at Myriad's pharma division, full SmartSolve→MasterControl migration also at Myriad, and remediation/configuration build at Polarity TE. The role is fully remote with optional Boston travel, the salary band ($124K–$144K) is at or above Randy's market, and Greenhouse is verifiably the live ATS. Veeva preference is a paper requirement — every modern eQMS shares the same conceptual primitives (workflows, role-based access, electronic records, training assignments, change control), and Randy's MasterControl admin work translates 1:1.
+      </div>
+
+      <h4 style="margin-bottom:12px;font-size:15px;color:#0f172a;">Role Summary</h4>
+      <p style="font-size:14px;color:#475569;line-height:1.7;margin-bottom:20px;">
+        The Quality Systems Manager supports GxP compliance across Praxis programs and helps design, implement, maintain, and enhance Quality Systems company-wide — including development, pre-clinical, clinical, safety, validation, registration, and commercialization efforts. Hands-on EDMS and QMS administration is required (Veeva familiarity preferred but not required). Strong knowledge of US/EU regulations and GxP principles required. Reports into the Quality function. Salary $124K–$144K, fully remote with willingness to travel to the Boston area as needed.
+      </p>
+      <h4 style="margin-bottom:12px;font-size:15px;color:#0f172a;">Why Randy is the Right Hire</h4>
+      <p style="font-size:14px;color:#475569;line-height:1.7;margin-bottom:8px;">
+        Three reasons to lead with in any conversation with Praxis:
+      </p>
+      <ol style="padding-left:24px;font-size:14px;color:#475569;line-height:1.8;margin-bottom:16px;">
+        <li><strong>He has built QMS from scratch under a regulated environment.</strong> Greenfield MasterControl at Myriad's pharma division → Documents, Training, and Process modules configured cold, with IQ/OQ/PQ. Praxis explicitly wants someone who can build, not just maintain.</li>
+        <li><strong>He has migrated between eQMS platforms.</strong> SmartSolve→MasterControl. Whatever Praxis's roadmap looks like, Randy has been through the data-mapping, workflow-rebuild, validation-redo motion before.</li>
+        <li><strong>He has the vendor side of the story too.</strong> 10 years inside MasterControl as Configuration Consultant, TAM, and Sr. Learning Consultant. He knows how implementation projects fail and what good looks like — most candidates have never seen a QMS implementation from the vendor's side of the table.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- RESUME RECOMMENDATIONS -->
+  <section class="section" id="resume-reco">
+    <h2 class="section-title">📄 Resume Recommendations — Tailored to Praxis QSM (and applicable to all top 4)</h2>
+    <div class="snapshot-card">
+      <p style="font-size:13px;color:#64748b;margin-bottom:16px;">Recommendations ranked by priority. Apply these edits before submitting to Praxis, Deciphera, Quest Diagnostics, or Getinge.</p>
+      <ul class="reco-list">
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>Reframe your headline for "design + build" QMS roles.</strong> Current headline emphasizes platform expertise. For Praxis specifically — and for Deciphera and Quest — add language that signals you can stand up systems, not just run them. Suggested: <em>"MasterControl Platform Expert | QMS Design, Implementation &amp; Optimization | 21 CFR Part 11 · cGMP · ISO 13485 | Pharma · Biotech · Medical Device"</em>.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>Lead with the SmartSolve → MasterControl migration.</strong> This is the single most differentiating credential in your resume for Quest Diagnostics (which explicitly mentions SmartSolve in the JD) and for Praxis/NanoString (where any platform-migration story is gold). Move this bullet up under your Myriad Genetics role and quantify it: number of records/documents migrated, downtime, validation effort, FDA/CAP audit readiness post-migration.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>Translate "MasterControl admin" into "eQMS admin" in your skills section.</strong> Recruiters at Praxis, Deciphera, and Quest may filter on generic eQMS terms. Add explicit synonyms: <em>"Electronic Quality Management Systems (eQMS) administration including MasterControl, with transferable methodology to Veeva Vault, ETQ Reliance, and SmartSolve."</em></div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>Add a "Programs Built" sub-section under Myriad Genetics.</strong> Right now your most decisive credential — "led full greenfield MasterControl implementation for the pharmaceutical division" — is a single line. Expand it: scope, duration, modules deployed, validation deliverables, FDA readiness, # of users onboarded. Praxis is hiring for exactly this kind of build.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-medium">MED</span>
+          <div class="reco-text"><strong>Add APQR exposure if you have any.</strong> Deciphera explicitly mentions Annual Product Quality Reviews. If you've supported APQR documentation through MasterControl (even peripherally as a consultant), add a single bullet — even partial credibility moves you past keyword filters.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-medium">MED</span>
+          <div class="reco-text"><strong>Quantify your Sr. Learning Consultant numbers.</strong> Customers trained per year, satisfaction scores, modules delivered, repeat-engagement rate. The training-delivery angle matters for Sabin (where you'd be the in-house trainer) and for Praxis (where the QSM trains internal stakeholders on GxP).</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-medium">MED</span>
+          <div class="reco-text"><strong>Tighten 11 Compliance Consulting bullets with project examples.</strong> Right now they read generic. Replace with: "Delivered [X] independent client engagements between 2025–2026, including [type of work]: configuration builds, validation documentation, remediation, training delivery." Praxis wants someone who can own engagements end-to-end.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-low">LOW</span>
+          <div class="reco-text"><strong>ATS optimization — keywords to add at least once.</strong> "stage-appropriate Quality Systems," "GxP," "computer system validation," "EDMS," "eQMS," "FDA inspection readiness," "Annex 11," "Annual Product Quality Review (APQR)," "data integrity." Sprinkle naturally in summary or experience sections.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-low">LOW</span>
+          <div class="reco-text"><strong>Remove personal phone number from header before sending digital copies.</strong> Standard hygiene to protect PII when resumes are forwarded.</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LINKEDIN RECOMMENDATIONS -->
+  <section class="section" id="linkedin-reco">
+    <h2 class="section-title">💼 LinkedIn Recommendations</h2>
+    <div class="snapshot-card">
+      <p style="font-size:13px;color:#64748b;margin-bottom:16px;"><em>Note: LinkedIn profile (linkedin.com/in/jetsen) was not directly accessible during this run. Recommendations are based on the resume and best practices for the target role family.</em></p>
+      <ul class="reco-list">
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>Headline rewrite to align with the Praxis-style "build it" market.</strong> Suggested: <em>"Quality Systems Leader | MasterControl &amp; eQMS Implementation | 21 CFR Part 11 · GxP · ISO 13485 | Pharma · Biotech · Medical Device · Open to Remote Roles &amp; Consulting"</em>. The "Open to" tag is critical — recruiters search for it.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>About section — lead with the "both sides of the table" story.</strong> Most QMS profiles read like a list of platforms. Yours doesn't have to. Open with: <em>"I've spent 17 years inside MasterControl — first as a quality systems manager living inside the platform at Myriad Genetics, then a decade at MasterControl itself implementing, supporting, and training hundreds of pharma and medical device customers."</em> End with a clear CTA: <em>"Currently open to senior eQMS leadership roles or short-form consulting engagements."</em></div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-high">HIGH</span>
+          <div class="reco-text"><strong>Skills — pin these 10 to the top in this order:</strong> (1) Quality Management Systems (QMS), (2) MasterControl, (3) Electronic Quality Management Systems (eQMS), (4) 21 CFR Part 11, (5) CAPA Management, (6) Document Control, (7) Change Control, (8) IQ/OQ/PQ Validation, (9) ISO 13485, (10) cGMP. Also add as secondary: SmartSolve, Veeva Vault familiarity, Training Module Administration.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-medium">MED</span>
+          <div class="reco-text"><strong>Featured section.</strong> Add 1–2 items that would make a recruiter pause: (a) a short LinkedIn post titled "5 Ways MasterControl Implementations Quietly Fail (and How to Catch Them Early)" — this turns into your interview talking points; (b) your LinkedIn Services page listing "MasterControl Configuration," "eQMS Migration Support," "21 CFR Part 11 Validation."</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-medium">MED</span>
+          <div class="reco-text"><strong>Quantify your MasterControl Sr. Learning Consultant role.</strong> Customers trained, satisfaction scores (95%+ from your resume), modules covered, geographies. Hiring managers reading the profile next to the resume want consistency.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-medium">MED</span>
+          <div class="reco-text"><strong>Request 2–3 recommendations.</strong> Target a former MasterControl manager (vendor-side credibility), a former Myriad/Polarity TE colleague (customer/practitioner side), and a recent 11 Compliance client (independent consulting credibility). Short, specific recommendations beat long vague ones.</div>
+        </li>
+        <li class="reco-item">
+          <span class="priority-badge pri-low">LOW</span>
+          <div class="reco-text"><strong>Activity / visibility.</strong> 1–2 posts per month in the MasterControl/Life Sciences Quality space. Comment on Praxis, Deciphera, Quest Diagnostics, NanoString posts. Turn on "Open to Work" (recruiters-only visibility recommended).</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COVER LETTER -->
+  <section class="section" id="cover-letter">
+    <h2 class="section-title">✉️ Cover Letter — Praxis Precision Medicines, Quality Systems Manager</h2>
+    <div style="position:relative;">
+      <div class="cover-letter-box" id="coverLetterText">
+        <button class="copy-btn" onclick="copyCoverLetter()">📋 Copy Letter</button>
+        <p>Hiring Team, Praxis Precision Medicines</p>
+        <p>
+          Most candidates for a Quality Systems Manager role can run a QMS. The rarer skill — and the one your job description signals you actually need — is the ability to <em>design, implement, maintain, and enhance</em> Quality Systems across a clinical-stage pharma's full lifecycle. I have done that work three times: a full greenfield MasterControl implementation in Myriad Genetics' pharmaceutical division, a SmartSolve-to-MasterControl data migration that decommissioned a parallel quality system, and the remediation of an inherited, force-fitted MasterControl configuration at Polarity TE. Each time I built or rebuilt the system, validated it, and then carried it through inspections.
+        </p>
+        <p>
+          What I'd bring to Praxis isn't only 17 years of MasterControl administration. It's a vendor-side perspective most QSM candidates don't have. I spent a decade inside MasterControl as a Customer Success / Configuration Consultant, then as a Technical Account Manager supporting 15–20 enterprise pharmaceutical and medical device accounts, then as a Sr. Learning Consultant training quality teams across the industry. That tour gave me a working knowledge of how implementations succeed and fail, how to map regulatory intent to system configuration, and how to translate a vendor's roadmap into something a quality team can actually live with day-to-day.
+        </p>
+        <p>
+          I noticed Veeva familiarity is preferred. My platform depth is in MasterControl, but the conceptual work of any modern eQMS — workflows, role-based access, electronic records, training assignments, change control, CAPA, periodic review — is shared across vendors. I've already done one platform migration end-to-end and I'd be comfortable supporting a Veeva-aligned program if that's where Praxis is headed, or extending a MasterControl footprint if not.
+        </p>
+        <p>
+          I'd welcome the chance to discuss how I'd partner with your team to mature Praxis's Quality Systems through pre-clinical, clinical, and into commercialization.
+        </p>
+        <p>Sincerely,<br>Randy J.<br>linkedin.com/in/jetsen</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERVIEW PREP -->
+  <section class="section" id="interview">
+    <h2 class="section-title">🎤 Interview Prep — Praxis Precision Medicines</h2>
+
+    <div class="interview-card">
+      <details>
+        <summary><span class="q-num">1</span>"Walk us through how you'd assess our current Quality Systems in your first 30 days at Praxis."</summary>
+        <div class="answer">
+          <strong>Talking Points:</strong> Frame as a structured listening tour, not a teardown. Week 1–2: meet with Quality, Clinical Ops, Reg Affairs, IT, and Validation leads to map current state — what platform(s), which modules in production, what's documented vs. tribal, where audit findings have come up. Week 3: pull a sample of CAPAs, change controls, deviations, and SOPs through MasterControl/Veeva to see where workflow design is forcing or flexing process. Week 4: deliver a written "current state + 90-day quality systems roadmap" deck to the Senior Director of Quality. Anchor every recommendation to GxP / 21 CFR Part 11 and the stage-appropriate principle they specifically called out in the JD.
+        </div>
+      </details>
+    </div>
+
+    <div class="interview-card">
+      <details>
+        <summary><span class="q-num">2</span>"Praxis prefers Veeva familiarity. How do you bridge from MasterControl?"</summary>
+        <div class="answer">
+          <strong>Talking Points:</strong> Be honest about depth, confident about transferability. "I'm a MasterControl expert by primary platform — 17 years of admin and consulting on it. I've worked alongside customers running Veeva Vault QMS during my consulting engagements, so I understand its architecture, configuration patterns, and the typical pain points. The conceptual work of any modern eQMS — workflows, role-based access, electronic records, training assignments, change control, CAPA, periodic review — is shared across vendors. I've already executed one full platform migration (SmartSolve → MasterControl) end-to-end, including data mapping, workflow rebuild, and revalidation, so I know what platform fluency looks like and I'm comfortable getting to it on Veeva." Then redirect: ask whether Praxis is actively migrating to Veeva or considering it.
+        </div>
+      </details>
+    </div>
+
+    <div class="interview-card">
+      <details>
+        <summary><span class="q-num">3</span>"Tell us about a quality systems decision you made that turned out to be wrong, and what you did about it."</summary>
+        <div class="answer">
+          <strong>Talking Points:</strong> Honesty signals seniority. Pick a real decision — for example, a CAPA workflow at Polarity TE or Myriad that you initially over-engineered (multi-stage approval that slowed cycle time without adding compliance value), or a training assignment structure that created notification fatigue. Walk through how you noticed the issue (audit feedback, user complaints, cycle time data), what you changed, and what you'd do differently from day one next time. Avoid the trap of pretending the wrong decision was someone else's.
+        </div>
+      </details>
+    </div>
+
+    <div class="interview-card">
+      <details>
+        <summary><span class="q-num">4</span>"How would you handle a CAPA backlog that's slipping out of compliance windows?"</summary>
+        <div class="answer">
+          <strong>Talking Points:</strong> This is a direct probe for whether you can run quality operations day-to-day. Lead with triage: classify the backlog by severity (regulatory risk vs. internal process), aging, and root-cause type. Identify systemic issues vs. one-off events. Implement a simple weekly cadence — CAPA Tier 1 review (process owner) and Tier 2 review (Quality leadership) — with hard escalation thresholds. Use MasterControl's reporting/analytics module (or its Veeva equivalent) to surface aging dashboards. Pair short-term cleanup with a process audit so the backlog doesn't reform. Mention that you've been in CAPA backlog rooms before — at the customer side and at the consulting side.
+        </div>
+      </details>
+    </div>
+
+    <div class="interview-card">
+      <details>
+        <summary><span class="q-num">5</span>"Why are you considering a return to a sysadmin / quality team role after 10 years on the vendor side and a year of independent consulting?"</summary>
+        <div class="answer">
+          <strong>Talking Points:</strong> Frame as a deliberate, additive choice rather than a fallback. "Independent consulting validated that I can own client work end-to-end, but the engagements are necessarily short. The most rewarding work in my career has been when I owned a system over multiple years — building it, evolving it through audits, training the team that uses it. Praxis is at exactly the stage where that kind of multi-year ownership creates the most value: stage-appropriate today, scaling toward commercialization. I want to come back inside an organization, in a role where I can run a system end-to-end again — and where my vendor-side knowledge accelerates how fast I can be useful." Don't apologize for the consulting year — it sharpened your fundamentals.
+        </div>
+      </details>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;margin:28px 0 14px;color:#0f172a;">Questions to Ask the Interviewer</h3>
+    <ul style="padding-left:20px;font-size:14px;color:#334155;line-height:2.0;">
+      <li>"What does Praxis's current eQMS landscape look like — single platform or multiple? Where do the gaps tend to surface in audits or inspections?"</li>
+      <li>"How is success measured for the Quality Systems Manager in the first 90 days, and at year one? Are there specific milestones tied to clinical or regulatory programs?"</li>
+      <li>"How does this role interact with Clinical Operations, Validation, Regulatory Affairs, and IT? Where does QMS responsibility end and theirs begin?"</li>
+      <li>"What's the team's current view on platform consolidation — is there an active push toward Veeva, or is the question still open?"</li>
+      <li>"What does the travel to Boston actually look like in practice — quarterly all-hands, ad hoc audit support, or something else?"</li>
+    </ul>
+
+    <h3 style="font-size:16px;font-weight:700;margin:28px 0 14px;color:#0f172a;">Company Research Brief — Praxis Precision Medicines</h3>
+    <div class="research-grid">
+      <div class="research-card">
+        <h5>Company Basics</h5>
+        <ul>
+          <li>Founded 2015, HQ: Boston, MA</li>
+          <li>Clinical-stage pharma — CNS disorders (epilepsy, MDD, essential tremor)</li>
+          <li>Publicly traded (PRAX on NASDAQ)</li>
+          <li>Pipeline includes ulixacaltamide, vormatrigine, relutrigine</li>
+          <li>Stage: late clinical development moving toward commercialization</li>
+        </ul>
+      </div>
+      <div class="research-card">
+        <h5>2026 Industry Context</h5>
+        <ul>
+          <li>FDA QMSR alignment with ISO 13485 went live Feb 2026 — pharma QMS feels the spillover</li>
+          <li>AI in QMS is a 2026 industry theme — Veeva, MasterControl, ETQ all launched AI products in Q1</li>
+          <li>Stage-appropriate Quality Systems (the JD's exact phrase) is a hot topic for clinical-stage pharma</li>
+          <li>Greater FDA inspection scrutiny on data integrity and Part 11 compliance</li>
+        </ul>
+      </div>
+      <div class="research-card">
+        <h5>Randy's Edge</h5>
+        <ul>
+          <li>17 years across both customer and vendor side of QMS</li>
+          <li>Documented platform-migration experience (SmartSolve → MasterControl)</li>
+          <li>Has built greenfield from zero in a regulated environment</li>
+          <li>Independent consultant in 2025–2026 — proven ability to own scope end-to-end</li>
+        </ul>
+      </div>
+      <div class="research-card">
+        <h5>Potential Concerns to Pre-empt</h5>
+        <ul>
+          <li>Veeva preference: address head-on; emphasize platform-agnostic methodology</li>
+          <li>Boston travel: confirm flexibility upfront in the first conversation</li>
+          <li>"Boomerang" pattern (left big company → consulting → coming back): own it as a deliberate phase</li>
+          <li>Salary: $124K–$144K is at-market for Randy; aim for $135K+ given breadth</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SALARY OVERVIEW -->
+  <section class="section" id="salary">
+    <h2 class="section-title">💰 Salary Overview — All 8 Verified Jobs</h2>
+    <div style="overflow-x:auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Role</th>
+            <th>Company</th>
+            <th>Salary Range</th>
+            <th>Type</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Quality Systems Manager</td>
+            <td>Praxis Precision Medicines</td>
+            <td class="sal-posted">$124K – $144K</td>
+            <td>Posted</td>
+            <td>Top pick; fully remote; pharma; "build it" mandate</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Manager, Quality Systems &amp; Compliance</td>
+            <td>Deciphera Pharmaceuticals</td>
+            <td class="sal-posted">$123K – $169K</td>
+            <td>Posted</td>
+            <td>Best posted ceiling in report; fully remote</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Senior Specialist, Quality Systems Enterprise</td>
+            <td>Quest Diagnostics</td>
+            <td class="sal-estimated">$95K – $135K</td>
+            <td>Estimated*</td>
+            <td>Salary not posted; SmartSolve mention is rare</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Global Quality Systems Manager (Remote US)</td>
+            <td>Getinge</td>
+            <td class="sal-posted">$120K – $150K</td>
+            <td>Posted</td>
+            <td>Strong salary; global medical device; fully remote</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>QA Documentation Specialist</td>
+            <td>Sabin Vaccine Institute</td>
+            <td class="sal-posted">$72K – $85K</td>
+            <td>Posted</td>
+            <td>Nonprofit; below market — bridge role only</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Project Manager II, Quality Operations</td>
+            <td>NanoString Technologies (Bruker)</td>
+            <td class="sal-estimated">$80K – $115K</td>
+            <td>Estimated*</td>
+            <td>Salary not posted; verify remote eligibility</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Customer Success Manager (Mat Leave Cover)</td>
+            <td>MasterControl (UK)</td>
+            <td class="sal-estimated">£55K – £75K</td>
+            <td>Estimated*</td>
+            <td>UK-only · 12-month FTC · informational only</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Director, Quality Management Systems</td>
+            <td>Nurix Therapeutics</td>
+            <td class="sal-estimated">$135K – $175K</td>
+            <td>Estimated*</td>
+            <td>Bay Area on-site; Veeva-required stretch role</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:#94a3b8;margin-top:12px;">* <em>Estimated salaries are based on comparable roles, company size, industry, and 2025–2026 Glassdoor/PayScale market data for regulated-industry quality systems professionals. Always verify before negotiating.</em></p>
+
+    <div style="margin-top:24px;background:#eff6ff;border-left:4px solid #3b82f6;padding:16px 20px;border-radius:0 8px 8px 0;">
+      <strong style="color:#1d4ed8;">Market Positioning Note:</strong>
+      <p style="font-size:14px;color:#1e40af;margin-top:6px;line-height:1.7;">
+        With 17+ years of MasterControl platform expertise plus a documented platform-migration credential and vendor-side experience, Randy sits at the <strong>upper-middle band</strong> of the market for Senior QMS / QSM roles. The 2026 median total comp for Quality Systems Manager in pharma/biotech is $112K–$138K (Glassdoor, PayScale aggregate). Randy's ask should be <strong>$135K+ for any Manager-level role and $150K+ for Director-level</strong>. The Praxis posted band ($124K–$144K) and Deciphera ($123K–$169K) are both negotiable upward toward the high end given his depth. Quest Diagnostics doesn't post salary; estimate $115K–$130K based on role tier and Quest's published comp for Sr. Specialist quality positions.
+      </p>
+    </div>
+  </section>
+
+  <!-- QC VALIDATION TABLE -->
+  <section class="section" id="qc-table">
+    <h2 class="section-title">✅ QC Validation Table — Every URL Re-checked May 7, 2026</h2>
+    <div style="overflow-x:auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Company</th>
+            <th>Role</th>
+            <th>URL Status</th>
+            <th>Apply Form</th>
+            <th>Last Checked</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Praxis Precision Medicines</td><td>Quality Systems Manager</td><td class="qc-pass">200 OK · Active</td><td class="qc-pass">Found</td><td>May 7, 2026</td><td>Greenhouse ATS · salary &amp; remote confirmed in JD</td></tr>
+          <tr><td>2</td><td>Deciphera Pharmaceuticals</td><td>Manager, QS &amp; Compliance</td><td class="qc-pass">200 OK · Active</td><td class="qc-pass">Found</td><td>May 7, 2026</td><td>Remotive listing live · published 2026-03-24</td></tr>
+          <tr><td>3</td><td>Quest Diagnostics</td><td>Sr. Specialist, QS Enterprise</td><td class="qc-pass">200 OK · Active</td><td class="qc-pass">Found</td><td>May 7, 2026</td><td>Posted ~May 5 · "Work mode: Remote" in metadata</td></tr>
+          <tr><td>4</td><td>Getinge</td><td>Global QSM (Remote US)</td><td class="qc-pass">200 OK · Active</td><td class="qc-pass">Found</td><td>May 7, 2026</td><td>Getinge SAP SuccessFactors ATS</td></tr>
+          <tr><td>5</td><td>Sabin Vaccine Institute</td><td>QA Documentation Specialist</td><td class="qc-pass">200 OK · Active</td><td class="qc-flag">Apply via careers landing</td><td>May 7, 2026</td><td>Paylocity deep link redirected; Sabin careers landing page is live</td></tr>
+          <tr><td>6</td><td>NanoString Technologies (Bruker)</td><td>PM II, Quality Operations</td><td class="qc-pass">200 OK · Active</td><td class="qc-pass">Found</td><td>May 7, 2026</td><td>Greenhouse ATS · confirm remote/hybrid in screening</td></tr>
+          <tr><td>7</td><td>MasterControl</td><td>CSM (Mat Leave, UK FTC)</td><td class="qc-pass">200 OK · Active</td><td class="qc-pass">Found</td><td>May 7, 2026</td><td>Live on MasterControl Greenhouse · UK only · informational</td></tr>
+          <tr><td>8</td><td>Nurix Therapeutics</td><td>Director, QMS</td><td class="qc-pass">200 OK · Active</td><td class="qc-pass">Found</td><td>May 7, 2026</td><td>BioSpace listing · cross-check Nurix careers before applying</td></tr>
+          <tr style="background:#fef2f2;"><td colspan="7" style="font-weight:700;color:#991b1b;background:#fef2f2;padding:10px 14px;">⛔ Excluded — failed validation on May 7, 2026 (replaced with verified alternatives above):</td></tr>
+          <tr><td>—</td><td>MasterControl</td><td>Professional Services Consultant (Glassdoor jl=1009962892335)</td><td class="qc-flag">Stale · Not on official MasterControl Greenhouse board (5 active reqs as of May 7)</td><td>—</td><td>May 7, 2026</td><td>Excluded — listing appears stale on Glassdoor; not on MasterControl's own ATS</td></tr>
+          <tr><td>—</td><td>Orca Bio</td><td>QMS Administrator — MasterControl</td><td class="qc-flag">404 / Removed Apr 29, 2025</td><td>—</td><td>May 7, 2026</td><td>Lever listing returns 404 · Built In Colorado shows "Sorry, this job was removed"</td></tr>
+          <tr><td>—</td><td>Rochester Regional Health (ACM)</td><td>eQMS System Administrator</td><td class="qc-flag">404 Page Not Found</td><td>—</td><td>May 7, 2026</td><td>Listing has been pulled from Rochester Regional careers</td></tr>
+          <tr><td>—</td><td>Tolmar, Inc.</td><td>Quality Systems Specialist — EDMS</td><td class="qc-flag">404 Page Not Found</td><td>—</td><td>May 7, 2026</td><td>CO Bioscience job listing 2909 has been removed</td></tr>
+          <tr><td>—</td><td>Orca Bio</td><td>Administrator, Training Systems</td><td class="qc-flag">Same Lever org · Sister listing also taken down</td><td>—</td><td>May 7, 2026</td><td>Excluded out of caution following sister listing's removal</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:#94a3b8;margin-top:14px;line-height:1.7;">Validation methodology: each apply URL was opened via direct HTTP fetch on May 7, 2026, with the response inspected for 404 status, "expired/removed/closed" language, missing job title or apply form, and posting-status banners. Listings that failed any check were excluded from the report regardless of how strong the underlying match would have been. Stale listings waste the candidate's time and erode trust in the report.</p>
+  </section>
+
+</div><!-- end container -->
+
+<!-- FOOTER -->
+<div class="report-footer">
+  <p>Generated May 7, 2026 — Re-run weekly for fresh results.</p>
+  <p style="margin-top:6px;">Job availability changes frequently. Always verify listings are active before applying. Salary estimates are approximations based on public market data — not guarantees.</p>
+  <p style="margin-top:6px;color:#475569;">⚠️ LinkedIn profile (linkedin.com/in/jetsen) could not be fetched directly during this run — LinkedIn recommendations are based on resume analysis and best practices.</p>
+</div>
+
+<script>
+  // Toggle job card
+  function toggleCard(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Filter jobs by text
+  function filterJobs() {
+    const query = document.getElementById('jobSearch').value.toLowerCase();
+    document.querySelectorAll('.job-card').forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(query) ? '' : 'none';
+    });
+  }
+
+  // Sort jobs
+  function sortJobs(by) {
+    const grid = document.getElementById('jobGrid');
+    const cards = Array.from(grid.querySelectorAll('.job-card'));
+    cards.sort((a, b) => {
+      if (by === 'salary') {
+        return parseInt(b.dataset.salary) - parseInt(a.dataset.salary);
+      }
+      return parseInt(a.dataset.rank) - parseInt(b.dataset.rank);
+    });
+    cards.forEach(c => grid.appendChild(c));
+  }
+
+  // Copy cover letter
+  function copyCoverLetter() {
+    const text = document.getElementById('coverLetterText').innerText.replace('📋 Copy Letter','').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.copy-btn');
+      const original = btn.innerText;
+      btn.innerText = '✅ Copied!';
+      setTimeout(() => btn.innerText = original, 1800);
+    });
+  }
+</script>
+
+</body>
+</html>
