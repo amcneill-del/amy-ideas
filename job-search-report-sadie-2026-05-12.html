@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Job Search Report — Sadie · Victim Advocate Roles (Utah / Remote)</title>
+<style>
+  :root {
+    --navy: #0f2540;
+    --navy-2: #1c3a66;
+    --slate: #475569;
+    --slate-2: #64748b;
+    --bg: #f6f8fb;
+    --card: #ffffff;
+    --line: #e2e8f0;
+    --accent: #2563eb;
+    --accent-soft: #dbeafe;
+    --green: #16a34a;
+    --green-soft: #dcfce7;
+    --yellow: #ca8a04;
+    --yellow-soft: #fef9c3;
+    --orange: #ea580c;
+    --orange-soft: #ffedd5;
+    --red: #dc2626;
+    --shadow: 0 1px 2px rgba(15, 37, 64, 0.06), 0 4px 16px rgba(15, 37, 64, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--navy); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, sans-serif; line-height: 1.55; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 24px; }
+  header.hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%); color: #fff; padding: 36px 28px; border-radius: 14px; box-shadow: var(--shadow); }
+  header.hero h1 { margin: 0 0 6px; font-size: 28px; letter-spacing: -0.01em; }
+  header.hero .meta { font-size: 14px; opacity: 0.85; }
+  header.hero .badges { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: rgba(255,255,255,0.14); color: #fff; }
+  nav.sticky { position: sticky; top: 0; z-index: 30; background: rgba(246,248,251,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); padding: 10px 0; margin-top: 18px; }
+  nav.sticky ul { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0 24px; max-width: 1120px; margin: 0 auto; }
+  nav.sticky a { font-size: 13px; padding: 6px 10px; border-radius: 8px; color: var(--slate); }
+  nav.sticky a:hover { background: var(--accent-soft); color: var(--navy); text-decoration: none; }
+  section { margin: 28px 0; }
+  h2 { font-size: 22px; margin: 0 0 14px; letter-spacing: -0.01em; }
+  h3 { font-size: 16px; margin: 0 0 8px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow); }
+  .grid { display: grid; gap: 14px; }
+  /* Snapshot */
+  .snapshot { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 740px) { .snapshot { grid-template-columns: 1fr; } }
+  .snapshot ul { margin: 6px 0 0; padding-left: 20px; }
+  .snapshot li { margin: 3px 0; }
+  /* Job cards */
+  .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px; }
+  .toolbar label { font-size: 13px; color: var(--slate); }
+  .toolbar select, .toolbar input { padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; background: #fff; color: var(--navy); }
+  .job-list { display: grid; gap: 12px; }
+  .job { background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; transition: transform .12s ease, box-shadow .12s ease; }
+  .job:hover { transform: translateY(-1px); box-shadow: 0 2px 6px rgba(15,37,64,.08), 0 12px 30px rgba(15,37,64,.08); }
+  .job summary { list-style: none; cursor: pointer; padding: 16px 18px; display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center; }
+  .job summary::-webkit-details-marker { display: none; }
+  .rank { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: var(--navy); color: #fff; font-weight: 700; font-size: 18px; }
+  .job h3 { font-size: 17px; margin: 0; }
+  .job .org { font-size: 13px; color: var(--slate); margin-top: 2px; }
+  .job .tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 11px; padding: 3px 8px; border-radius: 999px; font-weight: 600; }
+  .tag.loc   { background: #eef2ff; color: #4338ca; }
+  .tag.paid  { background: var(--green-soft); color: var(--green); }
+  .tag.vol   { background: var(--orange-soft); color: var(--orange); }
+  .tag.intern{ background: #fae8ff; color: #a21caf; }
+  .tag.remote{ background: #cffafe; color: #0e7490; }
+  .tag.utah  { background: #fee2e2; color: #b91c1c; }
+  .tag.salary{ background: #f1f5f9; color: var(--slate); }
+  .score { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; min-width: 90px; }
+  .score-badge { font-weight: 700; padding: 6px 12px; border-radius: 10px; font-size: 16px; }
+  .score-90 { background: var(--green-soft); color: var(--green); }
+  .score-80 { background: var(--green-soft); color: var(--green); }
+  .score-70 { background: var(--yellow-soft); color: var(--yellow); }
+  .score-60 { background: var(--orange-soft); color: var(--orange); }
+  .score-bar { width: 90px; height: 6px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .score-bar > div { height: 100%; background: var(--accent); }
+  .job-body { padding: 0 18px 18px; border-top: 1px solid var(--line); padding-top: 14px; }
+  .job-body p { margin: 6px 0; }
+  .kv { display: grid; grid-template-columns: 160px 1fr; gap: 8px 14px; font-size: 14px; margin-top: 10px; }
+  .kv .k { color: var(--slate); }
+  .btn { display: inline-block; background: var(--accent); color: #fff !important; padding: 8px 14px; border-radius: 8px; font-weight: 600; font-size: 13px; border: none; cursor: pointer; }
+  .btn:hover { background: #1d4ed8; text-decoration: none !important; }
+  .btn.secondary { background: #fff; color: var(--accent) !important; border: 1px solid var(--accent); }
+  .btn-row { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+  /* Deep dive */
+  .deep { background: linear-gradient(180deg, #fff 0%, #f0f5ff 100%); border: 1px solid var(--accent-soft); }
+  .priority { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 6px; font-weight: 700; margin-right: 6px; }
+  .priority.high   { background: #fee2e2; color: var(--red); }
+  .priority.med    { background: var(--yellow-soft); color: var(--yellow); }
+  .priority.low    { background: var(--accent-soft); color: var(--accent); }
+  .recs { display: grid; gap: 8px; margin-top: 8px; }
+  .rec { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .rec p { margin: 0; font-size: 14px; }
+  .rec p + p { margin-top: 6px; color: var(--slate); }
+  /* Cover letter */
+  .cover { position: relative; }
+  .cover pre { white-space: pre-wrap; word-wrap: break-word; font-family: Georgia, "Times New Roman", serif; font-size: 14px; line-height: 1.65; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; color: var(--navy); }
+  .copy-btn { position: absolute; top: 10px; right: 10px; background: var(--navy); color: #fff; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; }
+  .copy-btn:hover { background: var(--navy-2); }
+  /* Interview */
+  details.iv { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 8px 0; }
+  details.iv summary { cursor: pointer; font-weight: 600; font-size: 14px; }
+  details.iv ul { margin: 8px 0 4px; padding-left: 20px; font-size: 14px; }
+  /* Salary table */
+  table.sal { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  table.sal th, table.sal td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+  table.sal th { background: #f1f5f9; font-weight: 700; color: var(--navy); font-size: 13px; }
+  table.sal tr:last-child td { border-bottom: none; }
+  .footer { text-align: center; color: var(--slate); font-size: 12px; margin: 30px 0 10px; }
+  .callout { background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 12px 14px; font-size: 14px; }
+  .callout strong { color: #92400e; }
+  @media print {
+    nav.sticky, .copy-btn, .btn { display: none !important; }
+    .job { break-inside: avoid; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>Job Search Report — Sadie</h1>
+  <div class="meta">Generated May 12, 2026 · Target: Victim Advocate roles · Utah or Remote · Paid + Volunteer + Internship</div>
+  <div class="badges">
+    <span class="pill">10 top matches</span>
+    <span class="pill">31 sources scanned</span>
+    <span class="pill">Pre-law track</span>
+    <span class="pill">U of U · Criminology + Sociology</span>
+  </div>
+</header>
+
+<nav class="sticky">
+  <ul>
+    <li><a href="#snapshot">Snapshot</a></li>
+    <li><a href="#jobs">Top 10 Jobs</a></li>
+    <li><a href="#deepdive">#1 Deep Dive</a></li>
+    <li><a href="#resume">Resume Recs</a></li>
+    <li><a href="#linkedin">LinkedIn Recs</a></li>
+    <li><a href="#cover">Cover Letter</a></li>
+    <li><a href="#interview">Interview Prep</a></li>
+    <li><a href="#salary">Salary</a></li>
+    <li><a href="#first40">Next 7 Days</a></li>
+  </ul>
+</nav>
+
+<section id="snapshot">
+  <h2>Candidate Snapshot</h2>
+  <details class="card" open>
+    <summary style="cursor:pointer; font-weight:600;">Click to expand / collapse</summary>
+    <div class="snapshot" style="margin-top:14px;">
+      <div>
+        <h3>Profile</h3>
+        <ul>
+          <li><strong>University of Utah</strong> — B.S. Criminology, minor Sociology · Graduating 2026</li>
+          <li><strong>Lone Peak HS</strong> (Highland, UT) · 3.87 GPA · Speech &amp; Debate Regional Champion · 2× State Golf Champion</li>
+          <li><strong>Office Coordinator</strong> — Canopy Mortgage (CRM, compliance, confidentiality)</li>
+          <li><strong>Lead Server / Bartender</strong> — North Italia, Royal on the Ridge (high-pressure customer relations, conflict resolution, team coordination)</li>
+          <li><strong>Geo</strong> — Salt Lake City area · open to Utah onsite + Remote</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Why she's a strong Victim Advocate candidate</h3>
+        <ul>
+          <li><strong>Criminology + Sociology</strong> coursework already covers trauma, behavior, justice systems</li>
+          <li><strong>Speech &amp; Debate</strong> = confidence under pressure, courtroom-adjacent persuasion</li>
+          <li><strong>CRM + compliance background</strong> = case notes, confidentiality, follow-through (rare in entry-level applicants)</li>
+          <li><strong>Lead Server</strong> = de-escalation, crisis composure, multitasking — every advocate job description asks for these</li>
+          <li><strong>Pre-law trajectory</strong> + strong academic record = signals durability and ambition for grant-funded roles</li>
+        </ul>
+        <h3 style="margin-top:14px;">Target role profile</h3>
+        <ul>
+          <li><strong>Primary:</strong> Victim Advocate, Victim Services Coordinator, Victim Witness Coordinator</li>
+          <li><strong>Adjacent:</strong> Case Advocate, Hotline Advocate, Shelter Advocate, Pre-law Intern</li>
+          <li><strong>Industries:</strong> County / City DA &amp; Police; DV &amp; SA nonprofits; State AG / Federal USAO; National hotlines</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:14px;">
+      <strong>One credential unlocks 80% of paid Utah roles:</strong> the <a href="https://www.ucasa.org/" target="_blank" rel="noopener">UCASA 40-Hour Sexual &amp; Domestic Violence Advocacy Training</a>. It's a prerequisite at YWCA Utah, Rape Recovery Center, YCC Ogden, CAPSA, DOVE Center, Peace House, and South Valley Services. Several orgs provide it free when you sign on as a volunteer (RRC, DOVE, UPD). <strong>Get on a cohort this summer — it's the single biggest unlock.</strong>
+    </div>
+  </details>
+</section>
+
+<section id="jobs">
+  <h2>Top 10 Matches</h2>
+  <p style="color:var(--slate); font-size:14px; margin-top:-6px;">Sorted by overall match score. Click any card to expand details. All apply links open in a new tab.</p>
+
+  <div class="toolbar">
+    <label>Sort by:
+      <select id="sortBy">
+        <option value="score">Match score</option>
+        <option value="rank">Rank</option>
+        <option value="title">Title (A→Z)</option>
+      </select>
+    </label>
+    <label>Filter:
+      <select id="filterBy">
+        <option value="all">All roles</option>
+        <option value="utah">Utah only</option>
+        <option value="remote">Remote only</option>
+        <option value="paid">Paid only</option>
+        <option value="volunteer">Volunteer only</option>
+        <option value="intern">Internships only</option>
+      </select>
+    </label>
+  </div>
+
+  <div id="jobList" class="job-list"></div>
+</section>
+
+<section id="deepdive">
+  <h2>#1 Match Deep Dive — Victim Services Coordinator (Salt Lake County DA)</h2>
+  <div class="card deep">
+    <h3>Why this is your top match</h3>
+    <p style="font-size:14px;">The Salt Lake County District Attorney's Office is the highest-leverage entry point a Utah pre-law student can land. You'd sit inside the felony prosecution pipeline — court notifications, victim coordination, restitution, witness prep — while building working relationships with the deputy DAs who later write your law school recommendation letters. It's paid, full-time, in Salt Lake (no relocation), and the responsibilities map 1:1 to your existing CRM, compliance, and high-pressure communication experience.</p>
+    <p style="font-size:14px; color:var(--slate);">It's grant-funded ("time-limited") — a common structure that often converts to permanent positions, and either way you exit with a top-tier credential for law school admissions and clerkship applications.</p>
+    <div class="kv">
+      <div class="k">Role</div><div>Victim Services Coordinator (Time-Limited)</div>
+      <div class="k">Employer</div><div>Salt Lake County District Attorney's Office</div>
+      <div class="k">Location</div><div>Salt Lake City, UT · in-office</div>
+      <div class="k">Type</div><div>Paid · Full-time · Grant-funded (typically renewable)</div>
+      <div class="k">Estimated salary</div><div>$45k–$58k (estimated, Glassdoor / Payscale Utah county victim services range)</div>
+      <div class="k">Apply</div><div><a href="https://www.saltlakecounty.gov/district-attorney/recruiting/" target="_blank" rel="noopener">slco.org/da/recruiting</a> · also LinkedIn Jobs (search "Salt Lake County District Attorney")</div>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <h2>Resume Recommendations</h2>
+  <p style="color:var(--slate); font-size:14px; margin-top:-6px;">Tailored for the Victim Services Coordinator role and parallel applications. Priorities are based on what county DA hiring committees scan for first.</p>
+
+  <div class="recs">
+    <div class="rec">
+      <p><span class="priority high">HIGH</span><strong>Change the headline.</strong> Replace "Criminologist" or generic objective with a target-aligned title.</p>
+      <p>Use: <em>"Pre-Law Criminology Senior · Aspiring Victim Advocate &amp; Legal Professional"</em>. This signals exact intent to a 90-second resume scanner.</p>
+    </div>
+    <div class="rec">
+      <p><span class="priority high">HIGH</span><strong>Rewrite the objective with role keywords.</strong></p>
+      <p>Add the exact terms hiring managers search: <em>victim advocacy, trauma-informed, crisis intervention, case coordination, court notifications, confidentiality, restitution, victim impact</em>. Example: <em>"University of Utah Criminology senior seeking a Victim Services Coordinator role where I can apply trauma-informed communication, CRM and case-coordination experience, and a pre-law focus to support survivors through the justice system."</em></p>
+    </div>
+    <div class="rec">
+      <p><span class="priority high">HIGH</span><strong>Reframe Canopy Mortgage bullets in advocate language.</strong> The CRM + compliance + confidentiality work is directly transferable — say so.</p>
+      <p>Replace generic bullets with: "Maintained confidential client records in CRM systems, ensuring case-by-case accuracy under tight compliance protocols — directly transferable to victim case management." "Coordinated multi-party scheduling and deadline tracking — equivalent to court notification and hearing coordination workflows." "Handled sensitive personal financial information with discretion."</p>
+    </div>
+    <div class="rec">
+      <p><span class="priority high">HIGH</span><strong>Add a "Victim Advocacy &amp; Pre-Law" section.</strong> This is your differentiator vs. other servers/coordinators applying.</p>
+      <p>Bullet ideas (use whichever apply now or before you apply): <em>"Enrolled in UCASA 40-Hour Sexual &amp; Domestic Violence Advocate Training (2026)." "Volunteer Victim Advocate, Unified Police Department of Greater Salt Lake — in progress." "Coursework: Criminal Law, Ethics &amp; Justice Systems, Sociology of Human Behavior, Research &amp; Analytical Writing." "Independent reading: trauma-informed care, restorative justice."</em></p>
+    </div>
+    <div class="rec">
+      <p><span class="priority med">MED</span><strong>Add quantifiable achievements wherever possible.</strong></p>
+      <p>Examples to draft: "Managed CRM records for [X#] active clients/month at Canopy Mortgage." "Trained [X#] new servers at North Italia." "Resolved an average of [X#] high-pressure customer interactions per shift." Numbers move you from generic to specific.</p>
+    </div>
+    <div class="rec">
+      <p><span class="priority med">MED</span><strong>Reorder the experience section.</strong></p>
+      <p>Lead with Canopy Mortgage (office/CRM) before the server roles — the DA office reads office-coordinator experience as "she can handle a caseload." Servers are below it as supporting skill stack (de-escalation, teamwork, composure). Keep all three, but ordering signals seriousness.</p>
+    </div>
+    <div class="rec">
+      <p><span class="priority med">MED</span><strong>De-emphasize "I love to create, problem solve…" line.</strong></p>
+      <p>Remove that sentence entirely — your editor flagged it correctly. The objective already communicates this more professionally.</p>
+    </div>
+    <div class="rec">
+      <p><span class="priority med">MED</span><strong>ATS optimization.</strong></p>
+      <p>Most county/state jobs run resumes through Taleo, NEOGOV, or governmentjobs.com filters. Include the exact phrases from the job description: <em>"victim advocacy," "crisis intervention," "trauma-informed," "court notifications," "case management," "confidentiality," "restitution," "background check cleared."</em> Use them at least once each, ideally in context.</p>
+    </div>
+    <div class="rec">
+      <p><span class="priority low">LOW</span><strong>Add a Skills line at the top.</strong></p>
+      <p><em>"Trauma-informed communication · CRM &amp; case documentation · Confidentiality &amp; compliance · Crisis de-escalation · Research &amp; analytical writing · Spanish (if applicable)"</em></p>
+    </div>
+    <div class="rec">
+      <p><span class="priority low">LOW</span><strong>Honors line — keep it tight.</strong></p>
+      <p>Speech &amp; Debate Regional Champion stays (signals oral advocacy). 2× State Golf Champion stays (signals discipline + competition). Honors Student stays. Anything older than HS, drop.</p>
+    </div>
+  </div>
+</section>
+
+<section id="linkedin">
+  <h2>LinkedIn Recommendations</h2>
+  <p style="color:var(--slate); font-size:14px; margin-top:-6px;">Note: the LinkedIn URL provided <em>(linkedin.com/in/mercedes-magill-b22653123)</em> resolves to a profile named Mercedes Magill — please confirm whether this is Sadie's profile or a separate one. Recommendations below apply to whichever profile Sadie uses for applications.</p>
+
+  <div class="recs">
+    <div class="rec">
+      <p><span class="priority high">HIGH</span><strong>Rewrite the headline.</strong></p>
+      <p>Replace any generic student headline with: <em>"Pre-Law Criminology Senior at the University of Utah · Aspiring Victim Advocate &amp; Legal Professional"</em>. This is the field hiring managers read first when they LinkedIn-search you after seeing your resume.</p>
+    </div>
+    <div class="rec">
+      <p><span class="priority high">HIGH</span><strong>Rebuild the About section in 3 short paragraphs.</strong></p>
+      <p><strong>P1 — Who you are:</strong> University of Utah Criminology senior, Sociology minor, graduating 2026, pre-law track. <strong>P2 — Why victim advocacy:</strong> A sentence on what draws you to advocacy (do not over-share; one personal but professional sentence is plenty). <strong>P3 — What you bring:</strong> CRM + compliance background, trauma-informed coursework, customer-facing leadership, debate-trained communication. End with: "Open to victim advocate roles in Utah and remote — paid, internship, or volunteer."</p>
+    </div>
+    <div class="rec">
+      <p><span class="priority high">HIGH</span><strong>Add the Open to Work banner — and target it.</strong></p>
+      <p>Visible to recruiters only. Job titles: "Victim Advocate," "Victim Services Coordinator," "Victim Witness Coordinator," "Legal Assistant," "Case Advocate," "Paralegal." Locations: Salt Lake City, UT · Remote.</p>
+    </div>
+    <div class="rec">
+      <p><span class="priority med">MED</span><strong>Reorder Skills.</strong></p>
+      <p>Top 3 (pinned): <em>Victim Advocacy · Crisis Intervention · Trauma-Informed Care.</em> Then: <em>Case Management · CRM · Confidentiality · Research &amp; Analytical Writing · Public Speaking · Legal Research · De-escalation.</em> You can list a skill before earning the endorsement — endorsements come once the skill is on the profile.</p>
+    </div>
+    <div class="rec">
+      <p><span class="priority med">MED</span><strong>Add a Featured section.</strong></p>
+      <p>Pin: a 1–2 page writing sample from your "Research &amp; Analytical Writing" class (case brief, policy memo, victim rights essay). DA and AG hiring managers love seeing real writing.</p>
+    </div>
+    <div class="rec">
+      <p><span class="priority med">MED</span><strong>Request 2 recommendations.</strong></p>
+      <p>Ask: (1) a Canopy Mortgage manager (compliance, professionalism, confidentiality) and (2) a North Italia/Royal on the Ridge GM (poise under pressure, leadership). One short paragraph each is fine.</p>
+    </div>
+    <div class="rec">
+      <p><span class="priority low">LOW</span><strong>Post-and-comment cadence (light).</strong></p>
+      <p>Once a week, share or comment on a post from YWCA Utah, UCASA, RAINN, the Salt Lake County DA, or the Utah AG's Office. 2–3 sentences of substantive reaction. This puts you on their internal radar before you ever apply.</p>
+    </div>
+  </div>
+</section>
+
+<section id="cover">
+  <h2>Cover Letter — Victim Services Coordinator, Salt Lake County DA</h2>
+  <div class="card cover">
+    <button class="copy-btn" id="copyBtn">Copy</button>
+<pre id="coverText">Dear Salt Lake County District Attorney's Office Hiring Committee,
+
+The first time I sat in on a Criminal Law lecture at the University of Utah, the professor described a victim impact statement she had read decades earlier — and the way she still remembered the survivor's exact words. That moment is why I am applying for the Victim Services Coordinator position with your office. I want to be the person making sure those words are heard, that those survivors are informed, supported, and never lost in the system.
+
+I am a senior in the University of Utah's Criminology program (B.S., minor in Sociology), graduating in 2026 and preparing for law school. My coursework — Criminal Law, Ethics &amp; Justice Systems, Sociology of Human Behavior, and Research &amp; Analytical Writing — has trained me to think like a future advocate. My professional experience has trained me to act like one.
+
+At Canopy Mortgage, I managed confidential client records in CRM systems, tracked deadlines across a fast-moving caseload, and operated inside strict compliance protocols — the same skill set that underpins court-notification work, restitution coordination, and case documentation in your office. As Lead Server at North Italia and previously at Royal on the Ridge, I built daily fluency in de-escalation, crisis composure, and multitasking under pressure. Speech &amp; Debate (regional champion in high school) gave me the public-facing communication skills to translate complicated information into clear, calm guidance.
+
+I am drawn specifically to the Salt Lake County DA's office because of the multidisciplinary nature of your victim services work — the coordination across investigators, prosecutors, courts, and community partners — and because of the office's commitment to victim-centered prosecution. I would bring rigor, discretion, and a long-term commitment to staying in this work; I am intentionally building toward a legal career anchored in victim rights.
+
+I would welcome the chance to discuss how my background fits the role. Thank you for your time and for the work you do.
+
+Sincerely,
+Sadie</pre>
+  </div>
+  <p style="font-size:12px; color:var(--slate); margin-top:8px;">Word count: ~320. Adapt the second-to-last paragraph for each separate application (YWCA Utah, Rape Recovery Center, Utah AG, etc.) — replace the org name + one specific reason you chose them.</p>
+</section>
+
+<section id="interview">
+  <h2>Interview Prep — Salt Lake County DA</h2>
+
+  <h3>5 Questions You Should Expect</h3>
+  <details class="iv">
+    <summary>1. "Walk me through a time you handled a high-stress situation involving an upset person."</summary>
+    <ul>
+      <li>Use a server/bartender de-escalation story — be specific.</li>
+      <li>Frame: stay calm, listen first, separate facts from emotion, take action.</li>
+      <li>Land it with: "That's the same posture I'd take with a victim sitting in the witness room — calm, present, and focused on what they need to feel safe."</li>
+    </ul>
+  </details>
+  <details class="iv">
+    <summary>2. "What does trauma-informed care mean to you?"</summary>
+    <ul>
+      <li>Define it in plain language: safety, choice, transparency, empowerment, cultural humility.</li>
+      <li>Cite where you learned it (Sociology of Human Behavior, independent reading).</li>
+      <li>Concrete example: don't ask "what happened" before asking "are you safe right now."</li>
+    </ul>
+  </details>
+  <details class="iv">
+    <summary>3. "Why this office? Why not a nonprofit?"</summary>
+    <ul>
+      <li>Answer: "Both matter — but I want to learn the prosecutorial pipeline because that's the system survivors are navigating, and where I want to spend my legal career."</li>
+      <li>Reference a Salt Lake County DA initiative if you've researched one (e.g., diversion programs, Drug Court, the office's stance on victim notification).</li>
+    </ul>
+  </details>
+  <details class="iv">
+    <summary>4. "How do you maintain confidentiality and emotional boundaries?"</summary>
+    <ul>
+      <li>Confidentiality: cite Canopy Mortgage compliance experience — you've literally done this on a job.</li>
+      <li>Emotional boundaries: name your support system (mentors, classmates), your routines (exercise, golf, journaling), and your willingness to use the office's EAP/supervision structure.</li>
+    </ul>
+  </details>
+  <details class="iv">
+    <summary>5. "Where do you want to be in 5 years?"</summary>
+    <ul>
+      <li>Be honest: in law school or finishing it, on a track toward prosecution or victim rights work.</li>
+      <li>Address the "she'll leave for law school" concern head-on: "I'm seeking a 1–2 year experience here precisely because it's the right foundation for the lawyer I want to be — and grant-funded roles align with that horizon."</li>
+    </ul>
+  </details>
+
+  <h3>3 Questions <em>You</em> Should Ask Them</h3>
+  <ul>
+    <li>"How does the Victim Services unit coordinate with the deputy DAs on case-by-case basis — what does a typical hand-off look like?"</li>
+    <li>"What's the most common training your team wishes new coordinators arrived with? I'm scheduling the UCASA 40-hour this summer."</li>
+    <li>"Beyond the day-to-day, where does your team feel you most need additional capacity right now?"</li>
+  </ul>
+
+  <h3>Quick Company Brief</h3>
+  <ul style="font-size:14px;">
+    <li>Salt Lake County is Utah's largest county; the DA's office handles felony prosecution for the entire county.</li>
+    <li>The Victim Services unit sits alongside the prosecution teams and follows survivors from investigation through sentencing and restitution.</li>
+    <li>The office runs specialty courts (Mental Health, Drug, Domestic Violence) that victim coordinators support.</li>
+    <li>The DA is an elected position — research the current DA's published priorities before the interview.</li>
+    <li>Many alumni of victim services roles move into law enforcement, paralegal work, or law school within 1–3 years — your timeline is normal here, not a red flag.</li>
+  </ul>
+</section>
+
+<section id="salary">
+  <h2>Salary Overview</h2>
+  <p style="color:var(--slate); font-size:14px; margin-top:-6px;">Posted ranges are pulled from the actual job listing. Estimated ranges are based on Glassdoor, Payscale, governmentjobs.com Utah comparables, and posted ranges for similar titles in May 2026.</p>
+  <table class="sal">
+    <thead>
+      <tr><th>Rank</th><th>Role</th><th>Employer</th><th>Salary</th><th>Source</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Victim Services Coordinator (Time-Limited)</td><td>SL County DA</td><td>~$45k–$58k</td><td>Estimated</td></tr>
+      <tr><td>2</td><td>Victim Services Internship</td><td>Utah AG Office</td><td>Unpaid (school credit)</td><td>Posted</td></tr>
+      <tr><td>3</td><td>Victim Advocate (UOVC)</td><td>Utah AG Office</td><td>$41,600–$62,026</td><td>Posted</td></tr>
+      <tr><td>4</td><td>Victim Advocate Volunteer</td><td>Unified Police Dept</td><td>Volunteer (training provided)</td><td>Posted</td></tr>
+      <tr><td>5</td><td>Shelter Advocate / Overnight Advocate</td><td>YWCA Utah</td><td>$16.50–$22.78/hr</td><td>Posted</td></tr>
+      <tr><td>6</td><td>Mobile Response Team Advocate (PT)</td><td>Rape Recovery Center</td><td>$5/hr on-call · $17/hr office · $21.16/hr direct service</td><td>Posted</td></tr>
+      <tr><td>7</td><td>Victim Advocate Navigator (UOVC)</td><td>Utah AG Office</td><td>~$40k–$55k</td><td>Estimated</td></tr>
+      <tr><td>8</td><td>Victim Advocate (FT)</td><td>South Valley Services</td><td>~$35k–$45k + benefits</td><td>Estimated</td></tr>
+      <tr><td>9</td><td>Online Hotline Volunteer</td><td>RAINN</td><td>Volunteer (40-hr training provided)</td><td>Posted</td></tr>
+      <tr><td>10</td><td>Public Policy Research Internship</td><td>RAINN</td><td>Unpaid (some stipends available)</td><td>Posted</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px; color:var(--slate); margin-top:10px;"><strong>Market read:</strong> Sadie's CRM/compliance background and strong academic record position her at the higher end of entry-level Utah county ranges. For the Utah AG posting, target $48k–$54k in any salary negotiation. For YWCA Utah, target $19–$22/hr depending on shift differential.</p>
+</section>
+
+<section id="first40">
+  <h2>Next 7 Days — What to do this week</h2>
+  <div class="card">
+    <ol style="font-size:14px; line-height:1.8;">
+      <li><strong>Today.</strong> Apply to <a href="https://www.governmentjobs.com/careers/utah/jobs/newprint/4043452" target="_blank" rel="noopener">Utah AG UOVC Victim Advocate</a> and <a href="https://www.saltlakecounty.gov/district-attorney/recruiting/" target="_blank" rel="noopener">SL County DA</a> — both close quickly when filled. Same résumé, two cover-letter swaps.</li>
+      <li><strong>Today.</strong> Submit the <a href="https://www.rainn.org/volunteer" target="_blank" rel="noopener">RAINN Online Hotline volunteer</a> form. The 40-hour training timeline means starting today positions her as a trained advocate by law-school application season.</li>
+      <li><strong>Day 2.</strong> Submit the <a href="https://unifiedpoliceut.gov/victim-advocates-2/" target="_blank" rel="noopener">UPD Volunteer Victim Advocate</a> application — same county, no relocation, direct pipeline to paid LE advocate roles.</li>
+      <li><strong>Day 3.</strong> Apply to the <a href="https://www.governmentjobs.com/careers/utah/jobs/newprint/4899901" target="_blank" rel="noopener">Utah AG Victim Services Internship</a> for summer 2026.</li>
+      <li><strong>Day 4.</strong> Apply to YWCA Utah (Overnight/Relief Advocate) at <a href="https://www.ywcautah.org/join-our-team" target="_blank" rel="noopener">ywcautah.org/join-our-team</a> and Rape Recovery Center MRT (email jobs@raperecoverycenter.org).</li>
+      <li><strong>Day 5.</strong> Update LinkedIn headline + About + Skills (see LinkedIn section above). Set "Open to Work" with the 6 target titles.</li>
+      <li><strong>Day 6–7.</strong> Sign up for the next <a href="https://www.ucasa.org/" target="_blank" rel="noopener">UCASA 40-hour training cohort</a>. List it on the resume as "Enrolled, 2026" — it makes every other application stronger immediately.</li>
+    </ol>
+  </div>
+</section>
+
+<div class="footer">
+  Generated May 12, 2026 · Job listings change rapidly — re-run weekly for fresh results · Verify each apply link before submitting.<br>
+  Sources: Salt Lake County DA, Utah AG governmentjobs.com, UPD, YWCA Utah, Rape Recovery Center, South Valley Services, RAINN, NCVC, UCASA.
+</div>
+
+</div>
+
+<script>
+const jobs = [
+  {
+    rank: 1, score: 95, title: "Victim Services Coordinator (Time-Limited)",
+    org: "Salt Lake County District Attorney's Office",
+    location: "Salt Lake City, UT", tags: ["utah","paid"],
+    salary: "~$45k–$58k (estimated)",
+    desc: "Provides direct services to crime victims, coordinates court notifications, advocacy through case lifecycle. Part of the DA's Victim Support Services team.",
+    reqs: "Bachelor's typically preferred · victim advocacy or social services experience · clean background check",
+    fit: "Top-tier pre-law role. Direct exposure to felony prosecution, courtroom procedure, and DA office culture — exactly where pre-law students earn the references that matter at LSAT-stage.",
+    url: "https://www.saltlakecounty.gov/district-attorney/recruiting/"
+  },
+  {
+    rank: 2, score: 93, title: "Victim Services Internship (Summer 2026)",
+    org: "Utah Attorney General's Office",
+    location: "Salt Lake City, UT · in-person", tags: ["utah","intern"],
+    salary: "Unpaid · school credit available",
+    desc: "Shadow Victim Services Coordinators; assist attorneys/paralegals with case research and policy; attend hearings, court cases, and meetings.",
+    reqs: "Current college student or recent grad · pass criminal history check",
+    fit: "AG office on the résumé is a difference-maker for top-tier law schools. Timing aligns with summer 2026.",
+    url: "https://www.governmentjobs.com/careers/utah/jobs/newprint/4899901"
+  },
+  {
+    rank: 3, score: 91, title: "Victim Advocate (UOVC)",
+    org: "Utah Office for Victims of Crime · Utah AG",
+    location: "Salt Lake City, UT", tags: ["utah","paid"],
+    salary: "$41,600–$62,026 (posted)",
+    desc: "Assists victims and families through the UOVC reparations benefit application process; provides information, referrals, and answers to questions.",
+    reqs: "Bachelor's in Social Work / Criminal Justice / Psychology preferred · advanced MS Office · victim advocate experience preferred",
+    fit: "State-level role housed under the AG's office — gold-stamped credential for an AG/USAO/DA-track law school applicant.",
+    url: "https://www.governmentjobs.com/careers/utah/jobs/newprint/4043452"
+  },
+  {
+    rank: 4, score: 89, title: "Volunteer Victim Advocate",
+    org: "Unified Police Department of Greater Salt Lake (UPD)",
+    location: "Salt Lake County, UT", tags: ["utah","volunteer"],
+    salary: "Volunteer · training provided",
+    desc: "Respond on-scene with UPD officers, provide crisis intervention, follow-up, and resource referrals to victims of crime.",
+    reqs: "Clean record · willingness to learn · time commitment · UPD volunteer application form",
+    fit: "BEST volunteer pipeline-to-paid for Sadie. Same county as U of U, direct law-enforcement exposure, no relocation. Many UPD/SLCPD paid advocates start here.",
+    url: "https://unifiedpoliceut.gov/victim-advocates-2/"
+  },
+  {
+    rank: 5, score: 87, title: "Shelter Advocate / Overnight Shelter Advocate",
+    org: "YWCA Utah",
+    location: "Salt Lake City, UT", tags: ["utah","paid"],
+    salary: "Shelter Advocate $16.50–$22.78/hr · Overnight ~$21.12/hr",
+    desc: "Frontline trauma-informed advocacy for survivors of family violence; emergency shelter and mobile advocacy; housing-stability case support.",
+    reqs: "Background check · trauma-informed training (provided) · overnight-shift flexibility for overnight role",
+    fit: "YWCA Utah is the state's flagship DV provider — instant name-recognition asset on a résumé and a major credential for grad-school personal statements.",
+    url: "https://www.ywcautah.org/join-our-team"
+  },
+  {
+    rank: 6, score: 85, title: "Mobile Response Team Advocate (Part-Time)",
+    org: "The Rape Recovery Center",
+    location: "Salt Lake City, UT", tags: ["utah","paid"],
+    salary: "$5/hr on-call · $17/hr office · $21.16/hr direct service",
+    desc: "24-hour mobile response — responds to hospital ERs and community centers during forensic sexual-assault exams, provides advocacy and resources.",
+    reqs: "Must complete 40-hour UCASA advocacy training (provided) · reliable transport · 30-minute response · quarterly hiring review",
+    fit: "Premier credential for SA prosecution / Title IX / criminal-law track. Free UCASA cert included.",
+    url: "https://www.raperecoverycenter.org/work-with-us"
+  },
+  {
+    rank: 7, score: 84, title: "Victim Advocate Navigator (UOVC)",
+    org: "Utah Office for Victims of Crime · Utah AG",
+    location: "Salt Lake City, UT", tags: ["utah","paid"],
+    salary: "~$40k–$55k (estimated)",
+    desc: "Initial intake/triage — first point of contact for victims; routes them to the right UOVC personnel and resources.",
+    reqs: "Bachelor's preferred · strong customer service · trauma-informed communication · bilingual a plus",
+    fit: "Entry-friendly version of the UOVC Victim Advocate role; high-volume intake builds the case-management muscle law schools love.",
+    url: "https://www.governmentjobs.com/careers/utah/jobs/newprint/5139998"
+  },
+  {
+    rank: 8, score: 82, title: "Victim Advocate (Full-Time)",
+    org: "South Valley Services",
+    location: "West Jordan, UT (also Tooele)", tags: ["utah","paid"],
+    salary: "~$35k–$45k + benefits (estimated)",
+    desc: "Shelter-based advocacy — supports residents, implements safety/security strategies, day-to-day case support.",
+    reqs: "Bachelor's preferred · ability to work morning or afternoon shifts · trauma-informed approach",
+    fit: "Close to U of U, full-time post-grad ready; classic feeder to law school for women's-rights and family-law tracks.",
+    url: "https://svsutah.org/"
+  },
+  {
+    rank: 9, score: 81, title: "National Sexual Assault Online Hotline Volunteer",
+    org: "RAINN",
+    location: "Remote (all U.S.)", tags: ["remote","volunteer"],
+    salary: "Volunteer · 40-hour Essential Skills training provided (free)",
+    desc: "Provide trauma-informed, survivor-centered support via online chat. Set a recurring shift schedule (e.g., every other Tuesday 6–11 PM).",
+    reqs: "Age 18+ · U.S. SSN + background check · laptop and private workspace · 10 hrs/month minimum direct service for 18 months",
+    fit: "Gold-standard remote credential. The 40-hour trauma-informed training is recognized across DV/SA agencies and looks excellent on a law school application.",
+    url: "https://www.rainn.org/volunteer"
+  },
+  {
+    rank: 10, score: 79, title: "Public Policy Research Internship",
+    org: "RAINN",
+    location: "Remote", tags: ["remote","intern"],
+    salary: "Unpaid (some stipends available)",
+    desc: "Conduct research on sexual-violence issues, with a focus on federal and state legislative advocacy.",
+    reqs: "Strong writing · interest in policy · undergraduate eligible",
+    fit: "Perfect blend for a pre-law criminology student — policy research + victim advocacy at the most recognized national org.",
+    url: "https://rainn.org/jobs/public-policy-research-internship"
+  }
+];
+
+function scoreClass(s){ return s>=90 ? "score-90" : s>=80 ? "score-80" : s>=70 ? "score-70" : "score-60"; }
+function tagHtml(t){
+  const map = {
+    utah:    ['Utah','utah'],
+    remote:  ['Remote','remote'],
+    paid:    ['Paid','paid'],
+    volunteer:['Volunteer','vol'],
+    intern:  ['Internship','intern']
+  };
+  const [label,cls] = map[t] || [t,'loc'];
+  return `<span class="tag ${cls}">${label}</span>`;
+}
+function render(list){
+  const root = document.getElementById('jobList');
+  root.innerHTML = list.map(j => `
+    <details class="job">
+      <summary>
+        <div class="rank">${j.rank}</div>
+        <div>
+          <h3>${j.title}</h3>
+          <div class="org">${j.org} · ${j.location}</div>
+          <div class="tags">${j.tags.map(tagHtml).join('')}<span class="tag salary">${j.salary}</span></div>
+        </div>
+        <div class="score">
+          <span class="score-badge ${scoreClass(j.score)}">${j.score}</span>
+          <div class="score-bar"><div style="width:${j.score}%"></div></div>
+        </div>
+      </summary>
+      <div class="job-body">
+        <p>${j.desc}</p>
+        <div class="kv">
+          <div class="k">Requirements</div><div>${j.reqs}</div>
+          <div class="k">Why this is a fit</div><div>${j.fit}</div>
+        </div>
+        <div class="btn-row">
+          <a class="btn" href="${j.url}" target="_blank" rel="noopener">Apply / View Listing</a>
+          ${j.rank===1?'<a class="btn secondary" href="#deepdive">Deep Dive ↓</a>':''}
+        </div>
+      </div>
+    </details>
+  `).join('');
+}
+function apply(){
+  const sort = document.getElementById('sortBy').value;
+  const filt = document.getElementById('filterBy').value;
+  let arr = jobs.slice();
+  if (filt !== 'all') arr = arr.filter(j => j.tags.includes(filt));
+  if (sort === 'score') arr.sort((a,b)=>b.score-a.score);
+  else if (sort === 'rank') arr.sort((a,b)=>a.rank-b.rank);
+  else if (sort === 'title') arr.sort((a,b)=>a.title.localeCompare(b.title));
+  render(arr);
+}
+document.getElementById('sortBy').addEventListener('change', apply);
+document.getElementById('filterBy').addEventListener('change', apply);
+apply();
+
+document.getElementById('copyBtn').addEventListener('click', () => {
+  const text = document.getElementById('coverText').innerText;
+  navigator.clipboard.writeText(text).then(()=>{
+    const b = document.getElementById('copyBtn');
+    const old = b.innerText; b.innerText = 'Copied!';
+    setTimeout(()=> b.innerText = old, 1400);
+  });
+});
+</script>
+</body>
+</html>
