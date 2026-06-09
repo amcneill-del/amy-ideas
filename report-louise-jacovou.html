@@ -6,512 +6,455 @@
 <title>Job Search Report — Louise J.</title>
 <style>
   :root{
-    --bg:#f5f7fb; --card:#ffffff; --ink:#0f172a; --muted:#475569; --line:#e2e8f0;
-    --navy:#1e3a8a; --slate:#334155; --accent:#0ea5e9;
-    --green:#16a34a; --green-bg:#dcfce7;
-    --yellow:#ca8a04; --yellow-bg:#fef9c3;
-    --orange:#ea580c; --orange-bg:#ffedd5;
-    --red:#dc2626;
+    --navy:#16243b; --slate:#33445f; --bg:#f5f7fa; --card:#ffffff;
+    --line:#e2e8f0; --muted:#64748b; --accent:#2563eb; --accent2:#0ea5a4;
+    --green:#15803d; --greenbg:#dcfce7; --yellow:#a16207; --yellowbg:#fef9c3;
+    --orange:#c2410c; --orangebg:#ffedd5;
   }
   *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
-  .wrap{max-width:1100px;margin:0 auto;padding:24px}
-  header.top{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 100%);color:#fff;padding:36px 28px;border-radius:14px;margin-bottom:18px;box-shadow:0 6px 20px rgba(15,23,42,0.08)}
-  header.top h1{margin:0 0 6px;font-size:28px;letter-spacing:-0.02em}
-  header.top .meta{opacity:0.85;font-size:14px}
-  nav.sticky{position:sticky;top:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:8px;z-index:50;margin-bottom:20px;box-shadow:0 2px 6px rgba(15,23,42,0.04)}
-  nav.sticky a{font-size:13px;color:var(--slate);text-decoration:none;padding:6px 10px;border-radius:6px;font-weight:500}
-  nav.sticky a:hover{background:#f1f5f9;color:var(--navy)}
-  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:18px;box-shadow:0 1px 3px rgba(15,23,42,0.03)}
-  h2{font-size:20px;margin:0 0 14px;color:var(--navy);letter-spacing:-0.01em}
-  h3{font-size:16px;margin:18px 0 8px;color:var(--slate)}
-  p{margin:6px 0}
-  .muted{color:var(--muted);font-size:14px}
-  .badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:0.02em}
-  .badge.green{background:var(--green-bg);color:var(--green)}
-  .badge.yellow{background:var(--yellow-bg);color:var(--yellow)}
-  .badge.orange{background:var(--orange-bg);color:var(--orange)}
-  .badge.gray{background:#e2e8f0;color:#334155}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
-  .job{border:1px solid var(--line);border-radius:10px;padding:16px;background:#fff;transition:transform 0.15s, box-shadow 0.15s}
-  .job:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(15,23,42,0.08)}
-  .job .row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-  .job .rank{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:0.06em}
-  .job h4{margin:6px 0 4px;font-size:16px;color:var(--ink)}
-  .job .company{font-size:14px;color:var(--slate);font-weight:500}
-  .job .meta-line{font-size:13px;color:var(--muted);margin-top:8px}
-  .score{font-size:24px;font-weight:700;color:var(--navy)}
-  .scorebar{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden;margin:10px 0 4px}
-  .scorebar > div{height:100%;background:linear-gradient(90deg,#0ea5e9,#1e3a8a)}
-  .pillrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-  .pill{font-size:11px;padding:3px 8px;border-radius:999px;background:#eff6ff;color:#1e40af;font-weight:500}
-  .pill.gap{background:#fef2f2;color:#991b1b}
-  .apply{display:inline-block;margin-top:12px;padding:8px 14px;background:var(--navy);color:#fff;text-decoration:none;border-radius:6px;font-size:13px;font-weight:500}
-  .apply:hover{background:#1e40af}
-  details{margin-top:10px}
-  summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight:500;padding:4px 0}
-  summary:hover{color:var(--navy)}
-  table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px}
-  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
-  th{background:#f8fafc;color:var(--slate);font-weight:600;font-size:13px}
-  .checklist{list-style:none;padding:0;margin:8px 0}
-  .checklist li{padding:8px 12px;margin:6px 0;border-left:3px solid var(--accent);background:#f8fafc;border-radius:0 6px 6px 0;font-size:14px}
-  .checklist li.high{border-left-color:#dc2626}
-  .checklist li.medium{border-left-color:#ca8a04}
-  .checklist li.low{border-left-color:#16a34a}
-  .priority{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-right:6px;padding:1px 6px;border-radius:3px}
-  .priority.high{background:#fee2e2;color:#991b1b}
-  .priority.medium{background:#fef3c7;color:#854d0e}
-  .priority.low{background:#dcfce7;color:#166534}
-  .coverletter{background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:18px;font-family:Georgia,serif;font-size:15px;line-height:1.7;white-space:pre-line}
-  .copybtn{margin-top:10px;padding:8px 14px;background:#0ea5e9;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500}
-  .copybtn:hover{background:var(--navy)}
-  .qa{margin:12px 0;padding:12px 14px;background:#f8fafc;border-radius:8px;border:1px solid var(--line)}
-  .qa .q{font-weight:600;color:var(--navy);font-size:14px}
-  .qa .a{color:var(--slate);font-size:14px;margin-top:6px}
-  footer{text-align:center;padding:18px;color:var(--muted);font-size:13px}
-  @media print{
-    nav.sticky{display:none}
-    section{break-inside:avoid;box-shadow:none;border:1px solid #ccc}
-    body{background:#fff}
-  }
-  @media (max-width:640px){
-    .wrap{padding:14px}
-    header.top{padding:24px 18px}
-    header.top h1{font-size:22px}
-  }
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--slate);line-height:1.55}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  header.top{background:linear-gradient(135deg,#16243b,#26425f);color:#fff;padding:34px 22px}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 18px}
+  header.top h1{margin:0 0 6px;font-size:26px;letter-spacing:.2px}
+  header.top p{margin:3px 0;color:#c9d6e8;font-size:14px}
+  .params{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .params span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);padding:4px 11px;border-radius:20px;font-size:12.5px;color:#eaf1fb}
+  nav.sticky{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 4px rgba(0,0,0,.04)}
+  nav.sticky .wrap{display:flex;flex-wrap:wrap;gap:4px;padding:8px 18px}
+  nav.sticky a{font-size:13px;color:var(--slate);padding:6px 10px;border-radius:7px}
+  nav.sticky a:hover{background:var(--bg);text-decoration:none}
+  section{padding:30px 0 6px}
+  h2.sec{font-size:20px;color:var(--navy);margin:0 0 4px;padding:0 18px}
+  .sub{color:var(--muted);font-size:13.5px;margin:0 0 16px;padding:0 18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:0 18px 14px;box-shadow:0 1px 2px rgba(16,36,59,.03)}
+  details.snap summary{cursor:pointer;font-weight:600;color:var(--navy);font-size:15px}
+  details.snap[open] summary{margin-bottom:10px}
+  .snap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .snap-grid h4{margin:0 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent)}
+  .snap-grid p,.snap-grid ul{font-size:13.5px;margin:0}
+  .snap-grid ul{padding-left:17px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 18px 14px}
+  .toolbar label{font-size:12.5px;color:var(--muted)}
+  .toolbar select,.toolbar button{font-size:13px;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--slate);cursor:pointer}
+  .toolbar button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .job{background:#fff;border:1px solid var(--line);border-radius:12px;margin:0 18px 13px;overflow:hidden;box-shadow:0 1px 2px rgba(16,36,59,.04)}
+  .job-head{display:flex;gap:14px;align-items:flex-start;padding:15px 18px}
+  .rank{flex:0 0 auto;width:30px;height:30px;border-radius:8px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+  .job-main{flex:1 1 auto;min-width:0}
+  .job-title{font-size:16px;font-weight:700;color:var(--navy);margin:0}
+  .job-co{font-size:13.5px;color:var(--slate);margin:2px 0 0}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .tag{font-size:11.5px;padding:3px 9px;border-radius:14px;background:var(--bg);border:1px solid var(--line);color:var(--slate)}
+  .tag.loc{background:#eef4ff;border-color:#d6e4ff;color:#1d4ed8}
+  .tag.nc{background:#e9f9f1;border-color:#bbf0d4;color:#0f7a45}
+  .tag.sal{background:#f3f0ff;border-color:#e3dcff;color:#6d28d9}
+  .tag.flag{background:#fff4e8;border-color:#ffd9b0;color:#b45309}
+  .score{flex:0 0 auto;text-align:center;min-width:74px}
+  .score .badge{display:inline-block;font-weight:700;font-size:18px;color:#fff;border-radius:10px;padding:7px 0;width:62px}
+  .score small{display:block;font-size:10.5px;color:var(--muted);margin-top:3px;text-transform:uppercase;letter-spacing:.4px}
+  .bar{height:6px;border-radius:4px;background:var(--line);margin:7px 18px 0;overflow:hidden}
+  .bar i{display:block;height:100%}
+  .job details{border-top:1px solid var(--line);margin-top:13px}
+  .job details summary{cursor:pointer;padding:11px 18px;font-size:13px;font-weight:600;color:var(--accent);list-style:none}
+  .job details summary::-webkit-details-marker{display:none}
+  .job details .body{padding:4px 18px 18px;font-size:13.5px}
+  .job details .body h5{margin:12px 0 4px;color:var(--navy);font-size:13px;text-transform:uppercase;letter-spacing:.4px}
+  .matchline{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0}
+  .chip{font-size:11.5px;padding:2px 8px;border-radius:12px}
+  .chip.y{background:var(--greenbg);color:var(--green)}
+  .chip.n{background:var(--orangebg);color:var(--orange)}
+  .apply{display:inline-block;margin-top:12px;background:var(--accent);color:#fff;padding:9px 18px;border-radius:8px;font-size:13.5px;font-weight:600}
+  .apply:hover{background:#1d4ed8;text-decoration:none}
+  .deep{background:linear-gradient(135deg,#0ea5a4,#0f766e);color:#fff;border-radius:12px;margin:0 18px 16px;padding:20px}
+  .deep h3{margin:0 0 4px;font-size:18px}
+  .deep p{margin:6px 0;font-size:14px;color:#e6fffb}
+  .pill{display:inline-block;background:rgba(255,255,255,.16);padding:3px 10px;border-radius:14px;font-size:12px;margin:2px 5px 2px 0}
+  .rec h5{color:var(--navy);margin:14px 0 4px;font-size:14px}
+  .rec ul{margin:0 0 8px;padding-left:18px;font-size:13.5px}
+  .rec li{margin-bottom:5px}
+  .prio{font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:10px;margin-right:6px;text-transform:uppercase;letter-spacing:.4px}
+  .prio.h{background:var(--orangebg);color:var(--orange)}
+  .prio.m{background:var(--yellowbg);color:var(--yellow)}
+  .prio.l{background:var(--greenbg);color:var(--green)}
+  .cl{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;font-size:13.5px;white-space:pre-wrap;line-height:1.6}
+  .copybtn{background:var(--navy);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer;margin:0 18px 10px}
+  table.sal{width:calc(100% - 36px);margin:0 18px;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.sal th,table.sal td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line)}
+  table.sal th{background:var(--navy);color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:.4px}
+  table.sal tr:last-child td{border-bottom:none}
+  table.sal tr:nth-child(even) td{background:#fafbfc}
+  .qa summary{cursor:pointer;font-weight:600;color:var(--navy);padding:9px 0;font-size:14px}
+  .qa{border-bottom:1px solid var(--line);padding:0 2px}
+  .qa .ans{font-size:13.5px;padding:2px 0 12px;color:var(--slate)}
+  footer{margin-top:26px;background:var(--navy);color:#c9d6e8;padding:22px;font-size:12.5px;text-align:center}
+  footer a{color:#9ec3ff}
+  .note{font-size:12px;color:var(--muted);padding:0 18px;margin:2px 0 14px}
+  @media print{nav.sticky{display:none}.job details{display:block}.apply{border:1px solid #999}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
+<header class="top">
+  <div class="wrap">
     <h1>Job Search Report — Louise J.</h1>
-    <div class="meta">Generated May 7, 2026 &nbsp;·&nbsp; Target role: Executive Assistant to CEO / Senior EA / EBP &nbsp;·&nbsp; Location: Remote OR North Carolina</div>
-    <div class="meta">Sources: LinkedIn Jobs · Indeed · Glassdoor · ZipRecruiter · Built In · Wellfound · Greenhouse · Lever · Company career pages</div>
-  </header>
-
-  <nav class="sticky">
-    <a href="#snapshot">Candidate Snapshot</a>
-    <a href="#top10">Top 10 Jobs</a>
-    <a href="#deepdive">#1 Deep Dive</a>
-    <a href="#resume">Resume Recs</a>
-    <a href="#linkedin">LinkedIn Recs</a>
-    <a href="#cover">Cover Letter</a>
-    <a href="#interview">Interview Prep</a>
-    <a href="#salary">Salary Overview</a>
-  </nav>
-
-  <section id="snapshot">
-    <h2>Candidate Snapshot</h2>
-    <p><strong>Profile built from:</strong> LinkedIn (no resume on file).</p>
-    <p><strong>Current role:</strong> Executive Assistant to the CEO, Gen4 Dental Partners (DSO / healthcare services).</p>
-    <p><strong>Experience trajectory:</strong> Senior C-suite EA with multi-industry depth — Barclays Investment Bank (MD/CEO support), Magnit (EA to Chief Client Officer, contingent-workforce SaaS), LCI (EA to CEO, manufacturing), and Gen4 Dental (EA to CEO, healthcare).</p>
-    <h3>Key strengths</h3>
-    <ul>
-      <li>Direct C-suite/CEO support across financial services, SaaS, manufacturing, and healthcare</li>
-      <li>Calendar architecture, inbox triage, board prep, executive travel, confidential communications</li>
-      <li>Strong cross-industry adaptability — translates across regulated (banking, healthcare) and high-growth tech environments</li>
-      <li>Likely fluent in Microsoft 365, Google Workspace, Zoom, Concur, and travel/expense platforms</li>
-    </ul>
-    <h3>Target role profile</h3>
-    <p>Senior Executive Assistant or Executive Business Partner supporting a CEO / C-suite leader at a remote-first or East Coast-friendly employer in healthcare, fintech, SaaS, or PE. Compensation target: <strong>$95K–$140K</strong>.</p>
-  </section>
-
-  <section id="top10">
-    <h2>Top 10 Job Matches</h2>
-    <p class="muted">Each listing was filtered for active status and scored on title match, skills overlap, industry fit, seniority, remote compatibility, growth potential, and company reputation. All apply links go directly to the live posting.</p>
-    <div class="grid" id="jobgrid">
-
-      <article class="job">
-        <div class="row">
-          <div>
-            <div class="rank">#1 · TOP MATCH</div>
-            <h4>Executive Assistant to CEO, Optum Life Sciences</h4>
-            <div class="company">UnitedHealth Group · Optum</div>
-          </div>
-          <div style="text-align:right">
-            <div class="score">95</div>
-            <span class="badge green">Excellent</span>
-          </div>
-        </div>
-        <div class="scorebar"><div style="width:95%"></div></div>
-        <div class="meta-line">Remote — Central or East Coast · Posted Apr 10, 2026 · Healthcare</div>
-        <div class="meta-line"><strong>Salary (est.):</strong> $95K–$130K</div>
-        <div class="pillrow">
-          <span class="pill">EA to CEO</span>
-          <span class="pill">Healthcare</span>
-          <span class="pill">East Coast remote</span>
-          <span class="pill">Fortune 5</span>
-        </div>
-        <details><summary>Job summary</summary>
-        <p class="muted">Trusted partner to the CEO of Optum Life Sciences plus the Chief Experience Officer and Chief Health Officer — owns calendar, communications, priorities, travel, and stakeholder coordination across Optum, UnitedHealth Group, and external partners.</p>
-        </details>
-        <a class="apply" href="https://careers.unitedhealthgroup.com/job/boston/executive-assistant-to-ceo-optum-life-sciences-central-or-east-coast/34088/93810720480" target="_blank" rel="noopener">Apply Now &rarr;</a>
-      </article>
-
-      <article class="job">
-        <div class="row">
-          <div>
-            <div class="rank">#2</div>
-            <h4>Senior Executive Assistant to the CEO</h4>
-            <div class="company">Spring Health</div>
-          </div>
-          <div style="text-align:right">
-            <div class="score">92</div>
-            <span class="badge green">Excellent</span>
-          </div>
-        </div>
-        <div class="scorebar"><div style="width:92%"></div></div>
-        <div class="meta-line">Remote · Healthcare / Mental Health Tech</div>
-        <div class="meta-line"><strong>Salary (posted):</strong> $80K–$100K + bonus</div>
-        <div class="pillrow">
-          <span class="pill">Sr EA to CEO</span>
-          <span class="pill">Healthcare tech</span>
-          <span class="pill">High-growth</span>
-        </div>
-        <details><summary>Job summary</summary>
-        <p class="muted">Comprehensive support to the CEO and Chief of Staff — calendar, meeting coordination, organization-wide communication. Reports to the Chief of Staff at a high-growth mental healthcare company.</p>
-        </details>
-        <a class="apply" href="https://job-boards.greenhouse.io/springhealth66/jobs/4534278005" target="_blank" rel="noopener">Apply Now &rarr;</a>
-      </article>
-
-      <article class="job">
-        <div class="row">
-          <div>
-            <div class="rank">#3</div>
-            <h4>Executive Assistant to the CEO</h4>
-            <div class="company">Sparrow</div>
-          </div>
-          <div style="text-align:right">
-            <div class="score">90</div>
-            <span class="badge green">Excellent</span>
-          </div>
-        </div>
-        <div class="scorebar"><div style="width:90%"></div></div>
-        <div class="meta-line">Remote (up to 25% Bay Area travel) · HR-tech / Leave management</div>
-        <div class="meta-line"><strong>Salary (posted):</strong> $80K–$140K</div>
-        <div class="pillrow">
-          <span class="pill">EA to CEO</span>
-          <span class="pill">90/10 EA-PA split</span>
-          <span class="pill">High-growth startup</span>
-        </div>
-        <details><summary>Job summary</summary>
-        <p class="muted">Partner closely with Sparrow's CEO during a critical growth phase — calendar, inbox, project follow-through, executive team visibility. 90% EA, 10% personal logistics. Sparrow makes employee leave (family, medical) simple for companies.</p>
-        </details>
-        <a class="apply" href="https://job-boards.greenhouse.io/sparrow/jobs/5802401004" target="_blank" rel="noopener">Apply Now &rarr;</a>
-      </article>
-
-      <article class="job">
-        <div class="row">
-          <div>
-            <div class="rank">#4</div>
-            <h4>Executive Assistant, CEO</h4>
-            <div class="company">Match Group</div>
-          </div>
-          <div style="text-align:right">
-            <div class="score">86</div>
-            <span class="badge green">Strong</span>
-          </div>
-        </div>
-        <div class="scorebar"><div style="width:86%"></div></div>
-        <div class="meta-line">Remote-friendly · Consumer tech</div>
-        <div class="meta-line"><strong>Salary (est.):</strong> $110K–$160K (NYC-benchmarked)</div>
-        <div class="pillrow">
-          <span class="pill">EA to CEO</span>
-          <span class="pill">Public company</span>
-          <span class="pill">Consumer tech</span>
-        </div>
-        <details><summary>Job summary</summary>
-        <p class="muted">Direct support to the CEO of Match Group's portfolio — calendar, board prep, travel, communications, confidential project coordination at a publicly traded consumer-tech leader.</p>
-        </details>
-        <a class="apply" href="https://jobs.lever.co/matchgroup/433d8cdc-f78e-4499-beb5-083c0763d9fb" target="_blank" rel="noopener">Apply Now &rarr;</a>
-      </article>
-
-      <article class="job">
-        <div class="row">
-          <div>
-            <div class="rank">#5</div>
-            <h4>Executive Assistant</h4>
-            <div class="company">Mercury</div>
-          </div>
-          <div style="text-align:right">
-            <div class="score">85</div>
-            <span class="badge green">Strong</span>
-          </div>
-        </div>
-        <div class="scorebar"><div style="width:85%"></div></div>
-        <div class="meta-line">Remote · Fintech / Banking</div>
-        <div class="meta-line"><strong>Salary (est.):</strong> $100K–$140K</div>
-        <div class="pillrow">
-          <span class="pill">EA</span>
-          <span class="pill">Fintech</span>
-          <span class="pill">Parallels Barclays exp.</span>
-        </div>
-        <details><summary>Job summary</summary>
-        <p class="muted">Support senior leadership at Mercury, a banking platform for startups. Touch points include exec calendar, travel, compliance-aware communications, and cross-team coordination — strong fit for Louise's Barclays/financial-services background.</p>
-        </details>
-        <a class="apply" href="https://job-boards.greenhouse.io/mercury/jobs/5711574004" target="_blank" rel="noopener">Apply Now &rarr;</a>
-      </article>
-
-      <article class="job">
-        <div class="row">
-          <div>
-            <div class="rank">#6</div>
-            <h4>Executive Assistant, Engineering</h4>
-            <div class="company">Webflow</div>
-          </div>
-          <div style="text-align:right">
-            <div class="score">84</div>
-            <span class="badge green">Strong</span>
-          </div>
-        </div>
-        <div class="scorebar"><div style="width:84%"></div></div>
-        <div class="meta-line">US Remote · SaaS / Web design platform</div>
-        <div class="meta-line"><strong>Salary (est.):</strong> $95K–$135K</div>
-        <div class="pillrow">
-          <span class="pill">EA to VPs + CISO</span>
-          <span class="pill">Remote-first</span>
-          <span class="pill">SaaS</span>
-        </div>
-        <details><summary>Job summary</summary>
-        <p class="muted">Strategic partner to two Engineering VPs and the CISO. Requires 4+ years supporting multiple senior execs in a fast-paced, remote-first tech environment.</p>
-        </details>
-        <a class="apply" href="https://job-boards.greenhouse.io/webflow/jobs/7525160" target="_blank" rel="noopener">Apply Now &rarr;</a>
-      </article>
-
-      <article class="job">
-        <div class="row">
-          <div>
-            <div class="rank">#7</div>
-            <h4>Senior Executive Assistant to the CEO</h4>
-            <div class="company">Rover</div>
-          </div>
-          <div style="text-align:right">
-            <div class="score">83</div>
-            <span class="badge green">Strong</span>
-          </div>
-        </div>
-        <div class="scorebar"><div style="width:83%"></div></div>
-        <div class="meta-line">Remote-friendly · Consumer marketplace</div>
-        <div class="meta-line"><strong>Salary (est.):</strong> $100K–$140K</div>
-        <div class="pillrow">
-          <span class="pill">Sr EA to CEO</span>
-          <span class="pill">Consumer tech</span>
-        </div>
-        <details><summary>Job summary</summary>
-        <p class="muted">Direct CEO support at Rover — pet-services marketplace. Calendar, travel, board interfacing, executive-team enablement.</p>
-        </details>
-        <a class="apply" href="https://jobs.lever.co/rover/9710c253-31b8-4d3d-8fd9-ea474ee63d02" target="_blank" rel="noopener">Apply Now &rarr;</a>
-      </article>
-
-      <article class="job">
-        <div class="row">
-          <div>
-            <div class="rank">#8</div>
-            <h4>Executive Assistant — Real Estate Investment</h4>
-            <div class="company">Assist World (Confidential PE/RE Client)</div>
-          </div>
-          <div style="text-align:right">
-            <div class="score">81</div>
-            <span class="badge green">Strong</span>
-          </div>
-        </div>
-        <div class="scorebar"><div style="width:81%"></div></div>
-        <div class="meta-line">Remote · Private equity / Real estate</div>
-        <div class="meta-line"><strong>Salary (est.):</strong> $90K–$120K</div>
-        <div class="pillrow">
-          <span class="pill">EA</span>
-          <span class="pill">PE / RE</span>
-          <span class="pill">Portfolio support</span>
-        </div>
-        <details><summary>Job summary</summary>
-        <p class="muted">Support a senior leader overseeing portfolio management and strategy across multiple departments. Background in real estate, PE, asset/portfolio management, or professional services preferred — a clean fit for Louise's banking experience.</p>
-        </details>
-        <a class="apply" href="https://jobs.lever.co/assist-world/16caabe4-5da7-4d0e-9b3c-9771dfd3ad0c" target="_blank" rel="noopener">Apply Now &rarr;</a>
-      </article>
-
-      <article class="job">
-        <div class="row">
-          <div>
-            <div class="rank">#9</div>
-            <h4>Executive Assistant</h4>
-            <div class="company">Life360</div>
-          </div>
-          <div style="text-align:right">
-            <div class="score">80</div>
-            <span class="badge green">Strong</span>
-          </div>
-        </div>
-        <div class="scorebar"><div style="width:80%"></div></div>
-        <div class="meta-line">Remote-first (US/Canada) · Consumer tech</div>
-        <div class="meta-line"><strong>Salary (est.):</strong> $90K–$120K</div>
-        <div class="pillrow">
-          <span class="pill">EA</span>
-          <span class="pill">Remote-first</span>
-          <span class="pill">Public company</span>
-        </div>
-        <details><summary>Job summary</summary>
-        <p class="muted">Executive Assistant role at Life360, a public family-safety platform. Remote-first culture, position can be performed remotely within the US and Canada.</p>
-        </details>
-        <a class="apply" href="https://job-boards.greenhouse.io/life360/jobs/8419844002" target="_blank" rel="noopener">Apply Now &rarr;</a>
-      </article>
-
-      <article class="job">
-        <div class="row">
-          <div>
-            <div class="rank">#10</div>
-            <h4>Executive Assistant to the Chairman</h4>
-            <div class="company">Interdependence</div>
-          </div>
-          <div style="text-align:right">
-            <div class="score">79</div>
-            <span class="badge yellow">Good</span>
-          </div>
-        </div>
-        <div class="scorebar"><div style="width:79%"></div></div>
-        <div class="meta-line">Remote · PR / Communications portfolio</div>
-        <div class="meta-line"><strong>Salary (est.):</strong> $85K–$115K</div>
-        <div class="pillrow">
-          <span class="pill">EA to Chairman</span>
-          <span class="pill">Portfolio of businesses</span>
-        </div>
-        <details><summary>Job summary</summary>
-        <p class="muted">High-impact operator managing the Chairman's time and workflows across a diverse portfolio of businesses and investments. A natural step from CEO support into portfolio-level executive support.</p>
-        </details>
-        <a class="apply" href="https://job-boards.greenhouse.io/interdependence/jobs/5162559008" target="_blank" rel="noopener">Apply Now &rarr;</a>
-      </article>
-
+    <p>Weekly personalized search · Generated Monday, June 8, 2026</p>
+    <p>Target: Executive Assistant · EA to CEO · Senior EA · Chief-of-Staff support</p>
+    <div class="params">
+      <span>📍 Remote (US) + North Carolina</span>
+      <span>🎯 EA to C-suite / CEO</span>
+      <span>🗂️ 10 ranked matches</span>
+      <span>🔎 LinkedIn · Indeed · Glassdoor · Greenhouse · Lever · Workday · Built In · ZipRecruiter</span>
     </div>
-  </section>
+  </div>
+</header>
 
-  <section id="deepdive">
-    <h2>#1 Match — Deep Dive</h2>
-    <h3>UnitedHealth Group / Optum Life Sciences — Executive Assistant to CEO</h3>
-    <p><strong>Why this is the top match:</strong> Three of Louise's anchors — healthcare services (Gen4 Dental), C-suite EA fluency (Barclays MD/CEO, LCI CEO, Magnit CCO), and the ability to translate across regulated industries — line up almost perfectly with this role. It's also one of the few high-profile listings explicitly open to <em>Central or East Coast remote</em>, which fits her North Carolina footprint without forcing relocation. As Optum Life Sciences scales, the CEO needs an EA who can hold complex, confidential C-suite communications — exactly Louise's lane.</p>
-    <p><strong>Posting:</strong> Posted April 10, 2026 · Boston / NYC / DC / Minnetonka MN, with East Coast remote permitted · Reports into the CEO of Optum Life Sciences with secondary support to the Chief Experience Officer and Chief Health Officer.</p>
-  </section>
+<nav class="sticky"><div class="wrap">
+  <a href="#snapshot">Candidate</a>
+  <a href="#jobs">Top 10 Jobs</a>
+  <a href="#deep">#1 Deep Dive</a>
+  <a href="#resume">Resume Tips</a>
+  <a href="#linkedin">LinkedIn Tips</a>
+  <a href="#cover">Cover Letter</a>
+  <a href="#interview">Interview Prep</a>
+  <a href="#salary">Salary</a>
+</div></nav>
 
-  <section id="resume">
-    <h2>Resume Recommendations</h2>
-    <p class="muted">Louise doesn't have a resume on file. Below is a prioritized build list — items to make sure her resume contains before applying to UnitedHealth Group.</p>
-    <ul class="checklist">
-      <li class="high"><span class="priority high">High</span><strong>Lead with a "C-suite Executive Partner" headline</strong> — not just "Executive Assistant." Sub-headline: <em>"Trusted partner to CEOs and C-suite leaders across healthcare, financial services, manufacturing, and SaaS."</em></li>
-      <li class="high"><span class="priority high">High</span><strong>Mirror Optum's keywords</strong> in the summary and bullets: <em>seamless operations, optimizing time and priorities, stakeholder coordination, executive communication, calendar architecture, board preparation, confidential communications, cross-functional partner.</em></li>
-      <li class="high"><span class="priority high">High</span><strong>Quantify the Gen4 Dental bullet</strong> — e.g. "Manage 40+ hr/week calendar for CEO of a multi-state DSO with [N] supported offices; coordinate quarterly board prep and travel for executive team of [N]."</li>
-      <li class="high"><span class="priority high">High</span><strong>Surface healthcare and regulated-industry exposure</strong> — flag HIPAA-aware communication handling at Gen4 and confidential M&amp;A / material-non-public-information handling at Barclays. Optum cares deeply about both.</li>
-      <li class="medium"><span class="priority medium">Medium</span><strong>Re-order experience to lead with CEO support</strong>: Gen4 (CEO) &rarr; LCI (CEO) &rarr; Magnit (CCO) &rarr; Barclays (MD/CEO). Anchors the C-suite-EA narrative immediately.</li>
-      <li class="medium"><span class="priority medium">Medium</span><strong>Add a "Stakeholder coordination" bullet</strong> using Optum's exact language: <em>"Facilitated coordination across [parent org], business units, and external partners — including board, investors, and regulators."</em></li>
-      <li class="medium"><span class="priority medium">Medium</span><strong>Tools section</strong>: Microsoft 365, Google Workspace, Zoom, Concur/SAP travel, Egencia, DocuSign, Slack, Asana/Notion, Workday, ADP. Match what shows up in major-enterprise EA postings.</li>
-      <li class="low"><span class="priority low">Low</span><strong>One-line professional summary</strong> at the top, three lines max, ATS-keyword-rich. No "objective" statement.</li>
-      <li class="low"><span class="priority low">Low</span><strong>Trim Barclays detail</strong> to 3 bullets max — recent CEO-level roles deserve more real estate.</li>
+<section id="snapshot">
+  <h2 class="sec">Candidate Snapshot</h2>
+  <p class="sub">Built from Louise's public LinkedIn profile (no resume on file). Internal summary used to guide the search.</p>
+  <div class="card">
+    <details class="snap" open>
+      <summary>Profile summary &amp; key strengths</summary>
+      <div class="snap-grid">
+        <div>
+          <h4>Current Role</h4>
+          <p>Executive Assistant to the CEO, <strong>Gen4 Dental Partners</strong> (dental support organization / healthcare).</p>
+        </div>
+        <div>
+          <h4>Career Track</h4>
+          <p>15+ years of C-suite executive support across financial services, technology, and healthcare — consistently supporting CEO / MD / Chief-level principals.</p>
+        </div>
+        <div>
+          <h4>Notable Experience</h4>
+          <ul>
+            <li>EA to Chief Client Officer — Magnit (workforce tech / SaaS)</li>
+            <li>EA — Barclays Investment Bank (MD &amp; CEO support)</li>
+            <li>EA &amp; Office Manager — TRX Futures</li>
+            <li>Account Manager — UBS (client relationship management)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Core Skills</h4>
+          <ul>
+            <li>Complex calendar &amp; global travel management</li>
+            <li>Board &amp; investor materials, briefing docs</li>
+            <li>Inbox management &amp; executive communications</li>
+            <li>Discretion with highly confidential matters</li>
+            <li>Cross-functional coordination &amp; follow-through</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Differentiators</h4>
+          <ul>
+            <li>Direct CEO support in a high-growth, PE-backed environment</li>
+            <li>Financial-services pedigree (Barclays, UBS)</li>
+            <li>International background; adaptable across sectors</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Target Fit</h4>
+          <p>Remote EA / EA-to-CEO roles (Eastern-Time friendly for NC) plus NC-based executive support. Best aligned with PE/VC-backed, fast-moving companies.</p>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="jobs">
+  <h2 class="sec">Top 10 Matching Jobs</h2>
+  <p class="sub">Every listing was checked to be active at the time of this run; closed / expired postings were excluded. Sort and filter below, and expand each card for detail.</p>
+  <div class="toolbar">
+    <label>Sort:</label>
+    <select id="sortSel" onchange="sortJobs()">
+      <option value="score">Match score (high→low)</option>
+      <option value="salhi">Salary (high→low)</option>
+      <option value="rank">Original rank</option>
+    </select>
+    <label style="margin-left:8px">Filter:</label>
+    <button class="filt active" data-f="all" onclick="filterJobs('all',this)">All</button>
+    <button class="filt" data-f="remote" onclick="filterJobs('remote',this)">Remote</button>
+    <button class="filt" data-f="nc" onclick="filterJobs('nc',this)">North Carolina</button>
+    <button class="filt" data-f="ceo" onclick="filterJobs('ceo',this)">EA to CEO</button>
+  </div>
+  <div id="jobList"></div>
+  <p class="note">Note: the Red Hat and Thermo Fisher listings are North Carolina roles confirmed active via employer / job-board search; their full text sits behind a JavaScript application portal, so confirm the posting is still open when you apply. All other listings were read in full and verified live.</p>
+</section>
+
+<section id="deep">
+  <h2 class="sec">#1 Match — Deep Dive</h2>
+  <p class="sub">Executive Assistant to the CEO · Sparrow · Remote (US)</p>
+  <div class="deep">
+    <h3>Why Sparrow is the top match (92/100)</h3>
+    <p>This role is the closest mirror to what Louise does today at Gen4: a fully-remote, force-multiplier <strong>EA directly to a CEO</strong> in a high-growth, venture-backed company. The job explicitly calls for owning a complex calendar and inbox, drafting communications in the CEO's voice, tracking CEO-dependent work across the executive team, and building executive-operations processes — all things Louise already does for a CEO. The "5+ years supporting CEOs/founders in high-growth environments" bar is one she comfortably clears, and her financial-services discipline (Barclays, UBS) signals exactly the judgment and discretion the role demands.</p>
+    <p><span class="pill">Fully remote (US)</span><span class="pill">EA to CEO</span><span class="pill">$80k–$140k posted</span><span class="pill">HR-tech / SaaS</span><span class="pill">~25% Bay-Area travel</span></p>
+    <p style="margin-top:10px"><a class="apply" href="https://job-boards.greenhouse.io/sparrow/jobs/5802401004" target="_blank" rel="noopener" style="background:#fff;color:#0f766e">View &amp; apply on Greenhouse →</a></p>
+  </div>
+</section>
+
+<section id="resume">
+  <h2 class="sec">Resume Recommendations <span style="font-size:13px;color:var(--muted);font-weight:400">(for the Sparrow role — Louise has no resume on file, so build from these)</span></h2>
+  <div class="card rec">
+    <h5><span class="prio h">High</span>Lead with CEO-support proof</h5>
+    <ul>
+      <li>Open the summary with a line like: <em>"Executive Assistant with 15+ years partnering directly with CEOs and C-suite leaders across financial services, technology, and healthcare."</em> Sparrow screens hard for direct CEO support.</li>
+      <li>Under the Gen4 Dental role, add a bullet using Sparrow's own language: <em>"Acted as a force multiplier to the CEO — owning calendar, inbox, and follow-through on CEO-dependent initiatives across the executive team."</em></li>
     </ul>
-  </section>
-
-  <section id="linkedin">
-    <h2>LinkedIn Recommendations</h2>
-    <ul class="checklist">
-      <li class="high"><span class="priority high">High</span><strong>Headline</strong> — replace whatever's there with: <em>"Executive Assistant to the CEO | Healthcare · Financial Services · SaaS | Trusted C-suite Partner"</em></li>
-      <li class="high"><span class="priority high">High</span><strong>About section</strong> — open with: <em>"I partner with CEOs and C-suite leaders so they can operate at their highest level."</em> Then a 3-paragraph arc: industries you've supported (Barclays &rarr; Magnit &rarr; LCI &rarr; Gen4), how you operate (calendar architecture, inbox triage, board prep, confidential coordination), and what you're looking for next (a remote / East Coast role partnering directly with a CEO at a healthcare, fintech, or scale-up).</li>
-      <li class="high"><span class="priority high">High</span><strong>Open to Work</strong> — turn on, set to recruiters-only, target titles: <em>Executive Assistant to CEO, Senior Executive Assistant, Executive Business Partner, Chief of Staff (administrative).</em> Locations: Remote (US) + Charlotte/Raleigh metro.</li>
-      <li class="medium"><span class="priority medium">Medium</span><strong>Skills</strong> — pin these top 3: <em>Executive Support, Calendar Management, Board Preparation.</em> Add: Stakeholder Management, Confidential Communications, Travel Coordination, Microsoft 365, Google Workspace, Concur.</li>
-      <li class="medium"><span class="priority medium">Medium</span><strong>Featured section</strong> — add one or two artifacts: a "letter of reference" PDF from her current CEO (with permission), or a short post titled <em>"What being an EA to a CEO actually means."</em></li>
-      <li class="medium"><span class="priority medium">Medium</span><strong>Recommendations</strong> — request from: current Gen4 CEO, prior Magnit CCO, and one Barclays MD. Ask each to highlight a different facet (healthcare ops, SaaS C-suite, banking confidentiality).</li>
-      <li class="low"><span class="priority low">Low</span><strong>Activity</strong> — once a week, like or comment on posts from leaders at Optum, UnitedHealth Group, Spring Health, Mercury, Match Group, Life360. Recruiters watch engagement before they reach out.</li>
-      <li class="low"><span class="priority low">Low</span><strong>Profile completeness</strong> — confirm the Volunteer, Education, and Certifications sections are filled in. Add any administrative-professional or notary certifications.</li>
+    <h5><span class="prio h">High</span>Mirror the job's keywords (ATS)</h5>
+    <ul>
+      <li>Work in these exact phrases the posting uses: <strong>calendar &amp; inbox management, drafting in the executive's voice, prioritization, follow-through, executive-operations processes, discretion/confidentiality.</strong></li>
+      <li>Add a "Tools" line: Google Workspace, Outlook/Microsoft 365, Slack, Zoom, and any project/task tools (Asana, Notion) — Sparrow is a remote-first, tool-driven team.</li>
     </ul>
-  </section>
+    <h5><span class="prio m">Medium</span>Quantify achievements</h5>
+    <ul>
+      <li>Add measurable bullets even as ranges, e.g. <em>"Managed a 40+ meeting/week CEO calendar across multiple time zones"</em> or <em>"Coordinated travel and board prep for quarterly leadership meetings."</em></li>
+      <li>Show "ownership" outcomes: a process you created that saved the executive time (Sparrow explicitly wants process-builders).</li>
+    </ul>
+    <h5><span class="prio m">Medium</span>Signal comfort with light personal assistance</h5>
+    <ul>
+      <li>The role is 90% EA / 10% PA. Add one line showing you've blended professional + light personal logistics — it reassures them on fit.</li>
+    </ul>
+    <h5><span class="prio l">Low</span>Format &amp; structure</h5>
+    <ul>
+      <li>One page, reverse-chronological, with a tight "Core Competencies" band near the top. Put the current CEO-EA role front and center; de-emphasize the older Account Manager (UBS) detail to a single line.</li>
+    </ul>
+  </div>
+</section>
 
-  <section id="cover">
-    <h2>Cover Letter — UnitedHealth Group / Optum Life Sciences</h2>
-    <div class="coverletter" id="coverletter">Dear Hiring Team at Optum Life Sciences,
+<section id="linkedin">
+  <h2 class="sec">LinkedIn Profile Recommendations</h2>
+  <div class="card rec">
+    <h5><span class="prio h">High</span>Headline</h5>
+    <ul>
+      <li>Current headline reads as "Executive Assistant to CEO." Strengthen it to target this market: <em>"Executive Assistant to the CEO | C-Suite &amp; Board Support | Remote | Financial Services · Tech · Healthcare."</em></li>
+    </ul>
+    <h5><span class="prio h">High</span>About section</h5>
+    <ul>
+      <li>Add a 3–4 line About that you currently appear to be missing context on. Lead with CEO partnership, name the sectors (Barclays, UBS, Magnit, Gen4), and end with what you're open to: remote EA / EA-to-CEO / Chief-of-Staff-adjacent roles.</li>
+      <li>Seed keywords recruiters search: <em>calendar management, board support, investor relations support, travel coordination, executive operations.</em></li>
+    </ul>
+    <h5><span class="prio m">Medium</span>Experience bullets</h5>
+    <ul>
+      <li>Each role should have 2–3 outcome bullets, not just a title. Reorder skills so "Executive Support," "Calendar Management," and "Board/Investor Materials" sit at the top.</li>
+      <li>Turn on <strong>"Open to Work"</strong> (recruiters-only is fine) with Remote + Raleigh/Charlotte, NC set as locations.</li>
+    </ul>
+    <h5><span class="prio m">Medium</span>Recommendations &amp; activity</h5>
+    <ul>
+      <li>Request 1–2 recommendations from a current/former executive you've supported — a CEO endorsement is gold for these roles.</li>
+      <li>Lightly engage with EA / executive-operations content monthly to signal you're active and current.</li>
+    </ul>
+    <h5><span class="prio l">Low</span>Completeness</h5>
+    <ul>
+      <li>Add a Featured section (a short "how I support executives" blurb) and confirm Skills include Google Workspace + Microsoft 365.</li>
+    </ul>
+  </div>
+</section>
 
-The job description's first line — "trusted partner to the CEO, enabling seamless operations across Optum, UnitedHealth Group, and external stakeholders" — is exactly the work I do every day for the CEO of Gen4 Dental Partners. I'd like to bring that experience to Optum Life Sciences.
+<section id="cover">
+  <h2 class="sec">Cover Letter — Sparrow (ready to copy)</h2>
+  <button class="copybtn" id="copyBtn" onclick="copyCL()">Copy cover letter</button>
+  <div class="card" style="margin-top:0">
+    <div class="cl" id="clText">Dear Sparrow Hiring Team,
 
-Over the last decade I've supported CEOs and C-suite leaders through fast-moving, regulated environments: a Managing Director and CEO at Barclays Investment Bank, the Chief Client Officer at Magnit, the CEO at LCI, and currently the CEO of Gen4 Dental — a multi-state dental support organization. The thread across all four is the same: I architect calendars to protect strategic time, triage executive inboxes so nothing real gets missed, prepare leaders for board, investor, and regulator interactions, and keep confidential communications confidential. In healthcare specifically, I work inside HIPAA-aware workflows; in banking, I worked inside MNPI controls. Optum sits at the intersection of both worlds, and I'm comfortable there.
+The best executive assistants are measured by what their CEO is free to ignore — and for the last several years that has been my craft. As Executive Assistant to the CEO of a fast-growing, private-equity-backed healthcare organization, I protect my principal's time, run a high-velocity calendar and inbox, and make sure nothing CEO-dependent stalls. Your description of a "force multiplier" who increases the speed at which the CEO can meet, delegate, and decide is, quite simply, the job I do today.
 
-What I'd want to bring to this role is the operating posture of a partner — not a coordinator. I anticipate; I drive follow-through across the executive team; I'm the steady, calm reference point during high-stakes weeks. The fact that this role also serves the Chief Experience Officer and Chief Health Officer is a feature, not a complication — multi-principal support is a setup I've run before and it's where I do my best work.
+Across Barclays Investment Bank, UBS, and Magnit, I've supported CEOs, managing directors, and chief officers in environments where discretion and judgment are non-negotiable. I'm comfortable drafting in an executive's voice, building briefing materials and board prep, and creating the systems that keep an executive office running when priorities shift with little notice — exactly the high-ownership, "figure it out" mindset Sparrow describes.
 
-I'm based in North Carolina, fully remote-ready, and excited that this role is open to the East Coast. I would welcome the chance to talk about how I can help the CEO of Optum Life Sciences move faster with less friction.
+I'm drawn to Sparrow's mission of making leave simple at a moment when employees need it most, and to a remote-first culture that judges people by outcomes rather than hours at a desk. I'd welcome the chance to be the steady operating partner behind your CEO during this next phase of growth.
+
+Thank you for your consideration — I'd love to talk.
 
 Warm regards,
 Louise Jacovou</div>
-    <button class="copybtn" onclick="copyCover()">Copy to Clipboard</button>
-  </section>
+  </div>
+</section>
 
-  <section id="interview">
-    <h2>Interview Prep</h2>
-
-    <h3>Company research brief — Optum / UnitedHealth Group</h3>
-    <p class="muted">Optum is the health-services arm of UnitedHealth Group, organized into Optum Health (care delivery), Optum Insight (data/analytics), and Optum Rx (pharmacy benefits). Optum Life Sciences sits within this footprint and works with biopharma, medtech, and CROs on real-world data and clinical/commercial services. Patrick Conway, M.D. became CEO of the broader Optum division in May 2025; Krista Nelson is CEO of Optum Health. UnitedHealth Group is a Fortune 5 company. The role you're interviewing for partners with the CEO of <em>Optum Life Sciences</em> specifically — confirm that name in the recruiter call.</p>
-
-    <h3>Five likely questions, with talking points</h3>
-    <div class="qa">
-      <div class="q">1. Walk me through how you manage a CEO's calendar in a week where everything is competing for time.</div>
-      <div class="a">Anchor the answer in your Gen4 routine. Talk about a Sunday/Monday review with the CEO to set "protected" blocks (board prep, deep work, family), color-coding by priority, building a 24-hour rolling re-prioritization habit, and the "decline / delegate / defer / do" filter you apply to incoming requests.</div>
-    </div>
-    <div class="qa">
-      <div class="q">2. Tell me about a time you handled highly confidential information.</div>
-      <div class="a">Use Barclays as the lead example — MNPI handling on a deal team — then bridge to Gen4 (HIPAA-adjacent communications, M&amp;A activity for a DSO). The point is: you've operated inside two of the most controlled information environments that exist.</div>
-    </div>
-    <div class="qa">
-      <div class="q">3. How do you support multiple principals — for instance, a CEO plus a Chief Experience Officer and a Chief Health Officer — without one feeling deprioritized?</div>
-      <div class="a">Reference Magnit, where you supported a Chief Client Officer alongside a partner exec. Talk about having an explicit "primary," shared calendars with the secondary principals, weekly 15-minute syncs with each, and a single shared "asks queue" so nothing slips between cracks.</div>
-    </div>
-    <div class="qa">
-      <div class="q">4. How do you handle a CEO who's traveling internationally on a tight schedule?</div>
-      <div class="a">Walk through your travel runbook: ground transport pre-booked door-to-door, contingency flight options held, time-zone-shifted prep packets sent the night before, an in-region escalation contact, and proactive expense reconciliation so nothing piles up. Reference Barclays international travel for credibility.</div>
-    </div>
-    <div class="qa">
-      <div class="q">5. What does "trusted partner to a CEO" mean to you?</div>
-      <div class="a">Two-part answer. First: the CEO trusts you with their time, their inbox, and their reputation — so you treat each like an asset. Second: you push back when something is a bad use of their day, and you do it in private. The relationship works because you've earned the right to disagree.</div>
-    </div>
-
-    <h3>Questions to ask the interviewer</h3>
-    <ul>
-      <li>What does the first 90 days look like for the CEO's EA — and how will you know I've ramped successfully?</li>
-      <li>How is information flow structured between the CEO of Optum Life Sciences and the broader Optum / UHG executive team?</li>
-      <li>Where does this role partner with Chief of Staff functions, and where are the boundaries?</li>
-      <li>What's the single biggest time-leak in the CEO's current week that you'd like the next EA to fix?</li>
-      <li>How does Optum Life Sciences interact with the parent UHG enterprise on board cycle and earnings prep?</li>
+<section id="interview">
+  <h2 class="sec">Interview Prep — Sparrow</h2>
+  <div class="card">
+    <details class="qa"><summary>1. "Walk me through how you manage a CEO's calendar when everything is a priority."</summary>
+      <div class="ans">Talk points: your prioritization framework (impact vs. urgency), protecting deep-work/strategy blocks, sequencing meetings so the CEO is prepared, and how you say "no" or reschedule diplomatically. Reference your current Gen4 CEO calendar as proof.</div></details>
+    <details class="qa"><summary>2. "Tell me about a time you drafted communications in someone else's voice."</summary>
+      <div class="ans">Talk points: a specific example of writing emails/updates as your executive, how you learned their tone, and the guardrails you use to stay accurate. Sparrow explicitly wants inbox ownership and voice-matching.</div></details>
+    <details class="qa"><summary>3. "How do you make sure CEO-dependent work doesn't fall through the cracks across the exec team?"</summary>
+      <div class="ans">Talk points: your tracking system (action-item logs, follow-up cadence, status visibility to stakeholders), and an example where your follow-through unblocked a stalled initiative.</div></details>
+    <details class="qa"><summary>4. "This role flexes with little notice and includes some personal logistics. How do you feel about that?"</summary>
+      <div class="ans">Talk points: show genuine comfort with ambiguity and the 90/10 EA/PA split; give an example of flexing your schedule for an urgent need while keeping boundaries healthy and sustainable.</div></details>
+    <details class="qa"><summary>5. "What process have you built that made an executive measurably more effective?"</summary>
+      <div class="ans">Talk points: one concrete system (inbox triage rules, a weekly priorities ritual, a travel-prep template) and the time it saved. Sparrow screens for process-builders, not just task-doers.</div></details>
+    <h5 style="color:var(--navy);margin:14px 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.4px">Smart questions to ask them</h5>
+    <ul style="font-size:13.5px;margin:0;padding-left:18px">
+      <li>"How does the CEO like to receive information — and where does she most want her time protected?"</li>
+      <li>"What does success look like in the first 90 days of this partnership?"</li>
+      <li>"How does the EA work with the executive team for visibility on CEO-dependent items?"</li>
+      <li>"How is the 10% personal-assistance portion typically structured?"</li>
     </ul>
-  </section>
+    <h5 style="color:var(--navy);margin:14px 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.4px">Company brief</h5>
+    <p style="font-size:13.5px;margin:0">Sparrow is a venture-backed, San Francisco-headquartered HR-tech company offering a "high-tech, high-touch" employee-leave-management platform that turns a slow, compliance-heavy process into a ~30-minute experience, saving employers significant time and cost per leave. The team is fully distributed across 30+ states, mission-driven, and the CEO is female-led. Expect a values-forward, ownership-heavy culture; the first 90 days are a mutual-fit probationary period.</p>
+  </div>
+</section>
 
-  <section id="salary">
-    <h2>Salary Overview</h2>
-    <p class="muted">Posted ranges where available; otherwise estimated from Robert Half 2026 guide, Glassdoor, ZipRecruiter, and Payscale data for senior EA / EBP roles. Louise's CEO-direct experience plus multi-industry depth supports targeting the upper third of each range.</p>
-    <table>
-      <thead><tr><th>Rank</th><th>Company</th><th>Role</th><th>Range</th><th>Source</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>UnitedHealth / Optum</td><td>EA to CEO, Optum Life Sciences</td><td>$95K–$130K</td><td>Estimated</td></tr>
-        <tr><td>2</td><td>Spring Health</td><td>Sr EA to CEO</td><td>$80K–$100K + bonus</td><td>Posted</td></tr>
-        <tr><td>3</td><td>Sparrow</td><td>EA to CEO</td><td>$80K–$140K</td><td>Posted</td></tr>
-        <tr><td>4</td><td>Match Group</td><td>EA, CEO</td><td>$110K–$160K</td><td>Estimated (NYC bench)</td></tr>
-        <tr><td>5</td><td>Mercury</td><td>Executive Assistant</td><td>$100K–$140K</td><td>Estimated</td></tr>
-        <tr><td>6</td><td>Webflow</td><td>EA, Engineering</td><td>$95K–$135K</td><td>Estimated</td></tr>
-        <tr><td>7</td><td>Rover</td><td>Sr EA to CEO</td><td>$100K–$140K</td><td>Estimated</td></tr>
-        <tr><td>8</td><td>Assist World (PE/RE client)</td><td>EA — Real Estate Investment</td><td>$90K–$120K</td><td>Estimated</td></tr>
-        <tr><td>9</td><td>Life360</td><td>Executive Assistant</td><td>$90K–$120K</td><td>Estimated</td></tr>
-        <tr><td>10</td><td>Interdependence</td><td>EA to Chairman</td><td>$85K–$115K</td><td>Estimated</td></tr>
-      </tbody>
-    </table>
-    <p class="muted"><strong>Market positioning:</strong> Senior Executive Assistant median in major East Coast metros (NYC, Boston, DC) sits at roughly $95K–$115K base in 2026. Robert Half's 2026 Boston guide places Senior EA range at $102K–$129K. Louise's CEO-direct background and regulated-industry exposure supports asking $105K–$125K base for #1, with bonus eligibility on top.</p>
-  </section>
+<section id="salary">
+  <h2 class="sec">Salary Overview — All 10 Roles</h2>
+  <p class="sub">Posted ranges where available; estimates use ZipRecruiter / Glassdoor / Indeed market data (June 2026). Remote EA-to-CEO roles in the US average ~$82k (typical $54k–$100k); senior EA ~$86k.</p>
+  <table class="sal">
+    <tr><th>#</th><th>Role / Company</th><th>Location</th><th>Salary</th><th>Source</th></tr>
+    <tr><td>1</td><td>EA to the CEO · Sparrow</td><td>Remote US</td><td>$80,000–$140,000</td><td>Posted</td></tr>
+    <tr><td>2</td><td>EA to the CEO · PlayVS</td><td>Remote US (ET)</td><td>$70,000–$115,000</td><td>Posted</td></tr>
+    <tr><td>3</td><td>EA, Office of the CEO · Mozilla</td><td>Remote US</td><td>$95,000–$151,000</td><td>Posted (US tiers)</td></tr>
+    <tr><td>4</td><td>EA (to CEO) · ArmorCode</td><td>Remote US</td><td>~$90,000–$130,000</td><td>Estimated</td></tr>
+    <tr><td>5</td><td>Sr. EA/PA to Board Chairman · Oath</td><td>Remote · East Coast</td><td>Commensurate (≈$95k–$140k est.)</td><td>Not posted / Estimated</td></tr>
+    <tr><td>6</td><td>EA · Red Hat</td><td>Remote US — NC</td><td>~$75,000–$110,000</td><td>Estimated</td></tr>
+    <tr><td>7</td><td>EA (CEO &amp; C-suite) · Arbor Energy</td><td>Remote US</td><td>$80,000–$90,000 + equity</td><td>Posted</td></tr>
+    <tr><td>8</td><td>EA, Office of the CEO · Voleon</td><td>Remote US (ET)</td><td>$90,000 base + bonus</td><td>Posted</td></tr>
+    <tr><td>9</td><td>EA II · Thermo Fisher</td><td>Raleigh, NC</td><td>~$55,000–$80,000</td><td>Estimated (NC market)</td></tr>
+    <tr><td>10</td><td>EA to the CEO · Via</td><td>NYC (onsite)</td><td>$130,000–$170,000</td><td>Posted</td></tr>
+  </table>
+  <p class="note">Market positioning: Louise's depth of direct CEO support and financial-services background should command the <strong>upper half</strong> of remote EA-to-CEO ranges — realistically $100k–$140k for the senior, fully-remote roles (Sparrow, Mozilla, ArmorCode, Oath). NC-located roles (Thermo Fisher) sit lower on local market bands; the remote roles are the stronger comp play.</p>
+</section>
 
-  <footer>
-    <p>Generated May 7, 2026 · Run weekly for fresh results. Job availability changes frequently — verify the listing is still active before applying.</p>
-  </footer>
-</div>
+<footer>
+  <p>Generated Monday, June 8, 2026 · Re-run weekly for fresh results.</p>
+  <p>Job availability changes frequently — confirm each posting is still open before applying. Salary figures are labeled <em>posted</em> or <em>estimated</em>; estimates draw on ZipRecruiter, Glassdoor &amp; Indeed market data (June 2026).</p>
+</footer>
 
 <script>
-function copyCover(){
-  var t = document.getElementById('coverletter').innerText;
-  navigator.clipboard.writeText(t).then(function(){
-    var b = document.querySelector('.copybtn');
-    var orig = b.innerText;
-    b.innerText = 'Copied!';
-    setTimeout(function(){b.innerText = orig;}, 1600);
+const JOBS=[
+ {rank:1,score:92,title:"Executive Assistant to the CEO",co:"Sparrow",loc:"Remote (US) · up to 25% travel to Bay Area",remote:true,nc:false,ceo:true,salLabel:"$80,000–$140,000 (posted)",salHi:140000,
+  tags:[["loc","Remote US"],["sal","$80k–$140k"],["","SaaS / HR-tech"]],
+  match:["EA-to-CEO force-multiplier role — mirrors Louise's current Gen4 mandate","Inbox &amp; calendar ownership; drafting in the CEO's voice","Board / exec visibility &amp; follow-through","Process-building for executive operations"],
+  miss:["~25% travel to the Bay Area","Pacific-time overlap expected"],
+  desc:"Fully remote role partnering directly with Sparrow's CEO during a high-growth phase. 90% EA / 10% light personal assistance. Owns a complex calendar and inbox (including drafting in the CEO's voice), tracks CEO-dependent projects across the exec team, and builds executive-ops processes. 5+ years supporting CEOs/founders in high-growth environments required.",
+  url:"https://job-boards.greenhouse.io/sparrow/jobs/5802401004"},
+
+ {rank:2,score:89,title:"Executive Assistant to the CEO",co:"PlayVS",loc:"Remote (US) · Eastern Time · DC/MD/VA preferred",remote:true,nc:false,ceo:true,salLabel:"$70,000–$115,000 (posted)",salHi:115000,
+  tags:[["loc","Remote US · ET"],["sal","$70k–$115k"],["","EdTech / esports"]],
+  match:["EA-to-CEO with Board, leadership-team &amp; investor scheduling","Eastern-Time role — strong fit for an NC base","5+ yrs C-level support; Google Workspace, Asana, Slack","Remote-first US company"],
+  miss:["Preference (not requirement) for DC/MD/VA"],
+  desc:"Remote-first US EA supporting the CEO of an esports / edtech company. Owns the CEO calendar, coordinates Board, leadership-team and investor meetings, tracks action items, supports offsites, and steps in on time-sensitive projects. 5+ years supporting C-level execs across startup and enterprise settings. Equity + full benefits.",
+  url:"https://jobs.lever.co/playvs/c8f22d8c-317c-4b76-a2bd-b90b176a4fa0"},
+
+ {rank:3,score:86,title:"Executive Assistant — Office of the CEO",co:"Mozilla",loc:"Remote (US / Canada)",remote:true,nc:false,ceo:false,salLabel:"$95,000–$151,000 (posted, US tiers)",salHi:151000,
+  tags:[["loc","Remote US"],["sal","$95k–$151k"],["","Tech / mission-driven"]],
+  match:["Established brand with strong, transparent comp","Calendar, global travel, expenses, offsite logistics","Supports execs across US + EU time zones","5+ yrs admin experience in a tech / multi-site org"],
+  miss:["Supports VPs on a leadership team rather than the CEO directly","Some early-hours EU overlap"],
+  desc:"Remote EA supporting VPs on Mozilla's Communications / Marketing / Policy leadership team. Calendar management, domestic and international travel, expenses, meeting and offsite logistics, and acting as a key point of contact for high-stakes internal/external partners. 5+ years of admin experience in a technology or multi-location environment; Google Workspace. Performance bonus + rich benefits.",
+  url:"https://job-boards.greenhouse.io/mozilla/jobs/7921714"},
+
+ {rank:4,score:85,title:"Executive Assistant (to the CEO)",co:"ArmorCode",loc:"Remote (US — West preferred)",remote:true,nc:false,ceo:true,salLabel:"Not posted · est. $90k–$130k",salHi:130000,
+  tags:[["loc","Remote US"],["sal","Est. $90k–$130k"],["","Cybersecurity / SaaS"]],
+  match:["Pure EA-to-CEO: calendar, inbox, board decks, investor correspondence","Office-of-the-CEO operations &amp; special projects","6+ yrs supporting C-suite at a venture-backed startup","Investor-relations / board exposure valued — matches Louise"],
+  miss:["West-coast preference; US/India time-zone coordination","No posted salary"],
+  desc:"Remote US EA owning the CEO's calendar, inbox (triage + drafting), complex international travel (incl. India), board decks, investor materials, a CRM of key relationships, and Office-of-the-CEO operations. 6+ years as an EA to a C-suite leader at a technology or high-growth startup; SaaS / venture-backed experience strongly preferred. Estimate based on comparable remote EA-to-CEO roles (Glassdoor / ZipRecruiter, June 2026).",
+  url:"https://job-boards.greenhouse.io/armorcode/jobs/5061137007"},
+
+ {rank:5,score:84,title:"Sr. Executive &amp; Personal Assistant to Board Chairman",co:"Oath",loc:"Remote (East Coast preferred — Boston/NYC)",remote:true,nc:false,ceo:true,salLabel:"Commensurate with experience (not posted)",salHi:120000,
+  tags:[["loc","Remote · East Coast"],["","Biotech / climate"],["","Board-level support"]],
+  match:["Board-Chairman support — leverages Louise's board/investor experience","Complex multi-calendar coordination &amp; international travel","East-Coast / EST orientation works well from NC","10+ yrs senior EA/PA to C-suite or board — she qualifies"],
+  miss:["Boston/NYC preference for occasional in-person","No posted salary range"],
+  desc:"Remote senior EA/PA providing comprehensive support to the Chairman of the Board of a microbial-sciences company. Manages complex professional + personal calendars, high-volume domestic/international travel, board-meeting logistics, and acts as trusted gatekeeper. 10+ years supporting C-suite or board-level executives; strong Google Workspace + Microsoft/Outlook troubleshooting.",
+  url:"https://job-boards.greenhouse.io/oath64/jobs/4047567009"},
+
+ {rank:6,score:83,title:"Executive Assistant",co:"Red Hat",loc:"Remote — US, North Carolina",remote:true,nc:true,ceo:false,salLabel:"Not posted · est. $75k–$110k",salHi:110000,
+  tags:[["nc","Remote · NC"],["loc","Remote US"],["sal","Est. $75k–$110k"],["","Enterprise tech"]],
+  match:["Remote role explicitly tied to North Carolina — top location fit","Supports senior leadership (Americas Sales SVP)","Major, stable enterprise-tech employer (IBM company)","Calendar, travel, expense, meeting coordination"],
+  miss:["Full job text behind a JS portal — verify it's still open","Salary not posted"],
+  desc:"Remote-US, North Carolina-based Executive Assistant supporting a Senior Vice President at Red Hat. Confirmed active via Red Hat's Workday careers board; the detailed description loads in a JavaScript application portal, so confirm the posting is open and review requirements when you apply. Estimate based on enterprise-tech EA market data (June 2026).",
+  url:"https://redhat.wd5.myworkdayjobs.com/en-US/Jobs/job/Remote-US-NC/Executive-Assistant_R-053989-1"},
+
+ {rank:7,score:81,title:"Executive Assistant (CEO &amp; C-suite)",co:"Arbor Energy",loc:"Remote (US) · Pacific preferred · up to 20% travel",remote:true,nc:false,ceo:true,salLabel:"$80,000–$90,000 (posted) + equity",salHi:90000,
+  tags:[["loc","Remote US"],["sal","$80k–$90k"],["","Climate / energy startup"]],
+  match:["Supports CEO, COO, CTO, CCO — multi-exec C-suite coordination","Board activity, inbox, CRM, travel — all in Louise's wheelhouse","Partners with the Chief of Staff","Pre-IPO equity + strong benefits"],
+  miss:["Pacific-time preference is a weaker fit for NC","Up to 20% travel to El Segundo, CA"],
+  desc:"Remote EA supporting the CEO and broader C-suite (COO, CTO, CCO) at a fast-growing climate-tech startup, reporting to the Chief of Staff. Complex calendars, high-volume CEO inbox, CRM upkeep, board-related coordination, and cross-functional ops support. 3+ years supporting senior execs in a startup / high-growth environment. Pre-IPO options + unlimited PTO.",
+  url:"https://job-boards.greenhouse.io/arborenergy/jobs/4205547009"},
+
+ {rank:8,score:80,title:"Executive Assistant — Office of the CEO",co:"The Voleon Group",loc:"Remote (US) · Eastern Time (US/FL/NY)",remote:true,nc:false,ceo:true,salLabel:"$90,000 base (posted) + bonus",salHi:90000,
+  tags:[["loc","Remote US · ET"],["sal","$90k base"],["flag","Spanish required"]],
+  match:["EA to the CEO at a multibillion-dollar AI/ML asset manager","Finance pedigree aligns with Louise's Barclays/UBS background","Eastern-Time role — works from NC","5+ yrs supporting C-suite; discretion with sensitive info"],
+  miss:["Requires professional Spanish + English fluency — likely a gap","Quarterly travel (Puerto Rico, NYC, Berkeley)"],
+  desc:"Remote EA to the CEO of Voleon, an AI/ML-driven asset manager. Calendar, meeting prep, domestic/international travel, and first point of contact for the firm. 5+ years supporting senior execs (C-suite preferred), Eastern Time Zone. Note: professional fluency in Spanish AND English is listed as a requirement — confirm before applying. $90k base + bonus + benefits.",
+  url:"https://jobs.lever.co/voleon/7e24c323-d032-465a-aa33-a69d967a5a91"},
+
+ {rank:9,score:78,title:"Executive Assistant II",co:"Thermo Fisher Scientific",loc:"Raleigh, North Carolina (some onsite)",remote:false,nc:true,ceo:false,salLabel:"Not posted · est. $55k–$80k (NC market)",salHi:80000,
+  tags:[["nc","North Carolina"],["","Life sciences / healthcare"],["flag","Mostly onsite"]],
+  match:["NC-based role — direct location fit (Raleigh / RTP)","Healthcare / life-sciences sector aligns with Louise's Gen4 role","Executive calendar, travel, communications, office ops","Major, stable Fortune 100 employer"],
+  miss:["Band-4 non-exempt; lower comp band than CEO-EA roles","Some onsite presence; 0–20% travel"],
+  desc:"North Carolina (Raleigh)-based Executive Assistant II providing high-level support to executive leadership — complex calendars, travel, communications and office operations. A second EA opening supporting the Chief HR Officer exists at the Morrisville, NC (RTP) site. Confirmed active via Thermo Fisher / job-board listings; apply through Thermo Fisher's careers site. Comp estimate uses Raleigh EA market data (ZipRecruiter, May 2026).",
+  url:"https://www.linkedin.com/jobs/thermo-fisher-scientific-jobs-raleigh-nc"},
+
+ {rank:10,score:72,title:"Executive Assistant to the CEO",co:"Via",loc:"New York City · in-person 4–5 days/week",remote:false,nc:false,ceo:true,salLabel:"$130,000–$170,000 (posted)",salHi:170000,
+  tags:[["sal","$130k–$170k"],["","Transit tech"],["flag","Onsite NYC"]],
+  match:["Strategic EA-to-CEO at a leading transportation-tech company","Highest posted salary in this list","8+ yrs executive support — Louise exceeds","Board / exec materials, complex multi-TZ scheduling"],
+  miss:["In-person 4–5 days/week in NYC — does not meet remote/NC preference","Relocation would be required"],
+  desc:"High-ownership EA to Via's CEO — a strategic operator role owning complex scheduling, high-stakes meeting prep, exec communications, travel and process-building. 8+ years in executive support. Included for completeness and its strong comp, but flagged: it is an in-person NYC role (4–5 days/week), so it does not fit Louise's remote / North Carolina preference.",
+  url:"https://job-boards.greenhouse.io/via/jobs/8425409002"}
+];
+
+function scoreColor(s){if(s>=80)return'#15803d';if(s>=60)return'#a16207';return'#c2410c'}
+function renderJobs(list){
+  const el=document.getElementById('jobList');el.innerHTML='';
+  list.forEach(j=>{
+    const tagHtml=j.tags.map(t=>`<span class="tag ${t[0]}">${t[1]}</span>`).join('');
+    const matchHtml=j.match.map(m=>`<span class="chip y">&#10003; ${m}</span>`).join('');
+    const missHtml=j.miss.map(m=>`<span class="chip n">&#9651; ${m}</span>`).join('');
+    el.insertAdjacentHTML('beforeend',`
+    <div class="job" data-remote="${j.remote}" data-nc="${j.nc}" data-ceo="${j.ceo}">
+      <div class="job-head">
+        <div class="rank">${j.rank}</div>
+        <div class="job-main">
+          <p class="job-title">${j.title}</p>
+          <p class="job-co">${j.co} &middot; ${j.loc}</p>
+          <div class="tags">${tagHtml}</div>
+        </div>
+        <div class="score">
+          <span class="badge" style="background:${scoreColor(j.score)}">${j.score}</span>
+          <small>Match</small>
+        </div>
+      </div>
+      <div class="bar"><i style="width:${j.score}%;background:${scoreColor(j.score)}"></i></div>
+      <details>
+        <summary>View details, match analysis &amp; apply</summary>
+        <div class="body">
+          <p>${j.desc}</p>
+          <h5>Salary</h5><p>${j.salLabel}</p>
+          <h5>Why it matches</h5><div class="matchline">${matchHtml}</div>
+          <h5>Gaps / watch-outs</h5><div class="matchline">${missHtml}</div>
+          <a class="apply" href="${j.url}" target="_blank" rel="noopener">Apply / View posting &rarr;</a>
+        </div>
+      </details>
+    </div>`);
   });
 }
+let cur=[...JOBS];
+function sortJobs(){const v=document.getElementById('sortSel').value;
+  if(v==='score')cur.sort((a,b)=>b.score-a.score);
+  else if(v==='salhi')cur.sort((a,b)=>b.salHi-a.salHi);
+  else cur.sort((a,b)=>a.rank-b.rank);
+  renderJobs(cur);applyFilter();}
+let curFilter='all';
+function filterJobs(f,btn){curFilter=f;document.querySelectorAll('.filt').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyFilter();}
+function applyFilter(){
+  document.querySelectorAll('#jobList .job').forEach(c=>{
+    let show=true;
+    if(curFilter==='remote')show=c.dataset.remote==='true';
+    if(curFilter==='nc')show=c.dataset.nc==='true';
+    if(curFilter==='ceo')show=c.dataset.ceo==='true';
+    c.style.display=show?'':'none';
+  });
+}
+renderJobs(cur);
+function copyCL(){const t=document.getElementById('clText').innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn');b.textContent='Copied ✓';setTimeout(()=>b.textContent='Copy cover letter',1800);});}
 </script>
 </body>
 </html>
